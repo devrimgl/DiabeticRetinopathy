@@ -53,6 +53,8 @@ print("Average Accuracy : ", acc)
 print("Average AUC      : ", auc)
 
 print("- Decision Tree")
+accuracies = []
+aucs = []
 for train_index, test_index in kf:
     # print("TRAIN:", train_index, "TEST:", test_index)
     X_train, X_test = X[train_index], X[test_index]
@@ -77,6 +79,8 @@ print("Average AUC      : ", auc)
 
 
 print("- Quadric Discriminant Analysis")
+accuracies = []
+aucs = []
 for train_index, test_index in kf:
     # print("TRAIN:", train_index, "TEST:", test_index)
     X_train, X_test = X[train_index], X[test_index]
@@ -100,6 +104,8 @@ print("Average Accuracy : ", acc)
 print("Average AUC      : ", auc)
 
 print("- Naive Bayes")
+accuracies = []
+aucs = []
 for train_index, test_index in kf:
     # print("TRAIN:", train_index, "TEST:", test_index)
     X_train, X_test = X[train_index], X[test_index]
