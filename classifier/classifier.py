@@ -25,11 +25,12 @@ X = StandardScaler().fit_transform(X) #normalization
 
 # K-fold cross validation
 # Data'yi 10a bol %90test %10train
-kf = KFold(len(labels), n_folds=10)
-accuracies = []
-aucs = []
+kf = KFold(len(labels), n_folds=30)
+
 
 print("- Random Forest")
+accuracies = []
+aucs = []
 for train_index, test_index in kf:
     # print("TRAIN:", train_index, "TEST:", test_index)
     X_train, X_test = X[train_index], X[test_index]
