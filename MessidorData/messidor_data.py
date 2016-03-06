@@ -1,5 +1,7 @@
 import csv
+import os
 import sys
+from PIL import Image
 import numpy as np
 
 labels_file_path = '/Users/macbookair/Dropbox/image-eye/Base11/AnnotationBase11.csv'
@@ -25,6 +27,34 @@ def read_labels(labels_file_path):
         labelData.close()
     return labels
 
+def read_image_file_names(image_file_path):
+    image_list = []
+    image_data = open(image_file_path, 'r')
+    try:
+        reader = csv.reader(image_data)
+        for row in reader:
+            image = row[0]
+            image_list.append(image)
+    finally:
+        image_data.close()
+    return image_list
+
+def create_images_arrays(image_list, DATA_DIRECTORY_PATH):
+    """
+    It reads all image files and created a list of image arrays,
+    :param image_list:
+    :param DATA_DIRECTORY_PATH:
+    :return:
+    """
+    images = []
+    for image in image_list:
+        image_path = os.path.join(DATA_DIRECTORY_PATH, image)
+        im = Image.open(image_path)
+        imarray = np.array(im)
+        images.append(imarray)
+    return np.asarray(images)
+
+
 class DataSet(object):
   def __init__(self, images, labels, fake_data=False):
     if fake_data:
@@ -36,9 +66,9 @@ class DataSet(object):
       self._num_examples = images.shape[0]
       # Convert shape from [num examples, rows, columns, depth]
       # to [num examples, rows*columns] (assuming depth == 1)
-      assert images.shape[3] == 1
+      # assert images.shape[3] == 1
       images = images.reshape(images.shape[0],
-                              images.shape[1] * images.shape[2])
+                              images.shape[1] * images.shape[2]*images.shape[3])
       # Convert from [0, 255] -> [0.0, 1.0].
       images = images.astype(np.float32)
       images = np.multiply(images, 1.0 / 255.0)

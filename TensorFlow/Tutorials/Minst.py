@@ -17,7 +17,7 @@ def maybe_download(filename, work_directory):
 def _read32(bytestream):
   dt = numpy.dtype(numpy.uint32).newbyteorder('>')
   return numpy.frombuffer(bytestream.read(4), dtype=dt)
-def extract_images(filename):
+def extract_imagesextract_images(filename):
   """Extract the images into a 4D uint8 numpy array [index, y, x, depth]."""
   print('Extracting', filename)
   with gzip.open(filename) as bytestream:
@@ -126,7 +126,7 @@ def read_data_sets(train_dir, fake_data=False, one_hot=False):
   TEST_LABELS = 't10k-labels-idx1-ubyte.gz'
   VALIDATION_SIZE = 5000
   local_file = maybe_download(TRAIN_IMAGES, train_dir)
-  train_images = extract_images(local_file)
+  train_images = (local_file)
   local_file = maybe_download(TRAIN_LABELS, train_dir)
   train_labels = extract_labels(local_file, one_hot=one_hot)
   local_file = maybe_download(TEST_IMAGES, train_dir)
