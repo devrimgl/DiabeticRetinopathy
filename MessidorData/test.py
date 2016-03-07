@@ -2,17 +2,17 @@ import messidor_data as ms
 import tensorflow as tf
 import numpy as np
 
-DATA_DIRECTORY_PATH = '/Users/macbookair/Dropbox/image-eye/Base11/'
-data_file_path = '/Users/macbookair/Dropbox/image-eye/Base11/AnnotationBase11.csv'
+DATA_DIRECTORY_PATH = '/Users/macbookair/Dropbox/image-eye/test_image'
+data_file_path = '/Users/macbookair/Dropbox/image-eye/test_image/AnnotationBaseTest1.csv'
 
 print('Reading the dataset')
 labels = ms.read_labels(data_file_path)
 file_names = ms.read_image_file_names(data_file_path)
 images = ms.create_images_arrays(file_names, DATA_DIRECTORY_PATH)
-train_images = images[:90]
-test_images = images[90:]
-train_labels = labels[:90]
-test_labels = labels[90:]
+train_images = images[:350]
+test_images = images[350:]
+train_labels = labels[:350]
+test_labels = labels[350:]
 
 
 class DataSets(object):
@@ -46,7 +46,7 @@ sess = tf.Session()
 sess.run(init)
 
 # train
-for i in range(20):
+for i in range(50):
     print ('Iteration', i)
     batch_xs, batch_ys = data_sets.train.next_batch(10)
     sess.run(train_step, feed_dict={x: batch_xs, y_: batch_ys})

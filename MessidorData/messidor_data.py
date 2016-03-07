@@ -4,7 +4,7 @@ import sys
 from PIL import Image
 import numpy as np
 
-labels_file_path = '/Users/macbookair/Dropbox/image-eye/Base11/AnnotationBase11.csv'
+labels_file_path = '/Users/macbookair/Dropbox/image-eye/test_image/AnnotationBaseTest1.csv'
 
 
 
