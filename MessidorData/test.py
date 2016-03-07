@@ -1,9 +1,11 @@
 import messidor_data as ms
 import tensorflow as tf
+import numpy as np
 
 DATA_DIRECTORY_PATH = '/Users/macbookair/Dropbox/image-eye/Base11/'
 data_file_path = '/Users/macbookair/Dropbox/image-eye/Base11/AnnotationBase11.csv'
 
+print('Reading the dataset')
 labels = ms.read_labels(data_file_path)
 file_names = ms.read_image_file_names(data_file_path)
 images = ms.create_images_arrays(file_names, DATA_DIRECTORY_PATH)
@@ -12,8 +14,10 @@ test_images = images[90:]
 train_labels = labels[:90]
 test_labels = labels[90:]
 
+
 class DataSets(object):
     pass
+
 
 data_sets = DataSets()
 data_sets.train = ms.DataSet(train_images, train_labels)
@@ -29,8 +33,8 @@ b = tf.Variable(tf.zeros([4]))
 y = tf.nn.softmax(tf.matmul(x, W) + b)
 
 # Cross Entropy
-y_ = tf.placeholder(tf.float32, [None, 4]) #correct answers
-cross_entropy = -tf.reduce_sum(y_*tf.log(y))
+y_ = tf.placeholder(tf.float32, [None, 4])  # correct answers
+cross_entropy = -tf.reduce_sum(y_ * tf.log(y))
 
 train_step = tf.train.GradientDescentOptimizer(0.01).minimize(cross_entropy)
 
@@ -41,13 +45,14 @@ init = tf.initialize_all_variables()
 sess = tf.Session()
 sess.run(init)
 
-#train
-for i in range(1000):
-  batch_xs, batch_ys = data_sets.train.next_batch(5)
-  sess.run(train_step, feed_dict={x: batch_xs, y_: batch_ys})
+# train
+for i in range(20):
+    print ('Iteration', i)
+    batch_xs, batch_ys = data_sets.train.next_batch(10)
+    sess.run(train_step, feed_dict={x: batch_xs, y_: batch_ys})
 
 # Model Evalution
-correct_prediction = tf.equal(tf.argmax(y,1), tf.argmax(y_,1))
+correct_prediction = tf.equal(tf.argmax(y, 1), tf.argmax(y_, 1))
 
 # Kaci dogru kaci yanlis karsilastirmasi
 accuracy = tf.reduce_mean(tf.cast(correct_prediction, tf.float32))

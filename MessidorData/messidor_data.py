@@ -16,16 +16,17 @@ def one_hot_encode(label, number_of_classes=4):
 # dictionary of file name and one_hot_encoded labels
 def read_labels(labels_file_path):
     labelData = open(labels_file_path, 'r')
-    labels = dict()
+    labels = []
     try:
         reader = csv.reader(labelData)
         for row in reader:
             label = row[2]
-            labels[row[0]] = one_hot_encode(label)
-            print(label)
+            label = one_hot_encode(label)
+            # labels[row[0]] = one_hot_encode(label)
+            labels.append(label)
     finally:
         labelData.close()
-    return labels
+    return np.asarray(labels)
 
 def read_image_file_names(image_file_path):
     image_list = []
