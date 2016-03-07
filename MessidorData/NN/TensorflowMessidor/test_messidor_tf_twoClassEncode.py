@@ -1,0 +1,68 @@
+import messidor_tf_twoClassEncode as tce
+import tensorflow as tf
+import numpy as np
+
+DATA_DIRECTORY_PATH = '/Users/macbookair/Dropbox/image-eye/test'
+data_file_path = '/Users/macbookair/Dropbox/image-eye/test/AnnotationBaseTest1.csv'
+
+print('Reading dataset..')
+labels = tce.read_labels(data_file_path)
+file_names = tce.read_image_file_names(data_file_path)
+images = tce.create_images_arrays(file_names, DATA_DIRECTORY_PATH)
+# 90 - 10
+# train_images = images[:90]
+# test_images = images[90:]
+# train_labels = labels[:90]
+# test_labels = labels[90:]
+
+# 350 - 50
+train_images = images[:350]
+test_images = images[350:]
+train_labels = labels[:350]
+test_labels = labels[350:]
+
+
+class DataSets(object):
+    pass
+
+
+data_sets = DataSets()
+data_sets.train = tce.DataSet(train_images, train_labels)
+data_sets.test = tce.DataSet(test_images, test_labels)
+
+x = tf.placeholder(tf.float32, [None, 9999360])
+# variable for bias and weight
+W = tf.Variable(tf.zeros([9999360, 2]))
+b = tf.Variable(tf.zeros([2]))
+
+# Softmax Reggression
+# y is our predicted probability distribution
+y = tf.nn.softmax(tf.matmul(x, W) + b)
+
+# Cross Entropy
+y_ = tf.placeholder(tf.float32, [None, 2])  # correct answers
+cross_entropy = -tf.reduce_sum(y_ * tf.log(y))
+
+train_step = tf.train.GradientDescentOptimizer(0.01).minimize(cross_entropy)
+
+# initialize the variables we created:
+init = tf.initialize_all_variables()
+
+# launch a model in a Session, and run the operation that initializes the variables
+sess = tf.Session()
+sess.run(init)
+
+# train
+for i in range(10):
+    print ('Iteration', i)
+    batch_xs, batch_ys = data_sets.train.next_batch(10)
+    sess.run(train_step, feed_dict={x: batch_xs, y_: batch_ys})
+
+# Model Evalution
+correct_prediction = tf.equal(tf.argmax(y, 1), tf.argmax(y_, 1))
+
+# Kaci dogru kaci yanlis karsilastirmasi
+accuracy = tf.reduce_mean(tf.cast(correct_prediction, tf.float32))
+
+# Accuracy on test data
+print(sess.run(accuracy, feed_dict={x: data_sets.test.images, y_: data_sets.test.labels}))
