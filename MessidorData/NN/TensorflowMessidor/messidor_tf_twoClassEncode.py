@@ -54,6 +54,9 @@ def create_images_arrays(image_list, DATA_DIRECTORY_PATH):
     for image in image_list:
         image_path = os.path.join(DATA_DIRECTORY_PATH, image)
         im = Image.open(image_path)
+        # Statically scale the image
+        im.thumbnail((280, 186), Image.ANTIALIAS)
+
         imarray = np.array(im)
         images.append(imarray)
     return np.asarray(images)
