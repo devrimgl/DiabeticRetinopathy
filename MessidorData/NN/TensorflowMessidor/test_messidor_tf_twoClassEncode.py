@@ -46,7 +46,7 @@ x = tf.placeholder(tf.float32, [None, 156240])
 #b = tf.Variable(tf.zeros([2]))
 
 W = weight_variable([156240, 2])
-b = bias_variable([156240, 2])
+b = bias_variable([2])
 # Softmax Reggression
 # y is our predicted probability distribution
 y = tf.nn.softmax(tf.matmul(x, W) + b)
