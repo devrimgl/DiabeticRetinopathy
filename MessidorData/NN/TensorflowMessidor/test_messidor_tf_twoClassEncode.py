@@ -2,6 +2,11 @@ import messidor_tf_twoClassEncode as tce
 import tensorflow as tf
 import numpy as np
 
+
+class DataSets(object):
+    pass
+
+
 DATA_DIRECTORY_PATH = '/Users/macbookair/Dropbox/image-eye/test'
 data_file_path = '/Users/macbookair/Dropbox/image-eye/test/AnnotationBaseTest1.csv'
 
@@ -20,11 +25,6 @@ train_images = images[:350]
 test_images = images[350:]
 train_labels = labels[:350]
 test_labels = labels[350:]
-
-
-class DataSets(object):
-    pass
-
 
 data_sets = DataSets()
 data_sets.train = tce.DataSet(train_images, train_labels)

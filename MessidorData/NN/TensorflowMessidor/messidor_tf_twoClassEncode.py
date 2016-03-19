@@ -10,7 +10,7 @@ labels_file_path = '/Users/macbookair/Dropbox/image-eye/test/AnnotationBaseTest1
 
 def two_class_encode(label, number_of_classes=2):
     result = np.zeros(number_of_classes)
-    if label == 0:
+    if label == "0":
         result[1] = 1
     else:
         result[0] = 1

@@ -20,7 +20,9 @@ def read_labels(labels_file_path):
         reader = csv.reader(labelData)
         for row in reader:
             label = row[2]
+            print(label)
             label = one_hot_encode(label)
+            print(label)
             # labels[row[0]] = one_hot_encode(label)
             labels.append(label)
     finally:
