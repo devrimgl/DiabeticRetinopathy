@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2c358850-d477-431d-a045-dde51a5ffc73" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Paper/1601.06608.pdf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Template/DissertationTemplate.doc" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Dissertation/Cambridge University Engineering Department (CUED) LaTeX PhD Thesis Template/thesis.log" afterPath="$PROJECT_DIR$/Dissertation/Cambridge University Engineering Department (CUED) LaTeX PhD Thesis Template/thesis.log" />
     </list>
     <ignored path="DR.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -38,8 +41,8 @@
       <file leaf-file-name="test_messidor_tf_twoClassEncode.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/MessidorData/NN/TensorflowMessidor/test_messidor_tf_twoClassEncode.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.02232143">
-              <caret line="30" column="10" selection-start-line="30" selection-start-column="10" selection-end-line="30" selection-end-column="10" />
+            <state vertical-scroll-proportion="0.49107143">
+              <caret line="22" column="54" selection-start-line="22" selection-start-column="54" selection-end-line="24" selection-end-column="9" />
               <folding>
                 <element signature="e#0#40#0" expanded="true" />
               </folding>
@@ -516,9 +519,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1366" height="768" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3055762" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3055762" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295129" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32905138" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
@@ -935,8 +938,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/MessidorData/NN/TensorflowMessidor/test_messidor_tf_twoClassEncode.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.02232143">
-          <caret line="30" column="10" selection-start-line="30" selection-start-column="10" selection-end-line="30" selection-end-column="10" />
+        <state vertical-scroll-proportion="0.49107143">
+          <caret line="22" column="54" selection-start-line="22" selection-start-column="54" selection-end-line="24" selection-end-column="9" />
           <folding>
             <element signature="e#0#40#0" expanded="true" />
           </folding>
