@@ -14,13 +14,19 @@ def bias_variable(shape):
     initial = tf.constant(0.1, shape=shape)
     return tf.Variable(initial)
 
-DATA_DIRECTORY_PATH = '/Users/macbookair/Dropbox/image-eye/test'
-data_file_path = '/Users/macbookair/Dropbox/image-eye/test/AnnotationBaseTest1.csv'
+#400 10MB data
+#DATA_DIRECTORY_PATH = '/Users/macbookair/Dropbox/image-eye/test'
+#data_file_path = '/Users/macbookair/Dropbox/image-eye/test/AnnotationBaseTest1.csv'
+
+#1200 mix data
+DATA_DIRECTORY_PATH = '/Users/macbookair/Dropbox/image-eye/data'
+data_file_path = '/Users/macbookair/Dropbox/image-eye/data/data.csv'
 
 print('Reading dataset..')
 labels = tce.read_labels(data_file_path)
 file_names = tce.read_image_file_names(data_file_path)
 images = tce.create_images_arrays(file_names, DATA_DIRECTORY_PATH)
+
 # 90 - 10
 # train_images = images[:90]
 # test_images = images[90:]
@@ -28,23 +34,31 @@ images = tce.create_images_arrays(file_names, DATA_DIRECTORY_PATH)
 # test_labels = labels[90:]
 
 # 350 - 50
-train_images = images[:350]
-test_images = images[350:]
-train_labels = labels[:350]
-test_labels = labels[350:]
+#train_images = images[:350]
+#test_images = images[350:]
+#train_labels = labels[:350]
+#test_labels = labels[350:]
+#print(test_labels)
+
+# 1000 - 200
+train_images = images[:1000]
+test_images = images[1000:]
+train_labels = labels[:1000]
+test_labels = labels[1000:]
 print(test_labels)
+
 
 data_sets = DataSets()
 data_sets.train = tce.DataSet(train_images, train_labels)
 data_sets.test = tce.DataSet(test_images, test_labels)
 
 #x = tf.placeholder(tf.float32, [None, 9999360]) Image resized - it was for 10mb images
-x = tf.placeholder(tf.float32, [None, 156240])
+x = tf.placeholder(tf.float32, [None, 624960])
 # variable for bias and weight
 #W = tf.Variable(tf.zeros([156240, 2]))
 #b = tf.Variable(tf.zeros([2]))
 
-W = weight_variable([156240, 2])
+W = weight_variable([624960, 2])
 b = bias_variable([2])
 # Softmax Reggression
 # y is our predicted probability distribution

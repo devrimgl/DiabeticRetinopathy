@@ -56,6 +56,7 @@ def create_images_arrays(image_list, DATA_DIRECTORY_PATH):
         im = Image.open(image_path)
         # Statically scale the image
         im.thumbnail((280, 186), Image.ANTIALIAS)
+        print(im.size)
 
         imarray = np.array(im)
         images.append(imarray)
@@ -78,7 +79,7 @@ class DataSet(object):
                               images.shape[1] * images.shape[2]*images.shape[3])
       # Convert from [0, 255] -> [0.0, 1.0].
       images = images.astype(np.float32)
-      images = np.multiply(images, 1.0 / 255.0)
+      #images = np.multiply(images, 1.0 / 255.0)
     self._images = images
     self._labels = labels
     self._epochs_completed = 0
