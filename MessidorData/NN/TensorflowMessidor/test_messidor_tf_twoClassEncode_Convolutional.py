@@ -38,6 +38,9 @@ IMAGE_D2 = 186
 IMAGE_D3 = 3
 IMAGE_SIZE = IMAGE_D1*IMAGE_D2*IMAGE_D3
 
+RANGE = 50
+BATCH = 50
+
 print('Reading dataset..')
 labels = tce.read_labels(data_file_path)
 file_names = tce.read_image_file_names(data_file_path)
@@ -78,8 +81,8 @@ train_step = tf.train.AdamOptimizer(1e-4).minimize(cross_entropy)
 correct_prediction = tf.equal(tf.argmax(y_conv, 1), tf.argmax(y_,1))
 accuracy = tf.reduce_mean(tf.cast(correct_prediction, tf.float32))
 sess.run(tf.initialize_all_variables())
-for i in range(50):
-    batch = data_sets.train.next_batch(50)
+for i in range(RANGE):
+    batch = data_sets.train.next_batch(BATCH)
     train_step.run(feed_dict={x: batch[0], y_: batch[1]})
 
 print "test accuracy %g" % accuracy.eval(feed_dict={x: data_sets.test.images, y_: data_sets.test.labels})
