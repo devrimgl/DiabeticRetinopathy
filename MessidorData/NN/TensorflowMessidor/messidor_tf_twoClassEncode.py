@@ -3,6 +3,7 @@ import os
 import sys
 from PIL import Image
 import numpy as np
+import cv2
 
 # (DR1, DR2, DR3) and DR0
 labels_file_path = '/Users/macbookair/Dropbox/image-eye/test/AnnotationBaseTest1.csv'
@@ -55,10 +56,14 @@ def create_images_arrays(image_list, DATA_DIRECTORY_PATH):
         image_path = os.path.join(DATA_DIRECTORY_PATH, image)
         im = Image.open(image_path)
         # Statically scale the image
-        im.thumbnail((280, 186), Image.ANTIALIAS)
+        im.thumbnail((280, 186), Image.ANTIALIAS) #scale ediyor
+        b = np.zeros(im.shape)
+        cv2.circle(b, (im.shape[1] / 2, im.shape[0] / 2), int(300 * 0.9), (1, 1, 1), -1, 8, 0)
+        im_blur = cv2.addWeighted(im, 4, cv2.GaussianBlur(im, (0, 0), 300 / 30), -4, 128) * b + 128 * (1 - b)
+
         print(im.size)
 
-        imarray = np.array(im)
+        imarray = np.array(im_blur)
         images.append(imarray)
     return np.asarray(images)
 
