@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2c358850-d477-431d-a045-dde51a5ffc73" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MessidorData/NN/TensorflowMessidor/messidor_tf_twoClassEncode.py" afterPath="$PROJECT_DIR$/MessidorData/NN/TensorflowMessidor/messidor_tf_twoClassEncode.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MessidorData/NN/TensorflowMessidor/config.py" afterPath="$PROJECT_DIR$/MessidorData/NN/TensorflowMessidor/config.py" />
     </list>
     <ignored path="DR.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -24,10 +23,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="test_messidor_tf_twoClassEncode_Convolutional.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="test_messidor_tf_twoClassEncode_Convolutional.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/MessidorData/NN/TensorflowMessidor/test_messidor_tf_twoClassEncode_Convolutional.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
+            <state vertical-scroll-proportion="1.9420784">
               <caret line="76" column="26" selection-start-line="76" selection-start-column="26" selection-end-line="76" selection-end-column="26" />
               <folding>
                 <element signature="e#0#40#0" expanded="true" />
@@ -36,11 +35,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="classifier.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="classifier.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/MessidorData/classifier/classifier.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.54003406">
+            <state vertical-scroll-proportion="0.0">
               <caret line="124" column="20" selection-start-line="124" selection-start-column="20" selection-end-line="124" selection-end-column="20" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="config.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/MessidorData/NN/TensorflowMessidor/config.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="19" column="10" selection-start-line="19" selection-start-column="10" selection-end-line="19" selection-end-column="10" />
               <folding />
             </state>
           </provider>
@@ -110,8 +119,8 @@
         <option value="$PROJECT_DIR$/MessidorData/NN/TensorflowMessidor/test_messidor_tf_twoClassEncode.py" />
         <option value="$PROJECT_DIR$/MessidorData/NN/TensorflowMessidor/test_messidor_tf_twoClassEncode_Convolutional.py" />
         <option value="$PROJECT_DIR$/MessidorData/NN/TensorflowMessidor/image_preprocess.py" />
-        <option value="$PROJECT_DIR$/MessidorData/NN/TensorflowMessidor/config.py" />
         <option value="$PROJECT_DIR$/MessidorData/NN/TensorflowMessidor/messidor_tf_twoClassEncode.py" />
+        <option value="$PROJECT_DIR$/MessidorData/NN/TensorflowMessidor/config.py" />
       </list>
     </option>
   </component>
@@ -504,10 +513,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1366" height="705" extended-state="1" />
-    <editor active="false" />
+    <frame x="0" y="23" width="1366" height="705" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.34349442" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.34349442" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295129" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32905138" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
@@ -858,13 +867,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/MessidorData/NN/TensorflowMessidor/config.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="9" column="25" selection-start-line="9" selection-start-column="25" selection-end-line="9" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/MessidorData/NN/TensorflowMessidor/image_preprocess.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -904,21 +906,29 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/MessidorData/NN/TensorflowMessidor/test_messidor_tf_twoClassEncode_Convolutional.py">
+    <entry file="file://$PROJECT_DIR$/MessidorData/classifier/classifier.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
+          <caret line="124" column="20" selection-start-line="124" selection-start-column="20" selection-end-line="124" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MessidorData/NN/TensorflowMessidor/config.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="19" column="10" selection-start-line="19" selection-start-column="10" selection-end-line="19" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MessidorData/NN/TensorflowMessidor/test_messidor_tf_twoClassEncode_Convolutional.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.9420784">
           <caret line="76" column="26" selection-start-line="76" selection-start-column="26" selection-end-line="76" selection-end-column="26" />
           <folding>
             <element signature="e#0#40#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MessidorData/classifier/classifier.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.54003406">
-          <caret line="124" column="20" selection-start-line="124" selection-start-column="20" selection-end-line="124" selection-end-column="20" />
-          <folding />
         </state>
       </provider>
     </entry>
