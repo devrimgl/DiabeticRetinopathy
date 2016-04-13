@@ -6,7 +6,7 @@ import numpy as np
 import cv2
 
 # (DR1, DR2, DR3) and DR0
-labels_file_path = '/Users/macbookair/Dropbox/image-eye/test/AnnotationBaseTest1.csv'
+labels_file_path = '/Users/macbookair/Dropbox/image-eye/data/data.csv'
 
 
 def two_class_encode(label, number_of_classes=2):
@@ -57,6 +57,7 @@ def create_images_arrays(image_list, DATA_DIRECTORY_PATH):
         im = Image.open(image_path)
         # Statically scale the image
         im.thumbnail((280, 186), Image.ANTIALIAS) #scale ediyor
+        im = np.array(im)
         b = np.zeros(im.shape)
         cv2.circle(b, (im.shape[1] / 2, im.shape[0] / 2), int(300 * 0.9), (1, 1, 1), -1, 8, 0)
         im_blur = cv2.addWeighted(im, 4, cv2.GaussianBlur(im, (0, 0), 300 / 30), -4, 128) * b + 128 * (1 - b)
