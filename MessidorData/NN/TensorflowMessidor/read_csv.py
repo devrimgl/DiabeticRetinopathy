@@ -1,8 +1,9 @@
 import csv
 import sys
 import numpy as np
+import settings
 
-labels_file_path = '/Users/macbookair/Dropbox/image-eye/Base11/AnnotationBase11.csv'
+labels_file_path = settings.dataFilePath
 
 
 def one_hot_encode(label, number_of_classes=4):

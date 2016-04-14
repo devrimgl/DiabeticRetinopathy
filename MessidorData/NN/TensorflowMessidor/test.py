@@ -1,27 +1,25 @@
 import messidor_data as ms
 import tensorflow as tf
 import numpy as np
+import settings
 
-DATA_DIRECTORY_PATH = '/Users/macbookair/Dropbox/image-eye/test'
-data_file_path = '/Users/macbookair/Dropbox/image-eye/test/AnnotationBaseTest1.csv'
+data_directory_path = settings.dataDirectoryPath
+data_file_path = settings.dataFilePath
+TRAIN_DATA_SIZE = settings.trainDataSize
+IMAGE_SIZE = settings.imageSize
 
 print('Reading dataset..')
 labels = ms.read_labels(data_file_path)
 file_names = ms.read_image_file_names(data_file_path)
-images = ms.create_images_arrays(file_names, DATA_DIRECTORY_PATH)
-# 90 - 10
-# train_images = images[:90]
-# test_images = images[90:]
-# train_labels = labels[:90]
-# test_labels = labels[90:]
+images = ms.create_images_arrays(file_names, data_directory_path)
 
-# 350 - 50
-train_images = images[:350]
-test_images = images[350:]
-train_labels = labels[:350]
-test_labels = labels[350:]
+train_images = images[:TRAIN_DATA_SIZE]
+test_images = images[TRAIN_DATA_SIZE:]
+train_labels = labels[:TRAIN_DATA_SIZE]
+test_labels = labels[TRAIN_DATA_SIZE:]
 
-
+RANGE = settings.range
+BATCH = settings.batch
 class DataSets(object):
     pass
 
@@ -30,9 +28,9 @@ data_sets = DataSets()
 data_sets.train = ms.DataSet(train_images, train_labels)
 data_sets.test = ms.DataSet(test_images, test_labels)
 
-x = tf.placeholder(tf.float32, [None, 9999360])
+x = tf.placeholder(tf.float32, [None, IMAGE_SIZE])
 # variable for bias and weight
-W = tf.Variable(tf.zeros([9999360, 4]))
+W = tf.Variable(tf.zeros([IMAGE_SIZE, 4]))
 b = tf.Variable(tf.zeros([4]))
 
 # Softmax Reggression
@@ -53,9 +51,9 @@ sess = tf.Session()
 sess.run(init)
 
 # train
-for i in range(10):
+for i in range(RANGE):
     print ('Iteration', i)
-    batch_xs, batch_ys = data_sets.train.next_batch(10)
+    batch_xs, batch_ys = data_sets.train.next_batch(BATCH)
     sess.run(train_step, feed_dict={x: batch_xs, y_: batch_ys})
 
 # Model Evalution

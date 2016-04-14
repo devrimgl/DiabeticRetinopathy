@@ -1,6 +1,7 @@
 import messidor_tf_twoClassEncode as tce
 import tensorflow as tf
 import numpy as np
+import settings
 
 
 class DataSets(object):
@@ -14,20 +15,24 @@ def bias_variable(shape):
     initial = tf.constant(0.1, shape=shape)
     return tf.Variable(initial)
 
-#1200 mix data
-DATA_DIRECTORY_PATH = '/home/devrim/DiabeticRetinopathy/data'
-data_file_path = '/home/devrim/DiabeticRetinopathy/data/data.csv'
+
+data_directory_path = settings.dataDirectoryPath
+data_file_path = settings.dataFilePath
+TRAIN_DATA_SIZE = settings.trainDataSize
+IMAGE_SIZE = settings.imageSize
+RANGE = settings.range
+BATCH = settings.batch
 
 print('Reading dataset..')
 labels = tce.read_labels(data_file_path)
 file_names = tce.read_image_file_names(data_file_path)
-images = tce.create_images_arrays(file_names, DATA_DIRECTORY_PATH)
+images = tce.create_images_arrays(file_names, data_directory_path)
 
 # 1000 - 200
-train_images = images[:1000]
-test_images = images[1000:]
-train_labels = labels[:1000]
-test_labels = labels[1000:]
+train_images = images[:TRAIN_DATA_SIZE]
+test_images = images[TRAIN_DATA_SIZE:]
+train_labels = labels[:TRAIN_DATA_SIZE]
+test_labels = labels[TRAIN_DATA_SIZE:]
 print(test_labels)
 
 
@@ -35,13 +40,12 @@ data_sets = DataSets()
 data_sets.train = tce.DataSet(train_images, train_labels)
 data_sets.test = tce.DataSet(test_images, test_labels)
 
-#x = tf.placeholder(tf.float32, [None, 9999360]) Image resized - it was for 10mb images
-x = tf.placeholder(tf.float32, [None, 624960])
+x = tf.placeholder(tf.float32, [None, IMAGE_SIZE])
 # variable for bias and weight
 #W = tf.Variable(tf.zeros([156240, 2]))
 #b = tf.Variable(tf.zeros([2]))
 
-W = weight_variable([624960, 2])
+W = weight_variable([IMAGE_SIZE, 2])
 b = bias_variable([2])
 # Softmax Reggression
 # y is our predicted probability distribution
@@ -67,9 +71,9 @@ correct_prediction = tf.equal(tf.argmax(y, 1), tf.argmax(y_, 1))
 accuracy = tf.reduce_mean(tf.cast(correct_prediction, tf.float32))
 
 # train
-for i in range(100):
+for i in range(RANGE):
     print ('Iteration', i)
-    batch = data_sets.train.next_batch(50)
+    batch = data_sets.train.next_batch(BATCH)
     train_accuracy = accuracy.eval(feed_dict= {
         x: batch[0], y_: batch[1]})
     # print "step %d, training accuracy %g" %(i, train_accuracy)

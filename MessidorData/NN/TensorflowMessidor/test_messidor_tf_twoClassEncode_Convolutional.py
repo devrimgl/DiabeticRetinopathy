@@ -1,6 +1,7 @@
 import messidor_tf_twoClassEncode as tce
 import tensorflow as tf
 import numpy as np
+from sklearn import cross_validation
 import settings
 
 
@@ -21,7 +22,7 @@ def conv2d(x, W):
 def max_pool_2x2(x):
     return tf.nn.max_pool(x, ksize=[1, 3, 3, 1], strides=[1, 2, 2, 1], padding='SAME')
 
-DATA_DIRECTORY_PATH = settings.dataDirectoryPath
+data_directory_path = settings.dataDirectoryPath
 data_file_path = settings.dataFilePath
 TRAIN_DATA_SIZE = settings.trainDataSize
 
@@ -40,7 +41,7 @@ BATCH = settings.batch
 print('Reading dataset..')
 labels = tce.read_labels(data_file_path)
 file_names = tce.read_image_file_names(data_file_path)
-images = tce.create_images_arrays(file_names, DATA_DIRECTORY_PATH)
+images = tce.create_images_arrays(file_names, data_directory_path)
 
 train_images = images[:TRAIN_DATA_SIZE]
 test_images = images[TRAIN_DATA_SIZE:]
@@ -53,7 +54,6 @@ data_sets = DataSets()
 data_sets.train = tce.DataSet(train_images, train_labels)
 data_sets.test = tce.DataSet(test_images, test_labels)
 
-#x = tf.placeholder(tf.float32, [None, 9999360]) Image resized - it was for 10mb images
 x = tf.placeholder(tf.float32, [None, IMAGE_SIZE])
 y_ = tf.placeholder(tf.float32, [None, 2])
 

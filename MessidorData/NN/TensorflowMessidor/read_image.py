@@ -1,12 +1,12 @@
 import csv
 import os
-
+import settings
 from PIL import Image
 import numpy as np
 
-DATA_DIRECTORY_PATH = '/Users/macbookair/Dropbox/image-eye/Base11/'
-image_file_path = '/Users/macbookair/Dropbox/image-eye/Base11/AnnotationBase11.csv'
-path = '/Users/macbookair/Dropbox/image-eye/Base11/20051019_38557_0100_PP.tif'
+DATA_DIRECTORY_PATH = settings.dataDirectoryPath
+image_file_path = settings.dataFilePath
+path = settings.path
 
 
 

@@ -7,6 +7,9 @@ import settings
 
 # (DR1, DR2, DR3) and DR0
 labels_file_path = settings.dataFilePath
+IMAGE_D1 = settings.imageDimension1
+IMAGE_D2 = settings.imageDimension2
+IMAGE_D3 = settings.imageDimension3
 
 
 def two_class_encode(label, number_of_classes=2):
@@ -44,7 +47,7 @@ def read_image_file_names(image_file_path):
         image_data.close()
     return image_list
 
-def create_images_arrays(image_list, DATA_DIRECTORY_PATH):
+def create_images_arrays(image_list, data_directory_path):
     """
     It reads all image files and created a list of image arrays,
     :param image_list:
@@ -53,10 +56,10 @@ def create_images_arrays(image_list, DATA_DIRECTORY_PATH):
     """
     images = []
     for image in image_list:
-        image_path = os.path.join(DATA_DIRECTORY_PATH, image)
+        image_path = os.path.join(data_directory_path, image)
         im = Image.open(image_path)
         # Statically scale the image
-        im.thumbnail((280, 186), Image.ANTIALIAS)
+        im.thumbnail((IMAGE_D1, IMAGE_D2), Image.ANTIALIAS)
         print(im.size)
 
         imarray = np.array(im)
