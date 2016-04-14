@@ -14,31 +14,14 @@ def bias_variable(shape):
     initial = tf.constant(0.1, shape=shape)
     return tf.Variable(initial)
 
-#400 10MB data
-#DATA_DIRECTORY_PATH = '/Users/macbookair/Dropbox/image-eye/test'
-#data_file_path = '/Users/macbookair/Dropbox/image-eye/test/AnnotationBaseTest1.csv'
-
 #1200 mix data
-DATA_DIRECTORY_PATH = '/Users/macbookair/Dropbox/image-eye/data'
-data_file_path = '/Users/macbookair/Dropbox/image-eye/data/data.csv'
+DATA_DIRECTORY_PATH = '/home/devrim/DiabeticRetinopathy/data'
+data_file_path = '/home/devrim/DiabeticRetinopathy/data/data.csv'
 
 print('Reading dataset..')
 labels = tce.read_labels(data_file_path)
 file_names = tce.read_image_file_names(data_file_path)
 images = tce.create_images_arrays(file_names, DATA_DIRECTORY_PATH)
-
-# 90 - 10
-# train_images = images[:90]
-# test_images = images[90:]
-# train_labels = labels[:90]
-# test_labels = labels[90:]
-
-# 350 - 50
-#train_images = images[:350]
-#test_images = images[350:]
-#train_labels = labels[:350]
-#test_labels = labels[350:]
-#print(test_labels)
 
 # 1000 - 200
 train_images = images[:1000]

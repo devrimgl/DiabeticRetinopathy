@@ -1,6 +1,7 @@
 import messidor_tf_twoClassEncode as tce
 import tensorflow as tf
 import numpy as np
+import settings
 
 
 class DataSets(object):
@@ -20,26 +21,21 @@ def conv2d(x, W):
 def max_pool_2x2(x):
     return tf.nn.max_pool(x, ksize=[1, 3, 3, 1], strides=[1, 2, 2, 1], padding='SAME')
 
-#400 10MB data
-DATA_DIRECTORY_PATH = '/Users/macbookair/Dropbox/image-eye/test'
-data_file_path = '/Users/macbookair/Dropbox/image-eye/test/AnnotationBaseTest1.csv'
-TRAIN_DATA_SIZE = 350
+DATA_DIRECTORY_PATH = settings.dataDirectoryPath
+data_file_path = settings.dataFilePath
+TRAIN_DATA_SIZE = settings.trainDataSize
 
-#1200 mix data
-#DATA_DIRECTORY_PATH = '/Users/macbookair/Dropbox/image-eye/data'
-#data_file_path = '/Users/macbookair/Dropbox/image-eye/data/data.csv'
-#TRAIN_DATA_SIZE = 1000
 
 sess = tf.InteractiveSession()
 
 #image
-IMAGE_D1 = 280
-IMAGE_D2 = 186
-IMAGE_D3 = 3
-IMAGE_SIZE = IMAGE_D1*IMAGE_D2*IMAGE_D3
+IMAGE_D1 = settings.imageDimension1
+IMAGE_D2 = settings.imageDimension2
+IMAGE_D3 = settings.imageDimension3
+IMAGE_SIZE = settings.imageSize
 
-RANGE = 50
-BATCH = 50
+RANGE = settings.range
+BATCH = settings.batch
 
 print('Reading dataset..')
 labels = tce.read_labels(data_file_path)

@@ -3,9 +3,10 @@ import os
 import sys
 from PIL import Image
 import numpy as np
+import settings
 
 # For DR1 DR2 DR3 and DR0
-labels_file_path = '/Users/macbookair/Dropbox/image-eye/test/AnnotationBaseTest1.csv'
+labels_file_path = settings.dataFilePath
 
 
 def one_hot_encode(label, number_of_classes=4):
