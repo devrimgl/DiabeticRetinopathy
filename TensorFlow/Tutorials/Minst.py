@@ -17,7 +17,7 @@ def maybe_download(filename, work_directory):
 def _read32(bytestream):
   dt = numpy.dtype(numpy.uint32).newbyteorder('>')
   return numpy.frombuffer(bytestream.read(4), dtype=dt)
-def extract_imagesextract_images(filename):
+def extract_images(filename):
   """Extract the images into a 4D uint8 numpy array [index, y, x, depth]."""
   print('Extracting', filename)
   with gzip.open(filename) as bytestream:

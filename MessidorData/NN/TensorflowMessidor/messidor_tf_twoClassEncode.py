@@ -1,9 +1,12 @@
 import csv
 import os
 import sys
+
+import gc
 from PIL import Image
 import numpy as np
 import settings
+import cv2
 
 # (DR1, DR2, DR3) and DR0
 labels_file_path = settings.dataFilePath
@@ -15,9 +18,9 @@ IMAGE_D3 = settings.imageDimension3
 def two_class_encode(label, number_of_classes=2):
     result = np.zeros(number_of_classes)
     if label == "0":
-        result[1] = 1
+        result[1] = 1.0
     else:
-        result[0] = 1
+        result[0] = 1.0
     return result
 
 # dictionary of file name and one_hot_encoded labels
@@ -58,13 +61,15 @@ def create_images_arrays(image_list, data_directory_path):
     for image in image_list:
         image_path = os.path.join(data_directory_path, image)
         im = Image.open(image_path)
-        # Statically scale the image
-        im.thumbnail((IMAGE_D1, IMAGE_D2), Image.ANTIALIAS)
-        print(im.size)
-
-        imarray = np.array(im)
+        im.thumbnail((256, 256), Image.ANTIALIAS)
+        im = np.array(im, dtype=np.float32)
+        b = np.zeros(im.shape)
+        cv2.circle(b, (im.shape[1] / 2, im.shape[0] / 2), int(512 * 0.9), (1, 1, 1), -1, 8, 0)
+        im_blur = cv2.addWeighted(im, 4, cv2.GaussianBlur(im, (0, 0), 512 / 30), -4, 128) * b + 128 * (1 - b)
+        imarray = np.array(im_blur, dtype=np.float32)
         images.append(imarray)
-    return np.asarray(images)
+    gc.collect()
+    return np.array(images, dtype=np.float32)
 
 
 class DataSet(object):
@@ -83,7 +88,7 @@ class DataSet(object):
                               images.shape[1] * images.shape[2]*images.shape[3])
       # Convert from [0, 255] -> [0.0, 1.0].
       images = images.astype(np.float32)
-      #images = np.multiply(images, 1.0 / 255.0)
+      images = np.multiply(images, 1.0 / 255.0)
     self._images = images
     self._labels = labels
     self._epochs_completed = 0
