@@ -24,8 +24,10 @@ RANGE = settings.range
 BATCH = settings.batch
 
 print('Reading dataset..')
-labels = tce.read_labels(data_file_path)
-file_names = tce.read_image_file_names(data_file_path)
+# labels = tce.read_labels(data_file_path)
+# file_names = tce.read_image_file_names(data_file_path)
+file_names, labels = tce.read_labels_and_image_names(data_file_path)
+
 images = tce.create_images_arrays(file_names, data_directory_path)
 
 # 1000 - 200

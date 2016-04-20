@@ -60,6 +60,7 @@ def read_labels_and_image_names(labels_file_path):
         for row in reader:
             image_name = row[0]
             label = row[2]
+            label = two_class_encode(label)
             image_list[image_name] = label
     finally:
         image_data.close()
@@ -68,7 +69,7 @@ def read_labels_and_image_names(labels_file_path):
     temp = OrderedDict(items)
     names = temp.keys()
     labels = temp.values()
-    return names, labels
+    return names, np.asarray(labels)
 
 def create_images_arrays(image_list, data_directory_path):
     """
