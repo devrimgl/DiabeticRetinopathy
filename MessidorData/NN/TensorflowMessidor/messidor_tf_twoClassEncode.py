@@ -65,6 +65,7 @@ def read_labels_and_image_names(labels_file_path):
     finally:
         image_data.close()
     items = image_list.items()
+    random.seed(0)
     random.shuffle(items)
     temp = OrderedDict(items)
     names = temp.keys()

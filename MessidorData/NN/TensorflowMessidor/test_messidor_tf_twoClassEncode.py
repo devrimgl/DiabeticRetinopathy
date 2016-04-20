@@ -58,7 +58,8 @@ y_ = tf.placeholder(tf.float32, [None, 2])  # correct answers
 cross_entropy = -tf.reduce_sum(y_ * tf.log(y))
 cross_entropy = tf.Print(cross_entropy, [cross_entropy], "CrossE")
 
-train_step = tf.train.GradientDescentOptimizer(0.005).minimize(cross_entropy)
+# train_step = tf.train.GradientDescentOptimizer(0.001).minimize(cross_entropy)
+train_step = tf.train.AdamOptimizer(1e-4).minimize(cross_entropy)
 
 # initialize the variables we created:
 init = tf.initialize_all_variables()
@@ -74,7 +75,7 @@ correct_prediction = tf.equal(tf.argmax(y, 1), tf.argmax(y_, 1))
 accuracy = tf.reduce_mean(tf.cast(correct_prediction, tf.float32))
 
 # train
-for i in range(50):
+for i in range(RANGE):
     print ('Iteration', i)
     batch = data_sets.train.next_batch(BATCH)
     train_accuracy = accuracy.eval(feed_dict= {

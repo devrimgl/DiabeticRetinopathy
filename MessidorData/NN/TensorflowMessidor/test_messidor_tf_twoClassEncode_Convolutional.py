@@ -9,7 +9,8 @@ class DataSets(object):
     pass
 
 def weight_variable(shape):
-    initial = tf.truncated_normal(shape, stddev=0.1)
+    # initial = tf.truncated_normal(shape, stddev=0.1)
+    initial = tf.random_uniform(shape, minval=0, maxval=None, dtype=tf.float32,seed=1)
     return tf.Variable(initial)
 
 def bias_variable(shape):
@@ -95,8 +96,13 @@ W_fc2 = weight_variable([IMAGE_DENSELY_CONNECTED_LAYER_OUTPUT,2])
 b_fc2 = bias_variable([2])
 y_conv = tf.nn.softmax(tf.matmul(h_fc1_drop, W_fc2) + b_fc2)
 
+
 cross_entropy = -tf.reduce_sum(y_ * tf.log(y_conv))
+cross_entropy = tf.Print(cross_entropy, [cross_entropy], "CrossE")
+
+
 train_step = tf.train.AdamOptimizer(1e-4).minimize(cross_entropy)
+
 correct_prediction = tf.equal(tf.argmax(y_conv, 1), tf.argmax(y_,1))
 accuracy = tf.reduce_mean(tf.cast(correct_prediction, tf.float32))
 print("initializing all variables")
