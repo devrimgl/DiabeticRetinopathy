@@ -1,12 +1,14 @@
 import csv
 import os
 import sys
-
+import random
+import pandas as pd
 import gc
 from PIL import Image
 import numpy as np
 import settings
 import cv2
+from collections import OrderedDict
 
 # (DR1, DR2, DR3) and DR0
 labels_file_path = settings.dataFilePath
@@ -22,8 +24,7 @@ def two_class_encode(label, number_of_classes=2):
     else:
         result[0] = 1.0
     return result
-
-# dictionary of file name and one_hot_encoded labels
+'''# dictionary of file name and one_hot_encoded labels
 def read_labels(labels_file_path):
     labelData = open(labels_file_path, 'r')
     labels = []
@@ -41,6 +42,7 @@ def read_labels(labels_file_path):
 def read_image_file_names(image_file_path):
     image_list = []
     image_data = open(image_file_path, 'r')
+
     try:
         reader = csv.reader(image_data)
         for row in reader:
@@ -48,7 +50,25 @@ def read_image_file_names(image_file_path):
             image_list.append(image)
     finally:
         image_data.close()
-    return image_list
+    return image_list'''
+
+def read_labels_and_image_names(labels_file_path):
+    image_list = dict()
+    image_data = open(labels_file_path, 'r')
+    try:
+        reader = csv.reader(image_data)
+        for row in reader:
+            image_name = row[0]
+            label = row[2]
+            image_list[image_name] = label
+    finally:
+        image_data.close()
+    items = image_list.items()
+    random.shuffle(items)
+    temp = OrderedDict(items)
+    names = temp.keys()
+    labels = temp.values()
+    return names, labels
 
 def create_images_arrays(image_list, data_directory_path):
     """
@@ -130,4 +150,5 @@ class DataSet(object):
     return self._images[start:end], self._labels[start:end]
 
 # Test..
-read_labels(labels_file_path)
+# read_labels(labels_file_path)
+read_labels_and_image_names((labels_file_path))

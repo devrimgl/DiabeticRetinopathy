@@ -42,8 +42,8 @@ data_sets.test = tce.DataSet(test_images, test_labels)
 
 x = tf.placeholder(tf.float32, [None, IMAGE_SIZE])
 # variable for bias and weight
-#W = tf.Variable(tf.zeros([156240, 2]))
-#b = tf.Variable(tf.zeros([2]))
+# W = tf.Variable(tf.zeros([156240, 2]))
+# b = tf.Variable(tf.zeros([2]))
 
 W = weight_variable([IMAGE_SIZE, 2])
 b = bias_variable([2])
