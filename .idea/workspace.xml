@@ -3,9 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="2c358850-d477-431d-a045-dde51a5ffc73" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MessidorData/NN/TensorflowMessidor/messidor_tf_twoClassEncode.py" afterPath="$PROJECT_DIR$/MessidorData/NN/TensorflowMessidor/messidor_tf_twoClassEncode.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MessidorData/NN/TensorflowMessidor/settings.py" afterPath="$PROJECT_DIR$/MessidorData/NN/TensorflowMessidor/settings.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MessidorData/NN/TensorflowMessidor/test_messidor_tf_twoClassEncode.py" afterPath="$PROJECT_DIR$/MessidorData/NN/TensorflowMessidor/test_messidor_tf_twoClassEncode.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MessidorData/NN/TensorflowMessidor/test_messidor_tf_twoClassEncode_Convolutional.py" afterPath="$PROJECT_DIR$/MessidorData/NN/TensorflowMessidor/test_messidor_tf_twoClassEncode_Convolutional.py" />
     </list>
     <ignored path="DR.iws" />
@@ -30,18 +28,18 @@
       <file leaf-file-name="settings.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/MessidorData/NN/TensorflowMessidor/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="248">
-              <caret line="8" column="21" selection-start-line="8" selection-start-column="21" selection-end-line="8" selection-end-column="21" />
+            <state relative-caret-position="496">
+              <caret line="16" column="10" selection-start-line="16" selection-start-column="10" selection-end-line="16" selection-end-column="10" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="messidor_tf_twoClassEncode.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="messidor_tf_twoClassEncode.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/MessidorData/NN/TensorflowMessidor/messidor_tf_twoClassEncode.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3906">
-              <caret line="126" column="29" selection-start-line="126" selection-start-column="29" selection-end-line="126" selection-end-column="29" />
+            <state relative-caret-position="775">
+              <caret line="25" column="23" selection-start-line="25" selection-start-column="23" selection-end-line="25" selection-end-column="23" />
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
               </folding>
@@ -71,11 +69,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="test_messidor_tf_twoClassEncode_Convolutional.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="test_messidor_tf_twoClassEncode_Convolutional.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/MessidorData/NN/TensorflowMessidor/test_messidor_tf_twoClassEncode_Convolutional.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="684">
-              <caret line="111" column="28" selection-start-line="111" selection-start-column="28" selection-end-line="111" selection-end-column="28" />
+            <state relative-caret-position="499">
+              <caret line="95" column="26" selection-start-line="95" selection-start-column="26" selection-end-line="95" selection-end-column="26" />
               <folding>
                 <element signature="e#0#40#0" expanded="true" />
               </folding>
@@ -116,8 +114,8 @@
       <file leaf-file-name="test_messidor_tf_twoClassEncode.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/MessidorData/NN/TensorflowMessidor/test_messidor_tf_twoClassEncode.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="622">
-              <caret line="79" column="28" selection-start-line="79" selection-start-column="28" selection-end-line="79" selection-end-column="28" />
+            <state relative-caret-position="709">
+              <caret line="61" column="65" selection-start-line="61" selection-start-column="13" selection-end-line="61" selection-end-column="65" />
               <folding />
             </state>
           </provider>
@@ -167,10 +165,10 @@
         <option value="$PROJECT_DIR$/TensorFlow/Tutorials/testTensorFlow.py" />
         <option value="$PROJECT_DIR$/TensorFlow/Tutorials/Minst.py" />
         <option value="$PROJECT_DIR$/MessidorData/NN/TensorflowMessidor/shuffle.py" />
-        <option value="$PROJECT_DIR$/MessidorData/NN/TensorflowMessidor/test_messidor_tf_twoClassEncode_Convolutional.py" />
         <option value="$PROJECT_DIR$/MessidorData/NN/TensorflowMessidor/test_messidor_tf_twoClassEncode.py" />
-        <option value="$PROJECT_DIR$/MessidorData/NN/TensorflowMessidor/settings.py" />
         <option value="$PROJECT_DIR$/MessidorData/NN/TensorflowMessidor/messidor_tf_twoClassEncode.py" />
+        <option value="$PROJECT_DIR$/MessidorData/NN/TensorflowMessidor/test_messidor_tf_twoClassEncode_Convolutional.py" />
+        <option value="$PROJECT_DIR$/MessidorData/NN/TensorflowMessidor/settings.py" />
       </list>
     </option>
   </component>
@@ -627,7 +625,14 @@
       <option name="project" value="LOCAL" />
       <updated>1461173088565</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="batch bug&#10;image sizes changed, tested&#10;two class encode OK&#10;Convolutional NOT!!">
+      <created>1461179304122</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1461179304122</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TodoView">
@@ -641,7 +646,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="1919" y="27" width="3842" height="2134" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15528114" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295129" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -649,9 +654,9 @@
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32992327" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32890025" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32173914" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26598465" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26598465" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32890025" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32890025" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39899498" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -676,7 +681,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="setting update" />
     <MESSAGE value="batch" />
-    <option name="LAST_COMMIT_MESSAGE" value="batch" />
+    <MESSAGE value="batch bug&#10;image sizes changed, tested&#10;two class encode OK&#10;Convolutional NOT!!" />
+    <option name="LAST_COMMIT_MESSAGE" value="batch bug&#10;image sizes changed, tested&#10;two class encode OK&#10;Convolutional NOT!!" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -966,38 +972,38 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/MessidorData/NN/TensorflowMessidor/messidor_tf_twoClassEncode.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="775">
+          <caret line="25" column="23" selection-start-line="25" selection-start-column="23" selection-end-line="25" selection-end-column="23" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/MessidorData/NN/TensorflowMessidor/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="248">
-          <caret line="8" column="21" selection-start-line="8" selection-start-column="21" selection-end-line="8" selection-end-column="21" />
+        <state relative-caret-position="496">
+          <caret line="16" column="10" selection-start-line="16" selection-start-column="10" selection-end-line="16" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MessidorData/NN/TensorflowMessidor/test_messidor_tf_twoClassEncode.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="709">
+          <caret line="61" column="65" selection-start-line="61" selection-start-column="13" selection-end-line="61" selection-end-column="65" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/MessidorData/NN/TensorflowMessidor/test_messidor_tf_twoClassEncode_Convolutional.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="684">
-          <caret line="111" column="28" selection-start-line="111" selection-start-column="28" selection-end-line="111" selection-end-column="28" />
+        <state relative-caret-position="499">
+          <caret line="95" column="26" selection-start-line="95" selection-start-column="26" selection-end-line="95" selection-end-column="26" />
           <folding>
             <element signature="e#0#40#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MessidorData/NN/TensorflowMessidor/test_messidor_tf_twoClassEncode.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="622">
-          <caret line="79" column="28" selection-start-line="79" selection-start-column="28" selection-end-line="79" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MessidorData/NN/TensorflowMessidor/messidor_tf_twoClassEncode.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3906">
-          <caret line="126" column="29" selection-start-line="126" selection-start-column="29" selection-end-line="126" selection-end-column="29" />
-          <folding>
-            <element signature="e#0#10#0" expanded="true" />
           </folding>
         </state>
       </provider>
