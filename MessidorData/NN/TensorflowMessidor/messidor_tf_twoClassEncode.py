@@ -17,6 +17,7 @@ IMAGE_D2 = settings.imageDimension2
 IMAGE_D3 = settings.imageDimension3
 
 
+
 def two_class_encode(label, number_of_classes=2):
     result = np.zeros(number_of_classes)
     if label == "0":
@@ -83,11 +84,11 @@ def create_images_arrays(image_list, data_directory_path):
     for image in image_list:
         image_path = os.path.join(data_directory_path, image)
         im = Image.open(image_path)
-        im.thumbnail((256, 256), Image.ANTIALIAS)
+        im.thumbnail((IMAGE_D1, IMAGE_D2), Image.ANTIALIAS)
         im = np.array(im, dtype=np.float32)
         b = np.zeros(im.shape)
-        cv2.circle(b, (im.shape[1] / 2, im.shape[0] / 2), int(512 * 0.9), (1, 1, 1), -1, 8, 0)
-        im_blur = cv2.addWeighted(im, 4, cv2.GaussianBlur(im, (0, 0), 512 / 30), -4, 128) * b + 128 * (1 - b)
+        cv2.circle(b, (im.shape[1] / 2, im.shape[0] / 2), int(IMAGE_D1 * 0.9), (1, 1, 1), -1, 8, 0)
+        im_blur = cv2.addWeighted(im, 4, cv2.GaussianBlur(im, (0, 0), IMAGE_D1 / 30), -4, 128) * b + 128 * (1 - b)
         imarray = np.array(im_blur, dtype=np.float32)
         images.append(imarray)
     gc.collect()
@@ -127,6 +128,7 @@ class DataSet(object):
   @property
   def epochs_completed(self):
     return self._epochs_completed
+
   def next_batch(self, batch_size, fake_data=False):
     """Return the next `batch_size` examples from this data set."""
     if fake_data:
