@@ -1,30 +1,53 @@
 import messidor_tf_twoClassEncode as tce
 import tensorflow as tf
-import numpy as np
-from sklearn import cross_validation
 import settings
 from sklearn.cross_validation import KFold
+from sklearn.metrics import roc_curve, auc, roc_auc_score, log_loss
+import numpy as np
+import logging
+import time
 
 class DataSets(object):
     pass
 
 
 def weight_variable(shape):
+    """
+
+    :param shape:
+    :return:
+    """
     initial = tf.truncated_normal(shape, stddev=0.1, seed=23)
     # initial = tf.random_uniform(shape, minval=0, maxval=None, dtype=tf.float32,seed=1)
     return tf.Variable(initial)
 
 
 def bias_variable(shape):
+    """
+
+    :param shape:
+    :return:
+    """
     initial = tf.constant(0.1, shape=shape)
     return tf.Variable(initial)
 
 
 def conv2d(x, W):
+    """
+
+    :param x:
+    :param W:
+    :return:
+    """
     return tf.nn.conv2d(x, W, strides=[1, 1, 1, 1], padding='SAME')
 
 
 def max_pool_2x2(x):
+    """
+
+    :param x:
+    :return:
+    """
     return tf.nn.max_pool(x, ksize=[1, 2, 2, 1], strides=[1, 2, 2, 1], padding='SAME')  # strides changed to 1
 
 
@@ -56,6 +79,14 @@ images = tce.create_images_arrays(file_names, data_directory_path)
 kf = KFold(len(images), n_folds=6)
 
 acc = []
+auc_result = []
+roc_auc_result = []
+log_loss_result = []
+
+logFileName = ("TwoClassEncodeConvolutionalTestResults_" + settings.currentTime +".log")
+logging.basicConfig(filename=logFileName)
+
+fold = 1
 for train_index, test_index in kf:
     # train_images = images[:TRAIN_DATA_SIZE]
     # test_images = images[TRAIN_DATA_SIZE:]
@@ -150,7 +181,7 @@ for train_index, test_index in kf:
 
     cross_entropy = -tf.reduce_sum(y_ * tf.log(y_conv))
     cross_entropy = tf.Print(cross_entropy, [cross_entropy], "CrossE")
-    train_step = tf.train.AdamOptimizer(1e-5).minimize(cross_entropy)
+    train_step = tf.train.AdamOptimizer(1e-4).minimize(cross_entropy)
 
     correct_prediction = tf.equal(tf.argmax(y_conv, 1), tf.argmax(y_, 1))
     accuracy = tf.reduce_mean(tf.cast(correct_prediction, tf.float32))
@@ -160,20 +191,44 @@ for train_index, test_index in kf:
         print ("iteration : ", i)
         batch = data_sets.train.next_batch(BATCH)
         if i % 1000 == 0:
-         train_accuracy = accuracy.eval(feed_dict={
-             x: data_sets.train.images, y_: data_sets.train.labels, keep_prob: 0.5})
-         print "step %d, training accuracy %g" % (i, train_accuracy)
+            train_accuracy = accuracy.eval(feed_dict={
+                x: data_sets.train.images, y_: data_sets.train.labels, keep_prob: 0.5})
+            print "step %d, training accuracy %g" % (i, train_accuracy)
         train_step.run(feed_dict={x: batch[0], y_: batch[1], keep_prob: 0.5})
 
     test_acc = accuracy.eval(
         feed_dict={x: data_sets.test.images, y_: data_sets.test.labels, keep_prob: 0.5})
-    print "test accuracy %g" % test_acc
+
+    label_true = [tce.convert_one_hot_encode(item) for item in data_sets.test.labels]
+    probabilities = y_conv
+    label_probabilities = probabilities.eval(feed_dict={x: data_sets.test.images, y_: data_sets.test.labels, keep_prob: 0.5})
+    label_scores = [item[1] for item in label_probabilities]
+    label_true = np.array(label_true)
+    label_scores = np.array(label_scores)
+    # test_roc_auc = roc_auc_score(label_true, label_scores)
+
+    fpr, tpr, thresholds = roc_curve(label_true, label_scores, pos_label=1)
+    test_auc_result = auc(fpr, tpr)
+    test_log_loss_result = log_loss(label_true, label_probabilities)
+
+    # print('Test Roc AUC score for fold ', fold, test_roc_auc)
+
+    print('Test AUC score for fold = ' + str(fold) + str(test_auc_result))
+    print('Test log loss for fold = ', fold, test_log_loss_result)
+
+    print("test accuracy %g" % test_acc)
     acc.append(test_acc)
+    auc_result.append(test_auc_result)
+    log_loss_result.append(test_log_loss_result)
+    # roc_auc_result.append(test_roc_auc)
+    fold += 1
 
-print('Average Test Accuracy: ', sum(acc)/ len(acc))
+print('Average Test Accuracy: ', sum(acc) / len(acc))
+print('Average Test AUC: ', sum(auc_result) / len(auc_result))
+print('Average Test Log Loss: ', sum(log_loss_result) / len(log_loss_result) )
 
-    # feed_dict = {x: data_sets.test.images, keep_prob: 0.5}
-    # prediction = tf.argmax(y_conv, 1)
-    # print prediction.eval(feed_dict=feed_dict, session=sess)
-    # probabilities = y_conv
-    # print probabilities.eval(feed_dict=feed_dict, session=sess)
+# feed_dict = {x: data_sets.test.images, keep_prob: 0.5}
+# prediction = tf.argmax(y_conv, 1)
+# print prediction.eval(feed_dict=feed_dict, session=sess)
+# probabilities = y_conv
+# print probabilities.eval(feed_dict=feed_dict, session=sess)
