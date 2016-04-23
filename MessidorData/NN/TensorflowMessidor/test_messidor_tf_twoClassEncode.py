@@ -12,7 +12,7 @@ def weight_variable(shape):
     return tf.Variable(initial)
 
 def bias_variable(shape):
-    initial = tf.constant(0.1, shape=shape)
+    initial = tf.constant(0.0, shape=shape)
     return tf.Variable(initial)
 
 
@@ -59,7 +59,7 @@ cross_entropy = -tf.reduce_sum(y_ * tf.log(y))
 cross_entropy = tf.Print(cross_entropy, [cross_entropy], "CrossE")
 
 # train_step = tf.train.GradientDescentOptimizer(0.001).minimize(cross_entropy)
-train_step = tf.train.AdamOptimizer(1e-4).minimize(cross_entropy)
+train_step = tf.train.AdamOptimizer(1e-5).minimize(cross_entropy)
 
 # initialize the variables we created:
 init = tf.initialize_all_variables()
@@ -68,7 +68,7 @@ init = tf.initialize_all_variables()
 sess = tf.InteractiveSession()
 sess.run(init)
 
-# Model Evalution
+# Model Evaluation
 correct_prediction = tf.equal(tf.argmax(y, 1), tf.argmax(y_, 1))
 
 # Kaci dogru kaci yanlis karsilastirmasi
@@ -78,9 +78,10 @@ accuracy = tf.reduce_mean(tf.cast(correct_prediction, tf.float32))
 for i in range(RANGE):
     print ('Iteration', i)
     batch = data_sets.train.next_batch(BATCH)
-    train_accuracy = accuracy.eval(feed_dict= {
-        x: batch[0], y_: batch[1]})
-    print "step %d, training accuracy %g" %(i, train_accuracy)
+    if i% 10 == 0:
+        train_accuracy = accuracy.eval(feed_dict= {
+            x: data_sets.train.images, y_: data_sets.train.labels})
+        print "step %d, training accuracy %g" %(i, train_accuracy)
     train_step.run(feed_dict={x: data_sets.train.images, y_: data_sets.train.labels})
 
     #sess.run(train_step, feed_dict={x: batch_xs, y_: batch_ys})
@@ -90,5 +91,5 @@ for i in range(RANGE):
 # print(sess.run(accuracy, feed_dict={x: data_sets.test.images, y_: data_sets.test.labels}))
 print "test accuracy %g" % accuracy.eval(feed_dict={x: data_sets.test.images, y_: data_sets.test.labels})
 
-probability = y
-print probability.eval(feed_dict={x:data_sets.test.images}, session=sess)
+# probability = y
+# print probability.eval(feed_dict={x:data_sets.test.images}, session=sess)

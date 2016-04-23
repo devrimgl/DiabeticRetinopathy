@@ -9,6 +9,7 @@ import numpy as np
 import settings
 import cv2
 from collections import OrderedDict
+import operator
 
 # (DR1, DR2, DR3) and DR0
 labels_file_path = settings.dataFilePath
@@ -53,6 +54,20 @@ def read_image_file_names(image_file_path):
         image_data.close()
     return image_list'''
 
+def equalize(im):
+    h = im.convert("L").histogram()
+    lut = []
+    for b in range(0, len(h), 256):
+        # step size
+        step = reduce(operator.add, h[b:b+256]) /255
+        # create equalization lookup table
+        n = 0
+        for i in range(256):
+            lut.append(n / step)
+            n = n+ h[i+b]
+    # map image through lookup table
+    return im.point(lut * 3)
+
 def read_labels_and_image_names(labels_file_path):
     image_list = dict()
     image_data = open(labels_file_path, 'r')
@@ -73,6 +88,7 @@ def read_labels_and_image_names(labels_file_path):
     labels = temp.values()
     return names, np.asarray(labels)
 
+
 def create_images_arrays(image_list, data_directory_path):
     """
     It reads all image files and created a list of image arrays,
@@ -84,13 +100,15 @@ def create_images_arrays(image_list, data_directory_path):
     for image in image_list:
         image_path = os.path.join(data_directory_path, image)
         im = Image.open(image_path)
+        im = equalize(im)
+        # im = Image.open(image_path).convert("L")
         im.thumbnail((IMAGE_D1, IMAGE_D2), Image.ANTIALIAS)
         im = np.array(im, dtype=np.float32)
-        b = np.zeros(im.shape)
+        '''b = np.zeros(im.shape)
         cv2.circle(b, (im.shape[1] / 2, im.shape[0] / 2), int(IMAGE_D1 * 0.9), (1, 1, 1), -1, 8, 0)
         im_blur = cv2.addWeighted(im, 4, cv2.GaussianBlur(im, (0, 0), IMAGE_D1 / 30), -4, 128) * b + 128 * (1 - b)
-        imarray = np.array(im_blur, dtype=np.float32)
-        images.append(imarray)
+        imarray = np.array(im_blur, dtype=np.float32)'''
+        images.append(im)
     gc.collect()
     return np.array(images, dtype=np.float32)
 
@@ -108,7 +126,7 @@ class DataSet(object):
       # to [num examples, rows*columns] (assuming depth == 1)
       # assert images.shape[3] == 1
       images = images.reshape(images.shape[0],
-                              images.shape[1] * images.shape[2]*images.shape[3])
+                              images.shape[1] * images.shape[2] * images.shape[3])
       # Convert from [0, 255] -> [0.0, 1.0].
       images = images.astype(np.float32)
       images = np.multiply(images, 1.0 / 255.0)
