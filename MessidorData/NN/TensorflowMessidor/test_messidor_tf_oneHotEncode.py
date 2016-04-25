@@ -1,6 +1,5 @@
 import messidor_data as ms
 import tensorflow as tf
-import numpy as np
 import settings
 
 

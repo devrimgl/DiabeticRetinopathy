@@ -1,13 +1,10 @@
 import csv
 import os
-import sys
 import random
-import pandas as pd
 import gc
 from PIL import Image
 import numpy as np
 import settings
-import cv2
 from collections import OrderedDict
 import operator
 
@@ -18,16 +15,28 @@ IMAGE_D2 = settings.imageDimension2
 IMAGE_D3 = settings.imageDimension3
 
 
-
 def two_class_encode(label, number_of_classes=2):
+    """
+
+    :param label:
+    :param number_of_classes:
+    :return:
+    """
     result = np.zeros(number_of_classes)
     if label == "0":
         result[1] = 1.0
     else:
         result[0] = 1.0
     return result
-'''# dictionary of file name and one_hot_encoded labels
+
+
+# dictionary of file name and one_hot_encoded labels
 def read_labels(labels_file_path):
+    """
+
+    :param labels_file_path:
+    :return:
+    """
     labelData = open(labels_file_path, 'r')
     labels = []
     try:
@@ -41,7 +50,13 @@ def read_labels(labels_file_path):
         labelData.close()
     return np.asarray(labels)
 
+
 def read_image_file_names(image_file_path):
+    """
+
+    :param image_file_path:
+    :return:
+    """
     image_list = []
     image_data = open(image_file_path, 'r')
 
@@ -52,23 +67,35 @@ def read_image_file_names(image_file_path):
             image_list.append(image)
     finally:
         image_data.close()
-    return image_list'''
+    return image_list
+
 
 def equalize(im):
+    """
+
+    :param im:
+    :return:
+    """
     h = im.convert("L").histogram()
     lut = []
     for b in range(0, len(h), 256):
         # step size
-        step = reduce(operator.add, h[b:b+256]) /255
+        step = reduce(operator.add, h[b:b + 256]) / 255
         # create equalization lookup table
         n = 0
         for i in range(256):
             lut.append(n / step)
-            n = n+ h[i+b]
+            n = n + h[i + b]
     # map image through lookup table
     return im.point(lut * 3)
 
+
 def read_labels_and_image_names(labels_file_path):
+    """
+
+    :param labels_file_path:
+    :return:
+    """
     image_list = dict()
     image_data = open(labels_file_path, 'r')
     try:
@@ -112,64 +139,81 @@ def create_images_arrays(image_list, data_directory_path):
     gc.collect()
     return np.array(images, dtype=np.float32)
 
+def convert_one_hot_encode(label_result):
+    if label_result[1] == 1.0:
+        result = 0
+    else:
+        result = 1
+    return result
 
 class DataSet(object):
-  def __init__(self, images, labels, fake_data=False):
-    if fake_data:
-      self._num_examples = 10000
-    else:
-      assert images.shape[0] == labels.shape[0], (
-          "images.shape: %s labels.shape: %s" % (images.shape,
-                                                 labels.shape))
-      self._num_examples = images.shape[0]
-      # Convert shape from [num examples, rows, columns, depth]
-      # to [num examples, rows*columns] (assuming depth == 1)
-      # assert images.shape[3] == 1
-      images = images.reshape(images.shape[0],
-                              images.shape[1] * images.shape[2] * images.shape[3])
-      # Convert from [0, 255] -> [0.0, 1.0].
-      images = images.astype(np.float32)
-      images = np.multiply(images, 1.0 / 255.0)
-    self._images = images
-    self._labels = labels
-    self._epochs_completed = 0
-    self._index_in_epoch = 0
-  @property
-  def images(self):
-    return self._images
-  @property
-  def labels(self):
-    return self._labels
-  @property
-  def num_examples(self):
-    return self._num_examples
-  @property
-  def epochs_completed(self):
-    return self._epochs_completed
+    def __init__(self, images, labels, fake_data=False):
+        """
 
-  def next_batch(self, batch_size, fake_data=False):
-    """Return the next `batch_size` examples from this data set."""
-    if fake_data:
-      fake_image = [1.0 for _ in xrange(784)]
-      fake_label = 0
-      return [fake_image for _ in xrange(batch_size)], [
-          fake_label for _ in xrange(batch_size)]
-    start = self._index_in_epoch
-    self._index_in_epoch += batch_size
-    if self._index_in_epoch > self._num_examples:
-      # Finished epoch
-      self._epochs_completed += 1
-      # Shuffle the data
-      perm = np.arange(self._num_examples)
-      np.random.shuffle(perm)
-      self._images = self._images[perm]
-      self._labels = self._labels[perm]
-      # Start next epoch
-      start = 0
-      self._index_in_epoch = batch_size
-      assert batch_size <= self._num_examples
-    end = self._index_in_epoch
-    return self._images[start:end], self._labels[start:end]
+        :param images:
+        :param labels:
+        :param fake_data:
+        """
+        if fake_data:
+            self._num_examples = 10000
+        else:
+            assert images.shape[0] == labels.shape[0], (
+                "images.shape: %s labels.shape: %s" % (images.shape,
+                                                       labels.shape))
+            self._num_examples = images.shape[0]
+            # Convert shape from [num examples, rows, columns, depth]
+            # to [num examples, rows*columns] (assuming depth == 1)
+            # assert images.shape[3] == 1
+            images = images.reshape(images.shape[0],
+                                    images.shape[1] * images.shape[2] * images.shape[3])
+            # Convert from [0, 255] -> [0.0, 1.0].
+            images = images.astype(np.float32)
+            images = np.multiply(images, 1.0 / 255.0)
+        self._images = images
+        self._labels = labels
+        self._epochs_completed = 0
+        self._index_in_epoch = 0
+
+    @property
+    def images(self):
+        return self._images
+
+    @property
+    def labels(self):
+        return self._labels
+
+    @property
+    def num_examples(self):
+        return self._num_examples
+
+    @property
+    def epochs_completed(self):
+        return self._epochs_completed
+
+    def next_batch(self, batch_size, fake_data=False):
+        """Return the next `batch_size` examples from this data set."""
+        if fake_data:
+            fake_image = [1.0 for _ in xrange(784)]
+            fake_label = 0
+            return [fake_image for _ in xrange(batch_size)], [
+                fake_label for _ in xrange(batch_size)]
+        start = self._index_in_epoch
+        self._index_in_epoch += batch_size
+        if self._index_in_epoch > self._num_examples:
+            # Finished epoch
+            self._epochs_completed += 1
+            # Shuffle the data
+            perm = np.arange(self._num_examples)
+            np.random.shuffle(perm)
+            self._images = self._images[perm]
+            self._labels = self._labels[perm]
+            # Start next epoch
+            start = 0
+            self._index_in_epoch = batch_size
+            assert batch_size <= self._num_examples
+        end = self._index_in_epoch
+        return self._images[start:end], self._labels[start:end]
+
 
 # Test..
 # read_labels(labels_file_path)

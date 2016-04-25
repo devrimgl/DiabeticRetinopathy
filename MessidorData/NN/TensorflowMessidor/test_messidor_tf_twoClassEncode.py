@@ -1,15 +1,16 @@
 import messidor_tf_twoClassEncode as tce
 import tensorflow as tf
-import numpy as np
 import settings
 
 
 class DataSets(object):
     pass
 
+
 def weight_variable(shape):
     initial = tf.truncated_normal(shape, stddev=0.1)
     return tf.Variable(initial)
+
 
 def bias_variable(shape):
     initial = tf.constant(0.0, shape=shape)
@@ -36,7 +37,6 @@ test_images = images[TRAIN_DATA_SIZE:]
 train_labels = labels[:TRAIN_DATA_SIZE]
 test_labels = labels[TRAIN_DATA_SIZE:]
 print(test_labels)
-
 
 data_sets = DataSets()
 data_sets.train = tce.DataSet(train_images, train_labels)
@@ -78,14 +78,13 @@ accuracy = tf.reduce_mean(tf.cast(correct_prediction, tf.float32))
 for i in range(RANGE):
     print ('Iteration', i)
     batch = data_sets.train.next_batch(BATCH)
-    if i% 10 == 0:
-        train_accuracy = accuracy.eval(feed_dict= {
+    if i % 10 == 0:
+        train_accuracy = accuracy.eval(feed_dict={
             x: data_sets.train.images, y_: data_sets.train.labels})
-        print "step %d, training accuracy %g" %(i, train_accuracy)
+        print "step %d, training accuracy %g" % (i, train_accuracy)
     train_step.run(feed_dict={x: data_sets.train.images, y_: data_sets.train.labels})
 
-    #sess.run(train_step, feed_dict={x: batch_xs, y_: batch_ys})
-
+    # sess.run(train_step, feed_dict={x: batch_xs, y_: batch_ys})
 
 # Accuracy on test data
 # print(sess.run(accuracy, feed_dict={x: data_sets.test.images, y_: data_sets.test.labels}))
