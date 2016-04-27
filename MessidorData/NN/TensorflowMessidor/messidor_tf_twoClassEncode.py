@@ -24,9 +24,9 @@ def two_class_encode(label, number_of_classes=2):
     """
     result = np.zeros(number_of_classes)
     if label == "0":
-        result[1] = 1.0
-    else:
         result[0] = 1.0
+    else:
+        result[1] = 1.0
     return result
 
 
@@ -140,7 +140,7 @@ def create_images_arrays(image_list, data_directory_path):
     return np.array(images, dtype=np.float32)
 
 def convert_one_hot_encode(label_result):
-    if label_result[1] == 1.0:
+    if label_result[0] == 1.0:
         result = 0
     else:
         result = 1

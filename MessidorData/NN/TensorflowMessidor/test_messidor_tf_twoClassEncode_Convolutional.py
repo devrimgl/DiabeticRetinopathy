@@ -70,7 +70,11 @@ IMAGE_DENSELY_CONNECTED_LAYER_OUTPUT = settings.denselyConnectedLayerOutput
 RANGE = settings.range
 BATCH = settings.batch
 
-print('Reading dataset..')
+print('------------------------------------------------------------------------------------------')
+print("Date: " + str(settings.currentTime))
+print("Range: " + str(RANGE))
+print("Batch: " + str(BATCH))
+print('Reading dataset...')
 # labels = tce.read_labels(data_file_path)
 # file_names = tce.read_image_file_names(data_file_path)
 file_names, labels = tce.read_labels_and_image_names(data_file_path)
@@ -100,6 +104,7 @@ for train_index, test_index in kf:
     data_sets = DataSets()
     data_sets.train = tce.DataSet(train_images, train_labels)
     data_sets.test = tce.DataSet(test_images, test_labels)
+    print('---------------------------------')
     print("Data set is loaded..")
     x = tf.placeholder(tf.float32, [None, IMAGE_SIZE])
     y_ = tf.placeholder(tf.float32, [None, 2])
@@ -185,10 +190,10 @@ for train_index, test_index in kf:
 
     correct_prediction = tf.equal(tf.argmax(y_conv, 1), tf.argmax(y_, 1))
     accuracy = tf.reduce_mean(tf.cast(correct_prediction, tf.float32))
-    print("initializing all variables")
+    print("Initializing all variables")
     sess.run(tf.initialize_all_variables())
     for i in range(RANGE):
-        print ("iteration : ", i)
+        # print ("iteration : ", i)
         batch = data_sets.train.next_batch(BATCH)
         if i % 1000 == 0:
             train_accuracy = accuracy.eval(feed_dict={
@@ -202,19 +207,19 @@ for train_index, test_index in kf:
     label_true = [tce.convert_one_hot_encode(item) for item in data_sets.test.labels]
     probabilities = y_conv
     label_probabilities = probabilities.eval(feed_dict={x: data_sets.test.images, y_: data_sets.test.labels, keep_prob: 0.5})
-    label_scores = [item[1] for item in label_probabilities]
+    label_scores = [item[0] for item in label_probabilities]
     label_true = np.array(label_true)
     label_scores = np.array(label_scores)
     # test_roc_auc = roc_auc_score(label_true, label_scores)
 
-    fpr, tpr, thresholds = roc_curve(label_true, label_scores, pos_label=1)
+    fpr, tpr, thresholds = roc_curve(label_true, label_scores, pos_label=0)
     test_auc_result = auc(fpr, tpr)
     test_log_loss_result = log_loss(label_true, label_probabilities)
 
     # print('Test Roc AUC score for fold ', fold, test_roc_auc)
 
     print('Test AUC score for fold = ' + str(fold) + str(test_auc_result))
-    print('Test log loss for fold = ', fold, test_log_loss_result)
+    print('Test log loss for fold = ' + str(fold) + str(test_log_loss_result))
 
     print("test accuracy %g" % test_acc)
     acc.append(test_acc)

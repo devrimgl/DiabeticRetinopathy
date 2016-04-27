@@ -16,10 +16,10 @@ imageSize = imageDimension1 * imageDimension2 * imageDimension3
 firstConvolutionalLayerOutput = 16
 denselyConnectedLayerOutput = 96
 
-range = 2500
+range = 5001
 batch = 50
 
 kernelSize = 3
 layer = 6
 layerPoolConstant = int(math.pow(2, layer))
-currentTime = time.strftime("%Y%m%d%_H%M")
+currentTime = time.strftime("%Y %m %d - %H:%M")
