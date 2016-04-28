@@ -16,7 +16,7 @@ imageSize = imageDimension1 * imageDimension2 * imageDimension3
 firstConvolutionalLayerOutput = 16
 denselyConnectedLayerOutput = 96
 
-range = 5001
+range = 2001
 batch = 50
 
 kernelSize = 3
