@@ -23,3 +23,5 @@ kernelSize = 3
 layer = 6
 layerPoolConstant = int(math.pow(2, layer))
 currentTime = time.strftime("%Y %m %d - %H:%M")
+
+cnnModelPath = '/home/devrim/DR_data/cnnModel/model.ckpt'
