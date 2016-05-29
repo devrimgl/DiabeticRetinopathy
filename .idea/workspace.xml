@@ -2,9 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2c358850-d477-431d-a045-dde51a5ffc73" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/MessidorData/NN/TensorflowMessidor/test_with_other_datasets.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MessidorData/NN/TensorflowMessidor/convert.py" afterPath="$PROJECT_DIR$/MessidorData/NN/TensorflowMessidor/convert.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MessidorData/NN/TensorflowMessidor/settings.py" afterPath="$PROJECT_DIR$/MessidorData/NN/TensorflowMessidor/settings.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MessidorData/NN/TensorflowMessidor/test_messidor_tf_twoClassEncode_Convolutional.py" afterPath="$PROJECT_DIR$/MessidorData/NN/TensorflowMessidor/test_messidor_tf_twoClassEncode_Convolutional.py" />
     </list>
     <ignored path="DR.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -28,8 +29,8 @@
       <file leaf-file-name="settings.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/MessidorData/NN/TensorflowMessidor/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="310">
-              <caret line="10" column="21" selection-start-line="10" selection-start-column="21" selection-end-line="10" selection-end-column="21" />
+            <state relative-caret-position="651">
+              <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
               </folding>
@@ -37,65 +38,33 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="cross_validation.py" pinned="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/anaconda2/lib/python2.7/site-packages/sklearn/cross_validation.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="470">
-              <caret line="240" column="0" selection-start-line="240" selection-start-column="0" selection-end-line="240" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="test_messidor_tf_oneHotEncode.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/MessidorData/NN/TensorflowMessidor/test_messidor_tf_oneHotEncode.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-14">
-              <caret line="27" column="22" selection-start-line="27" selection-start-column="22" selection-end-line="27" selection-end-column="22" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TwoClassEncodeConvolutionalTestResults_201604231714.log" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/MessidorData/NN/TensorflowMessidor/TwoClassEncodeConvolutionalTestResults_201604231714.log">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1361">
-              <caret line="1296" column="39" selection-start-line="1296" selection-start-column="39" selection-end-line="1296" selection-end-column="39" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="test_messidor_tf_twoClassEncode_Convolutional.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/MessidorData/NN/TensorflowMessidor/test_messidor_tf_twoClassEncode_Convolutional.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-3193">
-              <caret line="41" column="67" selection-start-line="41" selection-start-column="67" selection-end-line="41" selection-end-column="67" />
-              <folding>
-                <element signature="e#0#40#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="dataset.csv" pinned="false" current-in-tab="true">
+      <file leaf-file-name="dataset.csv" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/MessidorData/classifier/dataset.csv">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-8463">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="527">
+              <caret line="290" column="116" selection-start-line="290" selection-start-column="116" selection-end-line="290" selection-end-column="116" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="classifier.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/MessidorData/classifier/classifier.py">
+      <file leaf-file-name="test_with_other_datasets.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/MessidorData/NN/TensorflowMessidor/test_with_other_datasets.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3410">
-              <caret line="119" column="52" selection-start-line="119" selection-start-column="52" selection-end-line="119" selection-end-column="52" />
+            <state relative-caret-position="450">
+              <caret line="143" column="0" selection-start-line="143" selection-start-column="0" selection-end-line="143" selection-end-column="0" />
+              <folding>
+                <element signature="e#0#23#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="image_preprocess.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/MessidorData/NN/TensorflowMessidor/image_preprocess.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="279">
+              <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -104,20 +73,30 @@
       <file leaf-file-name="messidor_tf_twoClassEncode.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/MessidorData/NN/TensorflowMessidor/messidor_tf_twoClassEncode.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="970">
-              <caret line="103" column="31" selection-start-line="103" selection-start-column="31" selection-end-line="103" selection-end-column="31" />
+            <state relative-caret-position="470">
+              <caret line="92" column="4" selection-start-line="92" selection-start-column="4" selection-end-line="92" selection-end-column="4" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="convert.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/MessidorData/NN/TensorflowMessidor/convert.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="512">
+              <caret line="87" column="8" selection-start-line="87" selection-start-column="8" selection-end-line="87" selection-end-column="8" />
               <folding>
-                <element signature="e#0#10#0" expanded="true" />
+                <element signature="e#127#136#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="test_messidor_tf_twoClassEncode.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/MessidorData/NN/TensorflowMessidor/test_messidor_tf_twoClassEncode.py">
+      <file leaf-file-name="test_messidor_tf_twoClassEncode_Convolutional.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/MessidorData/NN/TensorflowMessidor/test_messidor_tf_twoClassEncode_Convolutional.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="761">
-              <caret line="79" column="45" selection-start-line="79" selection-start-column="45" selection-end-line="79" selection-end-column="45" />
+            <state relative-caret-position="558">
+              <caret line="216" column="23" selection-start-line="216" selection-start-column="4" selection-end-line="216" selection-end-column="23" />
               <folding>
                 <element signature="e#0#40#0" expanded="true" />
               </folding>
@@ -164,7 +143,6 @@
         <option value="$PROJECT_DIR$/MessidorData/NN/TensorflowMessidor/read_csv.py" />
         <option value="$PROJECT_DIR$/MessidorData/NN/TensorflowMessidor/read_image.py" />
         <option value="$PROJECT_DIR$/MessidorData/NN/TensorflowMessidor/test.py" />
-        <option value="$PROJECT_DIR$/MessidorData/NN/TensorflowMessidor/convert.py" />
         <option value="$PROJECT_DIR$/TensorFlow/Tutorials/testTensorFlow.py" />
         <option value="$PROJECT_DIR$/TensorFlow/Tutorials/Minst.py" />
         <option value="$PROJECT_DIR$/MessidorData/NN/TensorflowMessidor/log.py" />
@@ -175,7 +153,10 @@
         <option value="$PROJECT_DIR$/MessidorData/NN/TensorflowMessidor/TwoClassEncodeConvolutionalTestResults_201604231714.log" />
         <option value="$PROJECT_DIR$/MessidorData/NN/TensorflowMessidor/h.py" />
         <option value="$PROJECT_DIR$/MessidorData/NN/TensorflowMessidor/test_messidor_tf_twoClassEncode_Convolutional.py" />
+        <option value="$PROJECT_DIR$/MessidorData/NN/TensorflowMessidor/kj" />
         <option value="$PROJECT_DIR$/MessidorData/NN/TensorflowMessidor/settings.py" />
+        <option value="$PROJECT_DIR$/MessidorData/NN/TensorflowMessidor/convert.py" />
+        <option value="$PROJECT_DIR$/MessidorData/NN/TensorflowMessidor/test_with_other_datasets.py" />
       </list>
     </option>
   </component>
@@ -337,7 +318,7 @@
       <recent name="$PROJECT_DIR$/classifier" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.test_messidor_tf_twoClassEncode_Convolutional">
+  <component name="RunManager" selected="Python.test_with_other_datasets">
     <configuration default="false" name="test_messidor_tf_oneHotEncode" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -402,6 +383,23 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="DR" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/TensorFlow/Tutorials/testTensorFlow.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="test_with_other_datasets" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/MessidorData/NN/TensorflowMessidor" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="DR" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/MessidorData/NN/TensorflowMessidor/test_with_other_datasets.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
@@ -557,19 +555,21 @@
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
     </configuration>
-    <list size="5">
+    <list size="6">
       <item index="0" class="java.lang.String" itemvalue="Python.test_messidor_tf_twoClassEncode" />
       <item index="1" class="java.lang.String" itemvalue="Python.test_messidor_tf_oneHotEncode" />
       <item index="2" class="java.lang.String" itemvalue="Python.test_messidor_tf_twoClassEncode_Convolutional" />
       <item index="3" class="java.lang.String" itemvalue="Python.convert" />
       <item index="4" class="java.lang.String" itemvalue="Python.testTensorFlow" />
+      <item index="5" class="java.lang.String" itemvalue="Python.test_with_other_datasets" />
     </list>
     <recent_temporary>
-      <list size="4">
-        <item index="0" class="java.lang.String" itemvalue="Python.test_messidor_tf_twoClassEncode_Convolutional" />
-        <item index="1" class="java.lang.String" itemvalue="Python.test_messidor_tf_oneHotEncode" />
-        <item index="2" class="java.lang.String" itemvalue="Python.testTensorFlow" />
-        <item index="3" class="java.lang.String" itemvalue="Python.convert" />
+      <list size="5">
+        <item index="0" class="java.lang.String" itemvalue="Python.test_with_other_datasets" />
+        <item index="1" class="java.lang.String" itemvalue="Python.convert" />
+        <item index="2" class="java.lang.String" itemvalue="Python.test_messidor_tf_twoClassEncode_Convolutional" />
+        <item index="3" class="java.lang.String" itemvalue="Python.test_messidor_tf_oneHotEncode" />
+        <item index="4" class="java.lang.String" itemvalue="Python.testTensorFlow" />
       </list>
     </recent_temporary>
   </component>
@@ -706,7 +706,14 @@
       <option name="project" value="LOCAL" />
       <updated>1461837726024</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="NN model saved to compare with other DBs">
+      <created>1464525306129</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1464525306129</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TodoView">
@@ -727,11 +734,11 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32890025" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.53248084" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24740125" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24740125" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32890025" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39897698" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39864865" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -761,7 +768,8 @@
     <MESSAGE value="k-fold: 6-fold 1000training 200 test&#10;bug fix: cross entropy nan problem, solution: using different optimizers with smaller learning rate&#10;blur cv2 removed, histogram normalization added(need to check again)&#10;9 convolutional, 6 pooling, 1 dropout, 2 fully connected layer&#10;tried 256, BOM!&#10;max image resolution 128,&#10;batch 50, range 5000&#10;&#10;" />
     <MESSAGE value="test 2500 - 50, 6fold&#10;metrics added&#10;" />
     <MESSAGE value="test 5000 - 50, 6fold - at and after 2000 training acc 1&#10;" />
-    <option name="LAST_COMMIT_MESSAGE" value="test 5000 - 50, 6fold - at and after 2000 training acc 1&#10;" />
+    <MESSAGE value="NN model saved to compare with other DBs" />
+    <option name="LAST_COMMIT_MESSAGE" value="NN model saved to compare with other DBs" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -773,34 +781,17 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="python-line">
           <url>file://$PROJECT_DIR$/MessidorData/NN/TensorflowMessidor/convert.py</url>
-          <line>95</line>
-          <option name="timeStamp" value="11" />
+          <line>17</line>
+          <option name="timeStamp" value="23" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="18" />
+      <option name="time" value="24" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file:///Library/Python/2.7/site-packages/tensorflow/python/__init__.py" />
-    <entry file="file://$PROJECT_DIR$/MessidorData/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/anaconda/lib/python2.7/site-packages/tensorflow/python/ops/math_ops.py" />
-    <entry file="file://$USER_HOME$/anaconda/lib/python2.7/site-packages/tensorflow/python/ops/array_ops.py" />
     <entry file="file://$USER_HOME$/anaconda/lib/python2.7/site-packages/tensorflow/python/ops/gen_array_ops.py" />
     <entry file="file://$USER_HOME$/anaconda/lib/python2.7/site-packages/tensorflow/python/ops/nn_ops.py" />
-    <entry file="file://$PROJECT_DIR$/MessidorData/NN/TensorflowMessidor/read_image.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="8" column="20" selection-start-line="8" selection-start-column="20" selection-end-line="8" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/MessidorData/NN/TensorflowMessidor/messidor_data.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1369">
@@ -819,23 +810,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="495">
           <caret line="16" column="58" selection-start-line="16" selection-start-column="58" selection-end-line="16" selection-end-column="58" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/anaconda2/lib/python2.7/site-packages/PIL/Image.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="456">
-          <caret line="627" column="0" selection-start-line="627" selection-start-column="0" selection-end-line="627" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MessidorData/NN/TensorflowMessidor/convert.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="874">
-          <caret line="97" column="0" selection-start-line="97" selection-start-column="0" selection-end-line="97" selection-end-column="0" />
-          <folding>
-            <element signature="e#127#136#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -881,20 +855,6 @@
         <state relative-caret-position="415">
           <caret line="210" column="0" selection-start-line="210" selection-start-column="0" selection-end-line="210" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MessidorData/NN/TensorflowMessidor/image_preprocess.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="558">
-          <caret line="18" column="14" selection-start-line="18" selection-start-column="12" selection-end-line="18" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MessidorData/NN/TensorflowMessidor/shuffle.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1612">
-          <caret line="52" column="0" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -1037,12 +997,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/MessidorData/NN/TensorflowMessidor/messidor_tf_twoClassEncode.py">
+    <entry file="file://$USER_HOME$/anaconda2/lib/python2.7/site-packages/sklearn/cross_validation.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="970">
-          <caret line="103" column="31" selection-start-line="103" selection-start-column="31" selection-end-line="103" selection-end-column="31" />
+        <state relative-caret-position="470">
+          <caret line="240" column="0" selection-start-line="240" selection-start-column="0" selection-end-line="240" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MessidorData/NN/TensorflowMessidor/test_messidor_tf_oneHotEncode.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="186">
+          <caret line="27" column="22" selection-start-line="27" selection-start-column="22" selection-end-line="27" selection-end-column="22" />
           <folding>
-            <element signature="e#0#10#0" expanded="true" />
+            <element signature="e#0#26#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1055,21 +1023,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/anaconda2/lib/python2.7/site-packages/sklearn/cross_validation.py">
+    <entry file="file://$PROJECT_DIR$/MessidorData/NN/TensorflowMessidor/test_messidor_tf_twoClassEncode.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="470">
-          <caret line="240" column="0" selection-start-line="240" selection-start-column="0" selection-end-line="240" selection-end-column="0" />
+        <state relative-caret-position="31">
+          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="23" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MessidorData/NN/TensorflowMessidor/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="310">
-          <caret line="10" column="21" selection-start-line="10" selection-start-column="21" selection-end-line="10" selection-end-column="21" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1081,41 +1039,117 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/MessidorData/NN/TensorflowMessidor/test_messidor_tf_oneHotEncode.py">
+    <entry file="file://$USER_HOME$/anaconda2/lib/python2.7/site-packages/tensorflow/python/training/saver.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-14">
-          <caret line="27" column="22" selection-start-line="27" selection-start-column="22" selection-end-line="27" selection-end-column="22" />
+        <state relative-caret-position="373">
+          <caret line="775" column="0" selection-start-line="775" selection-start-column="0" selection-end-line="775" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/anaconda2/lib/python2.7/site-packages/tensorflow/python/ops/variables.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="373">
+          <caret line="220" column="0" selection-start-line="220" selection-start-column="0" selection-end-line="220" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MessidorData/classifier/dataset.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="527">
+          <caret line="290" column="116" selection-start-line="290" selection-start-column="116" selection-end-line="290" selection-end-column="116" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/anaconda2/lib/python2.7/site-packages/PIL/Image.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="580">
+          <caret line="628" column="0" selection-start-line="628" selection-start-column="0" selection-end-line="628" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MessidorData/NN/TensorflowMessidor/shuffle.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1349">
+          <caret line="52" column="0" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MessidorData/NN/TensorflowMessidor/read_image.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="202">
+          <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
           <folding>
-            <element signature="e#0#26#0" expanded="true" />
+            <element signature="e#0#10#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/MessidorData/NN/TensorflowMessidor/test_messidor_tf_twoClassEncode.py">
+    <entry file="file://$PROJECT_DIR$/MessidorData/NN/TensorflowMessidor/image_preprocess.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="761">
-          <caret line="79" column="45" selection-start-line="79" selection-start-column="45" selection-end-line="79" selection-end-column="45" />
+        <state relative-caret-position="279">
+          <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MessidorData/NN/TensorflowMessidor/messidor_tf_twoClassEncode.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="470">
+          <caret line="92" column="4" selection-start-line="92" selection-start-column="4" selection-end-line="92" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MessidorData/NN/TensorflowMessidor/kj">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1225">
+          <caret line="60" column="12" selection-start-line="60" selection-start-column="12" selection-end-line="60" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MessidorData/NN/TensorflowMessidor/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="651">
+          <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
           <folding>
-            <element signature="e#0#40#0" expanded="true" />
+            <element signature="e#0#11#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/MessidorData/NN/TensorflowMessidor/test_messidor_tf_twoClassEncode_Convolutional.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3193">
-          <caret line="41" column="67" selection-start-line="41" selection-start-column="67" selection-end-line="41" selection-end-column="67" />
+        <state relative-caret-position="558">
+          <caret line="216" column="23" selection-start-line="216" selection-start-column="4" selection-end-line="216" selection-end-column="23" />
           <folding>
             <element signature="e#0#40#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/MessidorData/classifier/dataset.csv">
+    <entry file="file://$PROJECT_DIR$/MessidorData/NN/TensorflowMessidor/convert.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-8463">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="512">
+          <caret line="87" column="8" selection-start-line="87" selection-start-column="8" selection-end-line="87" selection-end-column="8" />
+          <folding>
+            <element signature="e#127#136#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MessidorData/NN/TensorflowMessidor/test_with_other_datasets.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="143" column="0" selection-start-line="143" selection-start-column="0" selection-end-line="143" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#23#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

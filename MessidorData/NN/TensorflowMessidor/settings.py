@@ -2,6 +2,10 @@ import math
 import time
 
 dataDirectoryPath = '/home/devrim/DR_data/data'
+diaretdb1_path= '/home/devrim/Downloads/diaretdb1_v_1_1/resources/images/ddb1_fundusimages/'
+diaretdb1_converted_path= '/home/devrim/Downloads/diaretdb1_v_1_1/resources/images/converted/'
+diaretdb0_path= '/home/devrim/Downloads/diaretdb0_v_1_1/resources/images/diaretdb0_fundus_images'
+diaretdb0_converted_path= '//home/devrim/Downloads/diaretdb0_v_1_1/resources/images/converted/'
 convertDataDirectoryPath = '/home/devrim/DR_data/convertData'
 dataFilePath = '/home/devrim/DR_data/data/data.csv'
 path = '/home/devrim/DR_data/data/20051019_38557_0100_PP.tif'

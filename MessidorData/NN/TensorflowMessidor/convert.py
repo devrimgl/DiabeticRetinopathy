@@ -4,7 +4,9 @@ import os
 from multiprocessing.pool import Pool
 
 import numpy as np
-from PIL import Image, ImageFilter
+#from PIL import Image, ImageFilter
+import PIL.Image as Image
+import PIL.ImageFilter as ImageFilter
 import settings
 import cv2
 
@@ -90,18 +92,19 @@ def main(directory, convert_directory, crop_size, extension):
         pass
 
     filenames = [os.path.join(dp, f) for dp, dn, fn in os.walk(directory)
-                 for f in fn if f.endswith('jpeg') or f.endswith('tif')]
+                 for f in fn if f.endswith('jpg') or f.endswith('tif') or f.endswith('png')]
     filenames = sorted(filenames)
 
     for f in filenames:
         img = convert(f, crop_size)
-        b = np.zeros(img.shape)
-        cv2.circle(b, (img.shape[1] / 2, img.shape[0] / 2), int(512 * 0.9), (1, 1, 1), -1, 8, 0)
-        im_blur = cv2.addWeighted(img, 4, cv2.GaussianBlur(img, (0, 0), 512 / 30), -4, 128) * b + 128 * (1 - b)
-        save(im_blur, os.path.join(convert_directory, f))
+        #b = np.zeros(np.asarray(img).shape)
+        #cv2.circle(b, (img.size[1] / 2, img.size[0] / 2), int(512 * 0.9), (1, 1, 1), -1, 8, 0)
+        #im_blur = cv2.addWeighted(img, 4, cv2.GaussianBlur(img, (0, 0), 512 / 30), -4, 128) * b + 128 * (1 - b)
+        save(img, os.path.join(convert_directory, f))
 
 
 
 
 if __name__ == '__main__':
-    main(settings.dataDirectoryPath, settings.convertDataDirectoryPath, crop_size=512, extension='tif')
+    # main(settings.dataDirectoryPath, settings.convertDataDirectoryPath, crop_size=512, extension='tif')
+    main("/home/devrim/Downloads/abnormal_color_Fundus", "/home/devrim/Downloads/abnormal_color_Fundus", crop_size=512, extension='png')
