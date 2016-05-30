@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
+<<<<<<< Updated upstream
     <list default="true" id="2c358850-d477-431d-a045-dde51a5ffc73" name="Default" comment="">
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/MessidorData/NN/TensorflowMessidor/test_with_other_datasets.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MessidorData/NN/TensorflowMessidor/convert.py" afterPath="$PROJECT_DIR$/MessidorData/NN/TensorflowMessidor/convert.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MessidorData/NN/TensorflowMessidor/settings.py" afterPath="$PROJECT_DIR$/MessidorData/NN/TensorflowMessidor/settings.py" />
     </list>
+=======
+    <list default="true" id="2c358850-d477-431d-a045-dde51a5ffc73" name="Default" comment="" />
+>>>>>>> Stashed changes
     <ignored path="DR.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />

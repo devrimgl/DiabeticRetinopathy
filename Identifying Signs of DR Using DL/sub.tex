@@ -1,0 +1,50 @@
+\documentclass[a4paper]{report}
+
+\makeatletter
+\newcommand\level[1]{%
+  \ifcase#1\relax\expandafter\chapter\or
+    \expandafter\section\or
+    \expandafter\subsection\or
+    \expandafter\subsubsection\else
+    \def\next{\@level{#1}}\expandafter\next
+  \fi}
+\newcommand{\@level}[1]{%
+  \@startsection{level#1}
+    {#1}
+    {\z@}%
+    {-3.25ex\@plus -1ex \@minus -.2ex}%
+    {1.5ex \@plus .2ex}%
+    {\normalfont\normalsize\bfseries}}
+
+\newcounter{level4}[subsubsection]
+\@namedef{thelevel4}{\thesubsubsection.\arabic{level4}}
+\@namedef{level4mark}#1{}
+\count@=4
+\loop\ifnum\count@<100
+  \begingroup\edef\x{\endgroup
+    \noexpand\newcounter{level\number\numexpr\count@+1\relax}[level\number\count@]
+    \noexpand\@namedef{thelevel\number\numexpr\count@+1\relax}{%
+      \noexpand\@nameuse{thelevel\number\count@}.\noexpand\arabic{level\number\numexpr\count@+1\relax}}
+    \noexpand\@namedef{level\number\numexpr\count@+1\relax mark}####1{}}
+  \x
+  \advance\count@\@ne
+\repeat
+\makeatother
+\setcounter{secnumdepth}{100}
+
+\begin{document}
+
+\level{0}{abc}
+\level{1}{abc}
+\level{2}{abc}
+\level{3}{abc}
+\level{4}{abc}
+\level{5}{abc}
+\level{6}{abc}
+\level{7}{abc}
+\level{8}{abc}
+\level{9}{abc}
+\level{10}{abc}
+\level{11}{abc}
+\level{12}{abc}
+\end{document}

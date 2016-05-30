@@ -1,0 +1,55 @@
+\documentclass[a4paper,12pt]{report}
+
+%% Color
+\usepackage{color}
+
+%% Diagrams
+\usepackage{graphicx,epsfig}
+
+%% To control the table caption positioning
+\usepackage{caption} 
+\captionsetup[table]{skip=5pt}
+
+%% 'H' for exact placement of floats
+\usepackage{float}
+
+%% For a lot of maths support, including align
+\usepackage{amsmath}
+
+%% For euros
+\usepackage{eurosym}
+
+%% Personalisation
+\setlength{\parskip}{1em}
+
+\begin{document}
+
+\author{Devrim Gunyel\\
+  Department of Computer Science\\
+  Maynooth University\\
+  Maynooth\\
+  Co. Kildare\\
+  IRELAND}
+\date{\today}
+\title{Identifying Signs of Diabetic Retinopathy Using Deep Learning}
+\maketitle
+
+%% Acknowledgement, Dedication and Declaration will be added here. Currently I can not add titles?????? 
+\include{Dedication/dedication}
+\include{Declaration/declaration}
+\include{Acknowledgement/acknowledgement}
+\include{Abstract/abstract}
+
+
+\tableofcontents
+
+\newpage
+
+\include{Chapter1/chapter1}
+\include{Chapter2/chapter2}
+\include{Chapter3/chapter3}
+\include{Chapter4/chapter4}
+
+
+
+\end{document}
