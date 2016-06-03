@@ -124,13 +124,16 @@ def create_images_arrays(image_list, data_directory_path):
     :return:
     """
     images = []
+    random.seed(0)
     for image in image_list:
         image_path = os.path.join(data_directory_path, image)
         im = Image.open(image_path)
+        rotation = 90*random.randint(0, 3)
+        if rotation != 0:
+            im = im.rotate(rotation)
         # im = equalize(im)
         # im = Image.open(image_path).convert("L")
         im.thumbnail((IMAGE_D1, IMAGE_D2), Image.ANTIALIAS)
-        im.save('out.png')
         im = np.array(im, dtype=np.float32)
         '''b = np.zeros(im.shape)
         cv2.circle(b, (im.shape[1] / 2, im.shape[0] / 2), int(IMAGE_D1 * 0.9), (1, 1, 1), -1, 8, 0)
