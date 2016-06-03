@@ -154,7 +154,7 @@ with tf.Session() as sess:
     print('Data model trained with messidor is loaded from the disk')
     # Load other dataset to test with messidor image.
     #PATH = '/home/devrim/Downloads/diaretdb0_v_1_1/resources/images/diaretdb0_fundus_images'
-    PATH = "/home/devrim/Downloads/abnormal_color_Fundus"
+    PATH = "/home/devrim/Downloads/ROCtraining"
     file_names = []
     for (dirpath, dirnames, filenames) in os.walk(PATH):
         file_names.extend(filenames)

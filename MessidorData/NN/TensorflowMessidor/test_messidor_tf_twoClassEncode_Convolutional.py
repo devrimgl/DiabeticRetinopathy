@@ -91,25 +91,25 @@ logFileName = ("TwoClassEncodeConvolutionalTestResults_" + settings.currentTime 
 logging.basicConfig(filename=logFileName)
 
 fold = 1
-#for train_index, test_index in kf:
-for i in range(1):
+for train_index, test_index in kf:
+#for i in range(1):
     sess = tf.InteractiveSession()
     # train_images = images[:TRAIN_DATA_SIZE]
     # test_images = images[TRAIN_DATA_SIZE:]
     # train_labels = labels[:TRAIN_DATA_SIZE]
     # test_labels = labels[TRAIN_DATA_SIZE:]
-    '''train_images = images[train_index]
+    train_images = images[train_index]
     test_images = images[test_index]
     train_labels = labels[train_index]
-    test_labels = labels[test_index]'''
-    train_images = images
+    test_labels = labels[test_index]
+    '''train_images = images
     train_labels = labels
     test_images  = []
-    test_labels = []
+    test_labels = []'''
 
     data_sets = DataSets()
     data_sets.train = tce.DataSet(train_images, train_labels)
-    #data_sets.test = tce.DataSet(test_images, test_labels)
+    data_sets.test = tce.DataSet(test_images, test_labels)
     print('---------------------------------')
     print("Data set is loaded..")
     x = tf.placeholder(tf.float32, [None, IMAGE_SIZE])
@@ -201,16 +201,15 @@ for i in range(1):
     for i in range(RANGE):
         # print ("iteration : ", i)
         batch = data_sets.train.next_batch(BATCH)
-        if i % 1000 == 0:
+        if i % 500 == 0:
             train_accuracy = accuracy.eval(feed_dict={
                 x: data_sets.train.images, y_: data_sets.train.labels, keep_prob: 0.5})
             print "step %d, training accuracy %g" % (i, train_accuracy)
         train_step.run(feed_dict={x: batch[0], y_: batch[1], keep_prob: 0.5})
-    saver = tf.train.Saver()
-    saver.save(sess, settings.cnnModelPath)
+    #saver = tf.train.Saver()
+    #saver.save(sess, settings.cnnModelPath)
     test_acc = accuracy.eval(
         feed_dict={x: data_sets.test.images, y_: data_sets.test.labels, keep_prob: 0.5})
-
 
     label_true = [tce.convert_one_hot_encode(item) for item in data_sets.test.labels]
     probabilities = y_conv
