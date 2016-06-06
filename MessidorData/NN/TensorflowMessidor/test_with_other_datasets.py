@@ -153,14 +153,15 @@ with tf.Session() as sess:
     saver.restore(sess, settings.cnnModelPath)
     print('Data model trained with messidor is loaded from the disk')
     # Load other dataset to test with messidor image.
-    #PATH = '/home/devrim/Downloads/diaretdb0_v_1_1/resources/images/diaretdb0_fundus_images'
-    PATH = "/home/devrim/Downloads/ROCtraining"
+    # PATH = '/home/devrim/Downloads/diaretdb0_v_1_1/resources/images/diaretdb0_fundus_images'
+    # PATH = "/home/devrim/Downloads/ROCtraining"
+    PATH = "/home/devrim/Downloads/normal"
     file_names = []
     for (dirpath, dirnames, filenames) in os.walk(PATH):
         file_names.extend(filenames)
         break
     test_images = tce.create_images_arrays(file_names, PATH)
-    test_labels = np.asarray([tce.two_class_encode('1') for i in range(len(test_images))])
+    test_labels = np.asarray([tce.two_class_encode('0') for i in range(len(test_images))])
     test_data = tce.DataSet(test_images, test_labels)
     test_acc = accuracy.eval(
         feed_dict={x: test_data.images, y_: test_data.labels, keep_prob: 0.5})

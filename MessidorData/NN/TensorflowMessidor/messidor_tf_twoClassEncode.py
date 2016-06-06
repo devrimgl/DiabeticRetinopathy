@@ -132,7 +132,6 @@ def create_images_arrays(image_list, data_directory_path):
         if rotation != 0:
             im = im.rotate(rotation)
         # im = equalize(im)
-        # im = Image.open(image_path).convert("L")
         im.thumbnail((IMAGE_D1, IMAGE_D2), Image.ANTIALIAS)
         im = np.array(im, dtype=np.float32)
         '''b = np.zeros(im.shape)

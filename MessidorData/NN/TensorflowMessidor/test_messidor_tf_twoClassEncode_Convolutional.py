@@ -92,7 +92,7 @@ logging.basicConfig(filename=logFileName)
 
 fold = 1
 for train_index, test_index in kf:
-#for i in range(1):
+# for i in range(1):
     sess = tf.InteractiveSession()
     # train_images = images[:TRAIN_DATA_SIZE]
     # test_images = images[TRAIN_DATA_SIZE:]
@@ -102,10 +102,10 @@ for train_index, test_index in kf:
     test_images = images[test_index]
     train_labels = labels[train_index]
     test_labels = labels[test_index]
-    '''train_images = images
-    train_labels = labels
-    test_images  = []
-    test_labels = []'''
+    #train_images = images
+    #train_labels = labels
+    #test_images  = []
+    #test_labels = []
 
     data_sets = DataSets()
     data_sets.train = tce.DataSet(train_images, train_labels)

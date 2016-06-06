@@ -107,4 +107,4 @@ def main(directory, convert_directory, crop_size, extension):
 
 if __name__ == '__main__':
     # main(settings.dataDirectoryPath, settings.convertDataDirectoryPath, crop_size=512, extension='tif')
-    main("/home/devrim/Downloads/abnormal_color_Fundus", "/home/devrim/Downloads/abnormal_color_Fundus", crop_size=512, extension='png')
+    main("/home/devrim/Downloads/normal", "/home/devrim/Downloads/normal", crop_size=512, extension='png')

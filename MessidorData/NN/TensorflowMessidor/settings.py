@@ -28,5 +28,7 @@ layer = 6
 layerPoolConstant = int(math.pow(2, layer))
 currentTime = time.strftime("%Y %m %d - %H:%M")
 
-#cnnModelPath = '/home/devrim/DR_data/cnnModel/model.ckpt'
-cnnModelPath = '/home/devrim/DR_data/cnn_noneq/model.ckpt'
+# cnnModelPath = '/home/devrim/DR_data/cnnModel/model.ckpt'
+# cnnModelPath = '/home/devrim/DR_data/cnn_noneq/model.ckpt'
+# cnnModelPath = '/home/devrim/DR_data/cnnRotateNoEqualizeModel/model.ckpt'
+cnnModelPath = '/home/devrim/DR_data/cnnGrayScaleRotateNoEqualizeModel/model.ckpt'
