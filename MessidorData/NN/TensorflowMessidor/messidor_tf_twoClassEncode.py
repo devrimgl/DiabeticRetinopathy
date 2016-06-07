@@ -2,7 +2,7 @@ import csv
 import os
 import random
 import gc
-from PIL import Image
+from PIL import Image, ImageEnhance
 import numpy as np
 import settings
 from collections import OrderedDict
@@ -128,6 +128,9 @@ def create_images_arrays(image_list, data_directory_path):
     for image in image_list:
         image_path = os.path.join(data_directory_path, image)
         im = Image.open(image_path)
+        enhancer = ImageEnhance.Contrast(im)
+        im = enhancer.enhance(2.5)
+        # im.show()
         rotation = 90*random.randint(0, 3)
         if rotation != 0:
             im = im.rotate(rotation)
