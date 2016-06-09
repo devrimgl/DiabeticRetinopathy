@@ -1,11 +1,14 @@
+import messidor_tf_oneHotEncode as tce
 import tensorflow as tf
-from sklearn.metrics import roc_curve, auc, roc_auc_score, log_loss
-
 import settings
-import os
-import messidor_tf_twoClassEncode as tce
+from sklearn.cross_validation import KFold
+from sklearn.metrics import roc_curve, auc, roc_auc_score, log_loss
 import numpy as np
-import matplotlib.pyplot as plt
+import logging
+import time
+
+class DataSets(object):
+    pass
 
 
 def weight_variable(shape):
@@ -54,6 +57,8 @@ TRAIN_DATA_SIZE = settings.trainDataSize
 KERNEL_SIZE = settings.kernelSize
 LAYER_CONSTANT = settings.layerPoolConstant
 
+
+
 # image
 IMAGE_D1 = settings.imageDimension1
 IMAGE_D2 = settings.imageDimension2
@@ -65,10 +70,50 @@ IMAGE_DENSELY_CONNECTED_LAYER_OUTPUT = settings.denselyConnectedLayerOutput
 RANGE = settings.range
 BATCH = settings.batch
 
+print('------------------------------------------------------------------------------------------')
+print("Date: " + str(settings.currentTime))
+print("Range: " + str(RANGE))
+print("Batch: " + str(BATCH))
+print('Reading dataset...')
+# labels = tce.read_labels(data_file_path)
+# file_names = tce.read_image_file_names(data_file_path)
+file_names, labels = tce.read_labels_and_image_names(data_file_path)
 
-with tf.Session() as sess:
+images = tce.create_images_arrays(file_names, data_directory_path)
+kf = KFold(len(images), n_folds=6)
+
+acc = []
+auc_result = []
+roc_auc_result = []
+log_loss_result = []
+
+logFileName = ("TwoClassEncodeConvolutionalTestResults_" + settings.currentTime +".log")
+logging.basicConfig(filename=logFileName)
+
+fold = 1
+for train_index, test_index in kf:
+# for i in range(1):
+    sess = tf.InteractiveSession()
+    train_images = images[:TRAIN_DATA_SIZE]
+    test_images = images[TRAIN_DATA_SIZE:]
+    train_labels = labels[:TRAIN_DATA_SIZE]
+    test_labels = labels[TRAIN_DATA_SIZE:]
+    # train_images = images[train_index]
+    # test_images = images[test_index]
+    # train_labels = labels[train_index]
+    # test_labels = labels[test_index]
+    '''train_images = images
+    train_labels = labels
+    test_images  = []
+    test_labels = []'''
+
+    data_sets = DataSets()
+    data_sets.train = tce.DataSet(train_images, train_labels)
+    data_sets.test = tce.DataSet(test_images, test_labels)
+    print('---------------------------------')
+    print("Data set is loaded..")
     x = tf.placeholder(tf.float32, [None, IMAGE_SIZE])
-    y_ = tf.placeholder(tf.float32, [None, 2])
+    y_ = tf.placeholder(tf.float32, [None, 4])
 
     W_conv1 = weight_variable([KERNEL_SIZE, KERNEL_SIZE, IMAGE_D3, IMAGE_CONVOLUTIONAL_LAYER_OUTPUT])
     b_conv1 = weight_variable([IMAGE_CONVOLUTIONAL_LAYER_OUTPUT])
@@ -141,8 +186,8 @@ with tf.Session() as sess:
         IMAGE_D2 / LAYER_CONSTANT) * IMAGE_CONVOLUTIONAL_LAYER_OUTPUT * 16])
     h_fc1 = tf.nn.relu(tf.matmul(h_pool_flat, W_fc1) + b_fc1)
 
-    W_fc2 = weight_variable([IMAGE_DENSELY_CONNECTED_LAYER_OUTPUT, 2])
-    b_fc2 = bias_variable([2])
+    W_fc2 = weight_variable([IMAGE_DENSELY_CONNECTED_LAYER_OUTPUT, 4])
+    b_fc2 = bias_variable([4])
     y_conv = tf.nn.softmax(tf.matmul(h_fc1, W_fc2) + b_fc2)
 
     cross_entropy = -tf.reduce_sum(y_ * tf.log(y_conv))
@@ -151,56 +196,52 @@ with tf.Session() as sess:
 
     correct_prediction = tf.equal(tf.argmax(y_conv, 1), tf.argmax(y_, 1))
     accuracy = tf.reduce_mean(tf.cast(correct_prediction, tf.float32))
-
-    saver = tf.train.Saver()
-    saver.restore(sess, settings.cnnModelPath)
-    print('Data model trained with messidor is loaded from the disk')
-    # Load other dataset to test with messidor image.
-    # PATH = '/home/devrim/Downloads/diaretdb0_v_1_1/resources/images/diaretdb0_fundus_images'
-
-    #PATH = "/home/devrim/Downloads/ROCtraining"
-    NORMAL_PATH = "/home/devrim/Downloads/normal"
-    ABNORMAL_PATH = "/home/devrim/Downloads/abnormal_color_Fundus"
-    normal_file_names = []
-    abnormal_file_names = []
-    for (dirpath, dirnames, filenames) in os.walk(NORMAL_PATH):
-        normal_file_names.extend(filenames)
-        break
-    for (dirpath, dirnames, filenames) in os.walk(ABNORMAL_PATH):
-        abnormal_file_names.extend(filenames)
-        break
-    normal_test_images = tce.create_images_arrays(normal_file_names, NORMAL_PATH)
-    normal_test_labels = np.asarray([tce.two_class_encode('0') for i in range(len(normal_test_images))])
-    abnormal_test_images = tce.create_images_arrays(abnormal_file_names, ABNORMAL_PATH)
-    abnormal_test_labels = np.asarray([tce.two_class_encode('1') for i in range(len(abnormal_test_images))])
-    test_images = np.concatenate([normal_test_images, abnormal_test_images])
-    test_labels = np.concatenate([normal_test_labels, abnormal_test_labels])
-    test_data = tce.DataSet(test_images, test_labels)
-
+    print("Initializing all variables")
+    sess.run(tf.initialize_all_variables())
+    for i in range(RANGE):
+        print ("iteration : ", i)
+        batch = data_sets.train.next_batch(BATCH)
+        '''if i % 50 == 0:
+            train_accuracy = accuracy.eval(feed_dict={
+                x: data_sets.train.images, y_: data_sets.train.labels, keep_prob: 0.5})
+            print "step %d, training accuracy %g" % (i, train_accuracy)'''
+        train_step.run(feed_dict={x: batch[0], y_: batch[1], keep_prob: 0.5})
+    #saver = tf.train.Saver()
+    #saver.save(sess, settings.cnnModelPath)
     test_acc = accuracy.eval(
-        feed_dict={x: test_data.images, y_: test_data.labels, keep_prob: 0.5})
-    print('Overall Test Accuracy:', test_acc)
+        feed_dict={x: data_sets.test.images, y_: data_sets.test.labels, keep_prob: 0.5})
+    print("test accuracy %g" % test_acc)
 
-    label_true = [tce.convert_one_hot_encode(item) for item in test_data.labels]
+    '''label_true = [tce.convert_one_hot_encode(item) for item in data_sets.test.labels]
     probabilities = y_conv
-    label_probabilities = probabilities.eval(
-        feed_dict={x: test_data.images, y_: test_data.labels, keep_prob: 0.5})
+    label_probabilities = probabilities.eval(feed_dict={x: data_sets.test.images, y_: data_sets.test.labels, keep_prob: 0.5})
     label_scores = [item[0] for item in label_probabilities]
     label_true = np.array(label_true)
     label_scores = np.array(label_scores)
+    # test_roc_auc = roc_auc_score(label_true, label_scores)
+
     fpr, tpr, thresholds = roc_curve(label_true, label_scores, pos_label=0)
     test_auc_result = auc(fpr, tpr)
     test_log_loss_result = log_loss(label_true, label_probabilities)
-    plt.figure()
-    plt.plot(fpr, tpr, label='ROC curve (area= %0.2f)' % test_auc_result)
-    plt.plot([0,1], [0,1], 'k--')
-    plt.xlim([0.0, 1.0])
-    plt.ylim([0.0, 1.05])
-    plt.xlabel('Sensitivity')
-    plt.ylabel('Specitivity')
-    plt.title('ROC curve')
-    plt.legend(loc='lower right')
-    plt.show()
 
+    # print('Test Roc AUC score for fold ', fold, test_roc_auc)
 
+    print('Test AUC score for fold = ' + str(fold) + str(test_auc_result))
+    print('Test log loss for fold = ' + str(fold) + str(test_log_loss_result))
 
+    print("test accuracy %g" % test_acc)
+    acc.append(test_acc)
+    auc_result.append(test_auc_result)
+    log_loss_result.append(test_log_loss_result)
+    # roc_auc_result.append(test_roc_auc)'''
+    fold += 1
+
+print('Average Test Accuracy: ', sum(acc) / len(acc))
+#print('Average Test AUC: ', sum(auc_result) / len(auc_result))
+#print('Average Test Log Loss: ', sum(log_loss_result) / len(log_loss_result) )
+
+# feed_dict = {x: data_sets.test.images, keep_prob: 0.5}
+# prediction = tf.argmax(y_conv, 1)
+# print prediction.eval(feed_dict=feed_dict, session=sess)
+# probabilities = y_conv
+# print probabilities.eval(feed_dict=feed_dict, session=sess)

@@ -30,7 +30,8 @@ currentTime = time.strftime("%Y %m %d - %H:%M")
 
 # cnnModelPath = '/home/devrim/DR_data/cnnModel/model.ckpt'
 # cnnModelPath = '/home/devrim/DR_data/cnn_noneq/model.ckpt'
-# cnnModelPath = '/home/devrim/DR_data/cnnRotateNoEqualizeModel/model.ckpt'
+cnnModelPath = '/home/devrim/DR_data/cnnRotateNoEqualizeModel/model.ckpt'
 # cnnModelPath = '/home/devrim/DR_data/cnnGrayScaleRotateNoEqualizeModel/model.ckpt'
 # cnnModelPath = '/home/devrim/DR_data/cnnRotateContrast15NoEq/model.ckpt'
-cnnModelPath = '/home/devrim/DR_data/cnnRotateContrast25NoEq/model.ckpt'
+# cnnModelPath = '/home/devrim/DR_data/cnnRotateContrast25NoEq/model.ckpt'
+#cnnModelPath = '/home/devrim/DR_data/cnnRotateContrast15NoEqSharpenEdgeEnhance/model.ckpt'

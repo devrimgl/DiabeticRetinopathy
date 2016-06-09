@@ -2,7 +2,7 @@ import csv
 import os
 import random
 import gc
-from PIL import Image, ImageEnhance
+from PIL import Image, ImageEnhance, ImageFilter
 import numpy as np
 import settings
 from collections import OrderedDict
@@ -129,12 +129,15 @@ def create_images_arrays(image_list, data_directory_path):
         image_path = os.path.join(data_directory_path, image)
         im = Image.open(image_path)
         enhancer = ImageEnhance.Contrast(im)
-        im = enhancer.enhance(2.5)
+        im = enhancer.enhance(1.5)
+        im = im.filter(ImageFilter.SHARPEN)
+        im = im.filter(ImageFilter.EDGE_ENHANCE)
+        # im = im.filter(ImageFilter.FIND_EDGES)
         # im.show()
         rotation = 90*random.randint(0, 3)
         if rotation != 0:
-            im = im.rotate(rotation)
-        # im = equalize(im)
+           im = im.rotate(rotation)
+        #im = equalize(im)
         im.thumbnail((IMAGE_D1, IMAGE_D2), Image.ANTIALIAS)
         im = np.array(im, dtype=np.float32)
         '''b = np.zeros(im.shape)
