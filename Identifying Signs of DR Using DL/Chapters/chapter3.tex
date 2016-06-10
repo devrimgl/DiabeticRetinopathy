@@ -132,27 +132,27 @@ In this section we will explain the convolutional neural network used in this wo
 
 \begin{table}[t]
 \centering
-\caption{CNN architecture} \label{tab:cnnarc}
+\caption{CNN Architecture} \label{tab:cnnarc}
 \begin{tabular}{|c|c|c|c|} \hline
-layer & input volume & no of filters & nof units \\ \hline
-conv & 128x128x3 & 16 & \\ \hline
-conv & 128x128x16 & 16 & \\ \hline
-pool & 128x128x16 &  & \\ \hline
-conv & 64x64x16 & 32 & \\ \hline
-conv & 64x64x32 & 32 & \\ \hline
-pool & 64x64x32 &  & \\ \hline
-conv & 32x32x32 & 64  & \\ \hline
-conv & 32x32x64 & 64  & \\ \hline
-pool & 32x32x64 &   & \\ \hline
-conv & 16x16x64 & 128  & \\ \hline
-pool & 16x16x128 &   & \\ \hline
-conv & 8x8x128 & 128  & \\ \hline
-pool & 8x8x128 &   & \\ \hline
-conv & 4x4x128 & 256  & \\ \hline
-pool & 4x4x256 &   & \\ \hline
-dropout & 2x2x256 & & \\ \hline
-fc1 & 2x2x256 & &96 \\ \hline
-fc1 & 96x2 & &2 \\ \hline
+\textbf{layer} & \textbf{input volume} & \textbf{no.\ of filters} & \textbf{no.\ of units} \\ \hline
+conv & 128$\times$128$\times$3 & 16 & \\ \hline
+conv & 128$\times$128$\times$16 & 16 & \\ \hline
+pool & 128$\times$128$\times$16 &  & \\ \hline
+conv & 64$\times$64$\times$16 & 32 & \\ \hline
+conv & 64$\times$64$\times$32 & 32 & \\ \hline
+pool & 64$\times$64$\times$32 &  & \\ \hline
+conv & 32$\times$32$\times$32 & 64  & \\ \hline
+conv & 32$\times$32$\times$64 & 64  & \\ \hline
+pool & 32$\times$32$\times$64 &   & \\ \hline
+conv & 16$\times$16$\times$64 & 128  & \\ \hline
+pool & 16$\times$16$\times$128 &   & \\ \hline
+conv & 8$\times$8$\times$128 & 128  & \\ \hline
+pool & 8$\times$8$\times$128 &   & \\ \hline
+conv & 4$\times$4$\times$128 & 256  & \\ \hline
+pool & 4$\times$4$\times$256 &   & \\ \hline
+dropout & 2$\times$2$\times$256 & & \\ \hline
+fc1 & 2$\times$2$\times$256 & &96 \\ \hline
+fc1 & 96$\times$2 & &2 \\ \hline
 softmax & & & \\ \hline
 \end{tabular}
 \end{table}
