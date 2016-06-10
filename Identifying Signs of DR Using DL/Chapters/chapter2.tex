@@ -9,6 +9,147 @@ Details what others have done that is relevant to your work. \ref{intro}.
 \end{enumerate}
 \section{Objectives}
 A single sentence that describes the purpose of this section.
-\section{Diabetic Retinopathy Fundus Image Databases}
+\section{Eye Disease Datasets}
+\subsection{Feature Datasets}
+- Clinical trial dataset'e bak
+- From Messidor fundus image, extracted features 
+\subsection{Diabetic Retinopathy Fundus Image Datasets}
+
+~\cite{kauppi2013constructing}, addressed ~\cite{thacker2008performance}'s 8 key questions for 6 publicly available fundus image databases. These questions are:
+
+\begin{enumerate}
+    \item How is testing currently performed?
+    \item Is there a data set for which the correct answers are known?
+    \item Are there data sets in common use?
+    \item Are there experiments which show algorithms are stable and work as expected?
+    \item Are there any strawman algorithms?
+    \item What code and data are available?
+    \item Is there a quantitative methodology for the design of algorithms?
+    \item What should we be measuring to quantify performance? What metrics are used?
+\end{enumerate}
+
+In his research, he compared these 6 databases and summarised them depends on amount of these addressed questions\cite{kauppi2013constructing}. Also, in his thesis he established DIARETDB1 database by means of these key questions.
+
+In this section, I give information about some of the publicly available fundus image databases.
+
+\subsubsection{DRIVE (Digital Retinal Images for Vessel Extraction)}
+DRIVE data set constructed by ~\cite{staal2004ridge}.
+DRIVE data set includes 40 manually labelled retinal images for training and evaluation of ~\cite{staal2004ridge}'s method which are randomly selected from 400 diabetic subjects between 25-90 years of age as a part of a screening programme in the Netherlands. Images labelled by 3 human observers who were trained by experienced ophthalmologist. 7 of these manually labelled retinal images has DR indications and 33 of them not. 
+
+DRIVE addresses 7 of ~\cite{kauppi2013constructing}'s key questions which is one of the best results if you compare with the other 6 databases. It makes publicly available DRIVE very popular in automated diabetic retinopaty detection environment.
+
+General information about DRIVE database:
+\begin{itemize}
+    \item \textbf{Availability date: } 2004
+    \item \textbf{Size: } 40 retinal images
+    \item \textbf{DR Size: } 7 retinal images
+    \item \textbf{Non-DR Size: } 33 retinal images
+    \item \textbf{Camera: } Canon CR5 non-mydriatic 3CCD camera with a 45 degree field of view
+    \item \textbf{Resolution: } 768 by 584 pixels
+\end{itemize}
+
+\subsubsection{STARE (STructured Analysis of the Retina)}
+Stare database contains ~400 publicly available raw images which can be obtained from STARE website ~\cite{STARE}. They also gives a list of information about diagnosis of these images. They also shared 20 hand labelled images for blood vessel segmentation~\cite{hoover2000locating} extracted from these ~400 images. Because I can obtain DR, non-DR information from diagnosis list. There are 13 diagnosis which represented with numbers in the list. The images which has DR diagnosis represented with 7 and 8 which addresses Background Diabetic Retinopathy(BDR/NPDR) and Proliferative Diabetic Retinopathy(PDR). These diagnosis and their diagnosis numbers can be found on appendix. {APPENDIX EKLE!!!!} - diagnosis listesini ve image-diagnosis listesini.
+
+General information about STARE database:
+
+\begin{itemize}
+    \item \textbf{Availability date: } 2004
+    \item \textbf{Size: } 20 retinal images
+    \item \textbf{DR Size: } 10 retinal images
+    \item \textbf{Non-DR Size: } 10 retinal images
+    \item \textbf{Camera: } TopCon TRV-50 fundus camera
+    \item \textbf{Resolution: } 605 by 700 pixels
+\end{itemize}
+
+\subsubsection{CHASE (Child Heart And Health Study in England)}
+
+
+General information about CHASE database:
+\begin{itemize}
+    \item \textbf{Availability date: } 2004
+    \item \textbf{Size: } 40 retinal images
+    \item \textbf{DR Size: } 7 retinal images
+    \item \textbf{Non-DR Size: } 33 retinal images
+    \item \textbf{Camera: } NM-200-D fundus camera made bu Nidek Co. Ltd., Gamagori, Japan
+    \item \textbf{Resolution: } 1280 by 960 pixels
+\end{itemize}
+
+\subsubsection{ROC}
+General information about ROC database:
+\begin{itemize}
+    \item \textbf{Availability date: } 2004
+    \item \textbf{Size: } 40 retinal images
+    \item \textbf{DR Size: } 7 retinal images
+    \item \textbf{Non-DR Size: } 33 retinal images
+    \item \textbf{Camera: } Canon CR5 non-mydriatic 3CCD camera with a 45 degree field of view
+    \item \textbf{Resolution: } 768 by 584 pixels
+\end{itemize}
+
+\subsubsection{CMIF}
+General information about CMIF database:
+\begin{itemize}
+    \item \textbf{Availability date: } 2004
+    \item \textbf{Size: } 40 retinal images
+    \item \textbf{DR Size: } 7 retinal images
+    \item \textbf{Non-DR Size: } 33 retinal images
+    \item \textbf{Camera: } Canon CR5 non-mydriatic 3CCD camera with a 45 degree field of view
+    \item \textbf{Resolution: } 768 by 584 pixels
+\end{itemize}
+
+\subsubsection{REVIEW}
+General information about REVIEW database:
+\begin{itemize}
+    \item \textbf{Availability date: } 2004
+    \item \textbf{Size: } 40 retinal images
+    \item \textbf{DR Size: } 7 retinal images
+    \item \textbf{Non-DR Size: } 33 retinal images
+    \item \textbf{Camera: } Canon CR5 non-mydriatic 3CCD camera with a 45 degree field of view
+    \item \textbf{Resolution: } 768 by 584 pixels
+\end{itemize}
+
+\subsubsection{DIARETDB}
+General information about DIARETDB0 database:
+\begin{itemize}
+    \item \textbf{Availability date: } 2004
+    \item \textbf{Size: } 40 retinal images
+    \item \textbf{DR Size: } 7 retinal images
+    \item \textbf{Non-DR Size: } 33 retinal images
+    \item \textbf{Camera: } Canon CR5 non-mydriatic 3CCD camera with a 45 degree field of view
+    \item \textbf{Resolution: } 768 by 584 pixels
+\end{itemize}
+
+General information about DIARETDB1 database:
+\begin{itemize}
+    \item \textbf{Availability date: } 2004
+    \item \textbf{Size: } 40 retinal images
+    \item \textbf{DR Size: } 7 retinal images
+    \item \textbf{Non-DR Size: } 33 retinal images
+    \item \textbf{Camera: } Canon CR5 non-mydriatic 3CCD camera with a 45 degree field of view
+    \item \textbf{Resolution: } 768 by 584 pixels
+\end{itemize}
+
+General information about DIARETDB2 database:
+\begin{itemize}
+    \item \textbf{Availability date: } 2004
+    \item \textbf{Size: } 40 retinal images
+    \item \textbf{DR Size: } 7 retinal images
+    \item \textbf{Non-DR Size: } 33 retinal images
+    \item \textbf{Camera: } Canon CR5 non-mydriatic 3CCD camera with a 45 degree field of view
+    \item \textbf{Resolution: } 768 by 584 pixels
+\end{itemize}
+
+\subsubsection{MESSIDOR}
+General information about MESSIDOR database:
+\begin{itemize}
+    \item \textbf{Availability date: } 2004
+    \item \textbf{Size: } 40 retinal images
+    \item \textbf{DR Size: } 7 retinal images
+    \item \textbf{Non-DR Size: } 33 retinal images
+    \item \textbf{Camera: } Canon CR5 non-mydriatic 3CCD camera with a 45 degree field of view
+    \item \textbf{Resolution: } 768 by 584 pixels
+\end{itemize}
+
 \section{Machine Leearning Approaches for Diabetic Retinopathy}
-\section{Neural Network Approaches for Diabetic Retinpathy}
+\subsection{Other Approaches}
+\subsection{Neural Network Approaches for Diabetic Retinpathy}
