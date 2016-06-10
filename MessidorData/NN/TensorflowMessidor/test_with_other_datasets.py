@@ -159,8 +159,8 @@ with tf.Session() as sess:
     # PATH = '/home/devrim/Downloads/diaretdb0_v_1_1/resources/images/diaretdb0_fundus_images'
 
     #PATH = "/home/devrim/Downloads/ROCtraining"
-    NORMAL_PATH = "/home/devrim/Downloads/normal"
-    ABNORMAL_PATH = "/home/devrim/Downloads/abnormal_color_Fundus"
+    NORMAL_PATH = "/home/devrim/Downloads/e-optha/e_optha_MA/healthy_eoptha"
+    ABNORMAL_PATH = "/home/devrim/Downloads/e-optha/e_optha_MA/MA_eoptha"
     normal_file_names = []
     abnormal_file_names = []
     for (dirpath, dirnames, filenames) in os.walk(NORMAL_PATH):

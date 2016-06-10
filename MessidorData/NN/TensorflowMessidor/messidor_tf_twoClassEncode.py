@@ -102,7 +102,7 @@ def read_labels_and_image_names(labels_file_path):
         reader = csv.reader(image_data)
         for row in reader:
             image_name = row[0]
-            label = row[2]
+            label = row[3]
             label = two_class_encode(label)
             image_list[image_name] = label
     finally:
@@ -128,10 +128,10 @@ def create_images_arrays(image_list, data_directory_path):
     for image in image_list:
         image_path = os.path.join(data_directory_path, image)
         im = Image.open(image_path)
-        enhancer = ImageEnhance.Contrast(im)
-        im = enhancer.enhance(1.5)
-        im = im.filter(ImageFilter.SHARPEN)
-        im = im.filter(ImageFilter.EDGE_ENHANCE)
+        # enhancer = ImageEnhance.Contrast(im)
+        # im = enhancer.enhance(1.5)
+        # im = im.filter(ImageFilter.SHARPEN)
+        # im = im.filter(ImageFilter.EDGE_ENHANCE)
         # im = im.filter(ImageFilter.FIND_EDGES)
         # im.show()
         rotation = 90*random.randint(0, 3)
