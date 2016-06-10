@@ -19,6 +19,13 @@
 %% For euros
 \usepackage{eurosym}
 
+%% Bibliography
+\usepackage[round]{natbib}
+
+%% Make bib references, URLs, etc into hyperlinks
+\usepackage[hidelinks]{hyperref}
+\hypersetup{colorlinks,linkcolor={blue},citecolor={blue},urlcolor={blue}}
+
 %% Personalisation
 \setlength{\parskip}{1em}
 
@@ -29,7 +36,7 @@
 
 \begin{document}
 
-\author{Devrim Gunyel\\
+\author{\textbf{Devrim Gunyel}\\[1ex]
   Department of Computer Science\\
   Maynooth University\\
   Maynooth\\
@@ -56,8 +63,8 @@
 \include{Chapters/chapter4}
 
 
-\bibliographystyle{apalike}
-%\bibliographystyle{plainnat} % use this to have URLs listed in References
+%% \bibliographystyle{apalike}
+\bibliographystyle{plainnat} % use this to have URLs listed in References
 \cleardoublepage
 \bibliography{References/references} % Path to your References.bib file
 

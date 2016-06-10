@@ -10,7 +10,7 @@
 \section{Background}
 \subsection{Deep Learning}
 Deep Learning is defined as:\\
-"A class of machine learning techniques that exploit many layers of non-linear information processing for supervised or unsupervised feature extraction and transformation, and for pattern analysis and classification." in the book Deep Learning methods and Applications ~\cite{deng2014deep}. In this work we investigate the effects of using Deep Learning techniques for the task of finding the signs of diabetic retinopathy and for this task we use a special type of Artificial Neural Networks called Convolutional Neural Networks that we will explain in detail in the following sections.   
+"A class of machine learning techniques that exploit many layers of non-linear information processing for supervised or unsupervised feature extraction and transformation, and for pattern analysis and classification." in the book Deep Learning methods and Applications \citep{deng2014deep}. In this work we investigate the effects of using Deep Learning techniques for the task of finding the signs of diabetic retinopathy and for this task we use a special type of Artificial Neural Networks called Convolutional Neural Networks that we will explain in detail in the following sections.   
 
 \begin{figure}[t]
 \caption{withDR}
@@ -27,7 +27,7 @@ Deep Learning is defined as:\\
 \end{figure}
 
 \subsection{Neural Networks}
-Neural Networks are computational models that are based on the brain architecture to solve different type of problems like image recognition, anomaly detection, signal processing etc. ~\cite{shiffman2012nature} Basically a neural network is an architecture that has a set of input neurons that are activated by inputs (like pixel RGB values for images) and those inputs are weighted and transformed to the other neurons until the architecture arrives the final output neurons. 
+Neural Networks are computational models that are based on the brain architecture to solve different type of problems like image recognition, anomaly detection, signal processing etc.\ \citep{shiffman2012nature}. Basically a neural network is an architecture that has a set of input neurons that are activated by inputs (like pixel RGB values for images) and those inputs are weighted and transformed to the other neurons until the architecture arrives the final output neurons. 
 
 \begin{figure}[t]
 \caption{Neural Network}
@@ -83,7 +83,7 @@ TensorFlow is a machine learning library opensourced by Google for distributed m
 
 \section{Datasets}
 \subsection{Messidor Dataset}
-The main dataset that we use is called Messidor Dataset ~\cite{decenciere2014feedback} that contains 1200 eye fundus color numerical images. They used a color video 3CCD camera on a Topcon TRC NW6 non-mydriatic retinograph with a 45 degree field of view to capture the images using 8 bits per color plane at 1440*960, 2240*1488 or 2304*1536 pixels. 
+The main dataset that we use is called Messidor Dataset \citep{decenciere2014feedback} that contains 1200 eye fundus color numerical images. They used a color video 3CCD camera on a Topcon TRC NW6 non-mydriatic retinograph with a 45 degree field of view to capture the images using 8 bits per color plane at 1440*960, 2240*1488 or 2304*1536 pixels. 
 They have two medical diagnoses in the dataset: retinopathy grade and risk of macular edema. 
 
 \begin{table}[t]
@@ -158,7 +158,7 @@ softmax & & & \\ \hline
 \end{table}
 
 Table ~\ref{tab:cnnarc} shows the details of the convolutional neural network architecture used for this work. Notice that for the number of units after the second fully connected layer, 2 represents number of output classes, in this case DR and noDR. For the degree of the diabetic retinopathy it would be 4. For all of the convolutional layers stride size is 1 and padding is the same, meaning that the dimension (width, height) does not change. Kernel size for conv layers is always 3x3 in this work. Pool layers use maxpooling with 2x2 pooling window and stride is 2, such that after pooling layer width and height is divided by 2. After all convolutinal layers for the activation rectified linear unit (ReLU) is used. (buraya relu image gelecek ve formul) Similarly after the fully connected layer also ReLU is used. 
-We trained the net using adam optimizer (a method for stochastic optimization) ~\cite{kingma2014adam} with  logloss as a loss function. 
+We trained the net using adam optimizer (a method for stochastic optimization) \citep{kingma2014adam} with  logloss as a loss function. 
 
 
 
