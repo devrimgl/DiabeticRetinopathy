@@ -36,7 +36,7 @@ Neural Networks are computational models that are based on the brain architectur
 \includegraphics[width=0.8\textwidth]{Figures/nn}
 \end{figure}
 
-Figure ~\ref{fignn} shows the similarity between the brain neuron architecture and neural network architecture. 
+Figure~\ref{fignn} shows the similarity between the brain neuron architecture and neural network architecture. 
 
 \subsection{Convolutional Neural Networks}
 Convolutional Neural Networks(CNNs) are a type of feed forward neural networks that are based on the animal visual cortex. (http://deeplearning.net/tutorial/lenet.html) CNNs are widely used in different applications of Deep Learning. 
@@ -49,7 +49,7 @@ Like regular NNs CNNs also have neurons that have weights and biases that can be
 \includegraphics[width=0.8\textwidth]{Figures/regnn}
 \end{figure}
 
-In Figure ~\ref{figregnn} a regular neural network architecture can be seen and in Figure ~\ref{figconvnet} shows a sample CNN architecture. 
+In Figure~\ref{figregnn} a regular neural network architecture can be seen and in Figure~\ref{figconvnet} shows a sample CNN architecture. 
 
 \begin{figure}[t]
 \caption{Convolutional Neural Network}
@@ -98,7 +98,7 @@ grade & explanation \\ \hline
 \end{tabular}
 \end{table}
 
-Different retinopathy grades are shown in Table ~\ref{tab:rg} where MA: number of microaneurysms, H:number of hemorrhages, NV = 1: neovascularization and NV = 0: no neovascularization. 
+Different retinopathy grades are shown in Table~\ref{tab:rg} where MA: number of microaneurysms, H:number of hemorrhages, NV = 1: neovascularization and NV = 0: no neovascularization. 
 
 \begin{table}[t]
 \centering
@@ -111,7 +111,7 @@ risk & explanation \\ \hline
 \end{tabular}
 \end{table}
 
-Different level of macular edema risk are shown in Table ~\ref{tab:ma}.
+Different level of macular edema risk are shown in Table~\ref{tab:ma}.
 
 \section{Preprocessing}
 Before training the convolutional neural networks the first thing to do is preprocessing the images. Preprocessing is a must stage since the images in the dataset are produced under different circumstances. For instance not all images have the same resolution and not all of the images are produced under the same lightning. To fix these problems we apply some preprocessing techniques for the images. 
@@ -157,7 +157,7 @@ softmax & & & \\ \hline
 \end{tabular}
 \end{table}
 
-Table ~\ref{tab:cnnarc} shows the details of the convolutional neural network architecture used for this work. Notice that for the number of units after the second fully connected layer, 2 represents number of output classes, in this case DR and noDR. For the degree of the diabetic retinopathy it would be 4. For all of the convolutional layers stride size is 1 and padding is the same, meaning that the dimension (width, height) does not change. Kernel size for conv layers is always 3x3 in this work. Pool layers use maxpooling with 2x2 pooling window and stride is 2, such that after pooling layer width and height is divided by 2. After all convolutinal layers for the activation rectified linear unit (ReLU) is used. (buraya relu image gelecek ve formul) Similarly after the fully connected layer also ReLU is used. 
+Table~\ref{tab:cnnarc} shows the details of the convolutional neural network architecture used for this work. Notice that for the number of units after the second fully connected layer, 2 represents number of output classes, in this case DR and noDR. For the degree of the diabetic retinopathy it would be 4. For all of the convolutional layers stride size is 1 and padding is the same, meaning that the dimension (width, height) does not change. Kernel size for conv layers is always 3x3 in this work. Pool layers use maxpooling with 2x2 pooling window and stride is 2, such that after pooling layer width and height is divided by 2. After all convolutinal layers for the activation rectified linear unit (ReLU) is used. (buraya relu image gelecek ve formul) Similarly after the fully connected layer also ReLU is used. 
 We trained the net using adam optimizer (a method for stochastic optimization) \citep{kingma2014adam} with  logloss as a loss function. 
 
 
