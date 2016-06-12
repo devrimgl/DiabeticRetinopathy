@@ -6,13 +6,13 @@ In this section we explain the experimental setup, experimental results and disc
 In this section we explain the evaluation metrics used in the experiments. In the experiments we use commonly used evaluation metrics like, sensitivity, specificity, accuracy, roc curve. Table ~\ref{tab:configs} shows the possible outcomes of the experiments conducted. True positives are the number of truly detected subjects as abnormal, false negatives are the abnormal subjects but detected as normal by the test. Similarly true negative is number of truly detected subjects as being normal and false positives are subjects that are normal but classified as abnormal by the tests. Notice that depending on the experiments abnormal either means having diabetic retinopathy or having mocelar edema. Definitions of the evaluation metrics are as follows: 
 
 \begin{align*}
-    sensitivity &= \frac{TP}{TP + FN}
+    \textit{sensitivity} &= \frac{\textit{TP}}{\textit{TP} + \textit{FN}}
     &
-    specificity &= \frac{TN}{TN + FP}
+    \textit{specificity} &= \frac{\textit{TN}}{\textit{TN} + \textit{FP}}
 \end{align*}
 
 \begin{align*}
-    accuracy &= \frac{TP + TN}{TP + FP + TN + FN}
+    \textit{accuracy} &= \frac{\textit{TP} + \textit{TN}}{\textit{TP} + \textit{FP} + \textit{TN} + \textit{FN}}
 \end{align*}
 
 \begin{table}[t]
@@ -31,9 +31,9 @@ In this section we explain the evaluation metrics used in the experiments. In th
 Another evaluation metric commonly used for diabetic retinopathy research is ROC. ROC is grahical representation of the fraction of TP  vs. FP. TP rate is also known as sensitivity, and FP rate is 1 minus the specificity. 
 
 \subsection{Log Loss}
-Logistic loss that is used in neural networks, is the negative log-likelihood of the true labels given a probabilistic classifier’s predictions. For a single sample with true label yt in {0,1} and estimated probability yp that yt = 1, the log loss is
+Logistic loss that is used in neural networks, is the negative log-likelihood of the true labels given a probabilistic classifier’s predictions. For a single sample with true label $\textit{yt} \in \{0,1\}$ and estimated probability $\textit{yp} = P(\textit{yt} = 1)$, the log loss is
 \begin{align*}
-    -log P(yt|yp) = -(yt log(yp) + (1 - yt) log(1 - yp))  
+    -\log P(yt|\textit{yp}) = -(\textit{yt} \log(\textit{yp}) + (1 - \textit{yt}) \log(1 - \textit{yp}))  
 \end{align*}
 
 \section{Experimental Configuration}

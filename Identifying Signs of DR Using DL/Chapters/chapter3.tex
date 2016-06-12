@@ -9,53 +9,54 @@
 
 \section{Background}
 \subsection{Deep Learning}
-Deep Learning is defined as:\\
-"A class of machine learning techniques that exploit many layers of non-linear information processing for supervised or unsupervised feature extraction and transformation, and for pattern analysis and classification." in the book Deep Learning methods and Applications \citep{deng2014deep}. In this work we investigate the effects of using Deep Learning techniques for the task of finding the signs of diabetic retinopathy and for this task we use a special type of Artificial Neural Networks called Convolutional Neural Networks that we will explain in detail in the following sections.   
+Deep Learning is defined as:
+``A class of machine learning techniques that exploit many layers of non-linear information processing for supervised or unsupervised feature extraction and transformation, and for pattern analysis and classification''
+by \citet[][\emph{Deep Learning Methods and Applications}]{deng2014deep}. In this work we investigate the effects of using Deep Learning techniques for the task of finding the signs of diabetic retinopathy and for this task we use a special type of Artificial Neural Networks called Convolutional Neural Networks that we will explain in detail in the following sections.   
 
 \begin{figure}[t]
-\caption{withDR}
-\label{figDR}
 \centering
 \includegraphics[width=0.8\textwidth]{Figures/DR}
+\caption{withDR}
+\label{figDR}
 \end{figure}
 
 \begin{figure}[t]
-\caption{withoutDR}
-\label{fignoDR}
 \centering
 \includegraphics[width=0.8\textwidth]{Figures/NODR}
+\caption{withoutDR}
+\label{fignoDR}
 \end{figure}
 
 \subsection{Neural Networks}
 Neural Networks are computational models that are based on the brain architecture to solve different type of problems like image recognition, anomaly detection, signal processing etc.\ \citep{shiffman2012nature}. Basically a neural network is an architecture that has a set of input neurons that are activated by inputs (like pixel RGB values for images) and those inputs are weighted and transformed to the other neurons until the architecture arrives the final output neurons. 
 
 \begin{figure}[t]
-\caption{Neural Network}
-\label{fignn}
 \centering
 \includegraphics[width=0.8\textwidth]{Figures/nn}
+\caption{Neural Network}
+\label{fignn}
 \end{figure}
 
-Figure ~\ref{fignn} shows the similarity between the brain neuron architecture and neural network architecture. 
+Figure~\ref{fignn} shows the similarity between the brain neuron architecture and neural network architecture. 
 
 \subsection{Convolutional Neural Networks}
-Convolutional Neural Networks(CNNs) are a type of feed forward neural networks that are based on the animal visual cortex. (http://deeplearning.net/tutorial/lenet.html) CNNs are widely used in different applications of Deep Learning. 
-Like regular NNs CNNs also have neurons that have weights and biases that can be learned. The main different between regular NNs and CNNS is that CNNs make the forward function more efficient and creates the neural network architecture with smaller number of parameters learned, which is a lot more efficient. (REF: http://cs231n.github.io/convolutional-networks/) 
+Convolutional Neural Networks (CNNs) are a type of feed forward neural networks that are based on the animal visual cortex (\url{http://deeplearning.net/tutorial/lenet.html}). CNNs are widely used in different applications of Deep Learning. 
+Like regular NNs CNNs also have neurons that have weights and biases that can be learned. The main different between regular NNs and CNNS is that CNNs make the forward function more efficient and creates the neural network architecture with smaller number of parameters learned, which is a lot more efficient (\url{http://cs231n.github.io/convolutional-networks/}).
 
 \begin{figure}[t]
-\caption{Regular Neural Network}
-\label{figregnn}
 \centering
 \includegraphics[width=0.8\textwidth]{Figures/regnn}
+\caption{Regular Neural Network}
+\label{figregnn}
 \end{figure}
 
-In Figure ~\ref{figregnn} a regular neural network architecture can be seen and in Figure ~\ref{figconvnet} shows a sample CNN architecture. 
+In Figure~\ref{figregnn} a regular neural network architecture can be seen and Figure~\ref{figconvnet} shows a sample CNN architecture.
 
 \begin{figure}[t]
-\caption{Convolutional Neural Network}
-\label{figconvnet}
 \centering
 \includegraphics[width=0.8\textwidth]{Figures/convnet}
+\caption{Convolutional Neural Network}
+\label{figconvnet}
 \end{figure}
 
 CNNs are made of different layers that feedforward the activation of the input neurons to the following layers.The layers are as follows:
@@ -81,7 +82,7 @@ To explain the details of the layers of the CNNs we will use a simple CNN archit
 
 
 \subsection{TensorFlow}
-TensorFlow is a machine learning library opensourced by Google for distributed machine learning and deep learning. In this work for convolutional neural networks we use Google's Tensorflow library. (https://www.tensorflow.org) 
+TensorFlow is a machine learning library opensourced by Google for distributed machine learning and deep learning. In this work for convolutional neural networks we use Google's Tensorflow library (\url{https://www.tensorflow.org}).
 
 \section{Datasets}
 
