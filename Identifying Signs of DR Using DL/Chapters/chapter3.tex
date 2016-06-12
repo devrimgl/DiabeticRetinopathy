@@ -66,16 +66,18 @@ CNNs are made of different layers that feedforward the activation of the input n
     \item Fully Connected Layer
 \end{enumerate}
 
-To explain the details of the layers of the CNNs we will use a simple CNN architecture for diabetic retinopathy detection problem. Notice that later we will explain the final CNN architecture we use for the classification problem which will have lots of different layers and parameters etc. For now to explain how CNNs are used for detection of signs of diabetic retinopathy we use the following CNN architecture:\\ 
-${INPUT => CONV => RELU => POOL => FC}$. 
+To explain the details of the layers of the CNNs we will use a simple CNN architecture for diabetic retinopathy detection problem. Notice that later we will explain the final CNN architecture we use for the classification problem which will have lots of different layers and parameters etc. For now to explain how CNNs are used for detection of signs of diabetic retinopathy we use the following CNN architecture:
+\[
+\text{INPUT} \Rightarrow \text{CONV} \Rightarrow \text{RELU} \Rightarrow \text{POOL} \Rightarrow \text{FC}.
+\]
 
-\begin{itemize}
-    \item INPUT[128x128x3] has the pixel values of the image after preprocessing stage, in our example it is an input image with width 128, height 128 and depth 3.
-    \item CONV layer transforms the pixel values of the local regions of the input image by using input neurons' weight and biases. After CONV layer if we use 32 filters, we will have [128x128x32] volume.
-    \item RELU layer applies an activation function to the output of CONV layer that does not change the volume [128x128x32]
-    \item POOL layer downsamples the width and height dimensions of the volume resulting in [64x64x32].
-    \item FC layer classifies the input image to one of the classes (DR and NoDR) resulting in [1x1x2] which has two class scores. Notice that if our problem was to classify input image to 4 classes the output volume would be [1x1x4].
-\end{itemize}
+\begin{description}
+    \item[INPUT layer] has the pixel values of the image after preprocessing stage, in our example it is an input image with width 128, height 128 and depth 3 (128x128x3).
+    \item[CONV layer] transforms the pixel values of the local regions of the input image by using input neurons' weight and biases. After CONV layer if we use 32 filters, we will have [128x128x32] volume.
+    \item[RELU layer] applies an activation function to the output of CONV layer that does not change the volume [128x128x32]
+    \item[POOL layer] downsamples the width and height dimensions of the volume resulting in [64x64x32].
+    \item[FC layer] classifies the input image to one of the classes (DR and NoDR) resulting in [1x1x2] which has two class scores. Notice that if our problem was to classify input image to 4 classes the output volume would be [1x1x4].
+\end{description}
 
 
 \subsection{TensorFlow}
