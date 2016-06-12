@@ -1,4 +1,5 @@
-\chapter{Related Work} \label{related_work}
+\chapter{Related Work} 
+\label{related_work}
 
 Details what others have done that is relevant to your work. \ref{intro}.
 \begin{enumerate}
@@ -64,7 +65,7 @@ General information about STARE database:
 
 \subsubsection{CHASE (Child Heart And Health Study in England)}
 
-CHASEDB, retinal vessel reference data-set, includes 28 retinal fundus images of 14 multiethnic children's (aged 10 years) both eyes during September 2007 in North-East London as a part of \citep{fraz2012ensemble}. As we mentioned in Chapter \ref{intro}, detecting neovascularisation is another way of diagnosing DR. CHASEDB mostly used for detection of blood vessels \citep{liskowski2016segmenting} \citep{elbalaoui2016automatic}. There is not any information about DR on these images and I am not checking information related with blood vessels so I did not considered this database in my experiments.
+CHASEDB \citep{Retinal-image-database}, retinal vessel reference data-set, includes 28 retinal fundus images of 14 multiethnic children's (aged 10 years) both eyes during September 2007 in North-East London as a part of \citep{fraz2012ensemble}. As we mentioned in Chapter \ref{intro}, detecting neovascularisation is another way of diagnosing DR. CHASEDB mostly used for detection of blood vessels \citep{liskowski2016segmenting} \citep{elbalaoui2016automatic}. There is not any information about DR on these images and I am not checking information related with blood vessels so I did not considered this database in my experiments.
 
 General information about CHASE database:
 \begin{description}
@@ -144,7 +145,7 @@ As a part of IMAGERET project \citep{IMAGERET}, \citet{kauppi2013constructing} c
 
 General information about DIARETDB0 database:
 
-DIARETDB0 database includes 130 colour fundus images. This dataset available on \citet{DIARETDB0} web site.
+DIARETDB0 database includes 130 colour fundus images. This dataset available on \citet{DIARETDB0} web site \citep{kauppi2006diaretdb0}.
 
 \begin{description}
     \item[Availability date] 2008
@@ -228,7 +229,7 @@ General information about MESSIDOR database:
 
 
 \subsubsection{KAGGLE Diabetic Retinopathy Detection Competition}
-KAGGLE is a web site based community of data scientists where they organise machine learning competitions. Reaching training data sets is one of the favourable outcomes of Kaggle. There are some publicly available datasets which everyone can reach and use. In February 2015, Kaggle organised "Identifying signs of diabetic retinopathy in eye images" competition, retinal images in the competition provided by \citet{eyePACS}. It is the largest dataset online about DR that we found till now. There are some publications related with Kaggle DR Detection dataset \citep{albanautomated} \citep{van2016fast}. Members of Kaggle web site, can reach and use datasets to participate these competitions. Also, they can publish their progress on these competitions. However, we do not have information about it is publicly available or not. Data size is 35126 retinal fundus images\citep{van2016fast}. 25810 of these images belong to patients who are healthy and 9316 of them belongs to patients who show DR signs; 2443 of them belongs to patients with Mild NPDR, 5292 of them belongs to patients with Moderate NPDR, 873 of them belong to patients with Severe NPDR and 708 of them belongs to patients with PDR \citep{albanautomated}. 
+KAGGLE \citep{KAGGLE} is a web site based community of data scientists where they organise machine learning competitions. Reaching training data sets is one of the favourable outcomes of Kaggle. There are some publicly available datasets which everyone can reach and use. In February 2015, Kaggle organised "Identifying signs of diabetic retinopathy in eye images" competition, retinal images in the competition provided by \citet{eyePACS}. It is the largest dataset online about DR that we found till now. There are some publications related with Kaggle DR Detection dataset \citep{albanautomated} \citep{van2016fast}. Members of Kaggle web site, can reach and use datasets to participate these competitions. Also, they can publish their progress on these competitions. However, we do not have information about it is publicly available or not. Data size is 35126 retinal fundus images\citep{van2016fast}. 25810 of these images belong to patients who are healthy and 9316 of them belongs to patients who show DR signs; 2443 of them belongs to patients with Mild NPDR, 5292 of them belongs to patients with Moderate NPDR, 873 of them belong to patients with Severe NPDR and 708 of them belongs to patients with PDR \citep{albanautomated}. 
 
 
 General information about KAGGLE database:
@@ -240,14 +241,31 @@ General information about KAGGLE database:
 \end{description}
 
 \section{Machine Learning Approaches for Automated Detection of Diabetic Retinopathy}
-In this section, different methodologies used for the detection of anomalies related with DR are reviewed. \citep{liskowski2016segmenting, elbalaoui2016automatic}. 
-\citet{liskowski2016segmenting} have proposed to use neural networks for segmenting retinal blood vessels. They have applied their method to different public DR datasets, DRIVE, STARE and CHASE. They claim to reach accuracy values more than 97\%. 
-In a recent work 
+In this section, different methodologies used for the detection of anomalies related with DR are reviewed. 
 
 \subsection{Detection of Blood Vessels}
-In the literature one method used by researchers to detect DR is analysing and detecting the blood vessels in the retina. 
+In the literature one method used by researchers to detect DR is analysing and detecting the blood vessels in the retina. \citep{liskowski2016segmenting, elbalaoui2016automatic}.\\ 
+\citet{liskowski2016segmenting} have proposed to use neural networks for segmenting retinal blood vessels. They have applied their method to different public DR datasets, DRIVE, STARE and CHASE. They claim to reach accuracy values more than 97\%. \\
+In a recent work \citet{elbalaoui2016automatic} propose a method consisting of 3 steps for automatic detection of blood vessels in retinal images. First, they preprocess the images by using different image enhancement techniques. Then they apply a filter called vesselness filter for enhancing the blood vessels. In the third step, they use a filter designed by them to detect the vessels. Their experimental results shows that they can detect blood vessels with over 90\% accurately.   
 \subsection{Detection of Hard Exudates}
+Being one of the most common DR anomalies, detection of exudates also received attention by the researchers.  \citep{rocha2011points}
+According to \citet{zohoradetection} exudates are detected by using morphology features, unsupervised learning techniques like clustering based detection, neural networks, and supervised learning techniques like support vector machines.\\ 
+\citet{haloigaussian} use gaussian scale space based interest map and mathematical morhology in order to detect exudates. They run their experiments on a publicly available dataset DIARETDB1V2 and they claim to have ~97\% sensitivity and ~98\% accuracy.  
+
+
+
 \subsection{Detection of Microaneuysms}
+MA is one of the early signs of diabetic retinopathy. Because of this, it is important to detect MA for diagnosing DR in early stages.
+
+
 \subsection{Detection of Hemorrhages}
+\citet{sinthanayothin2002automated} have applied different pre-processing of the colour images and combined a recursive region growing segmentation algorithm with their new method for hemorrhages detection. They reportedly have 77\% sensitivity and 89\% specificity.\\
+\citet{zhang2005top}  locate the hemorrhages by calculating the evidence value of pixels by using support vector machines and then segment the boundaries. 
+
+
+
 \subsection{Detection of Diabetic Retinopathy}
+
+
+
 \subsection{Feature Extraction}
