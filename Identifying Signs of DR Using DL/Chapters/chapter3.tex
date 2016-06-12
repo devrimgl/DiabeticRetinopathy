@@ -10,52 +10,52 @@
 \section{Background}
 \subsection{Deep Learning}
 Deep Learning is defined as:\\
-``A class of machine learning techniques that exploit many layers of non-linear information processing for supervised or unsupervised feature extraction and transformation, and for pattern analysis and classification.'' in the book Deep Learning methods and Applications \citep{deng2014deep}. In this work we investigate the effects of using Deep Learning techniques for the task of finding the signs of diabetic retinopathy and for this task we use a special type of Artificial Neural Networks called Convolutional Neural Networks that we will explain in detail in the following sections.   
+"A class of machine learning techniques that exploit many layers of non-linear information processing for supervised or unsupervised feature extraction and transformation, and for pattern analysis and classification." in the book Deep Learning methods and Applications \citep{deng2014deep}. In this work we investigate the effects of using Deep Learning techniques for the task of finding the signs of diabetic retinopathy and for this task we use a special type of Artificial Neural Networks called Convolutional Neural Networks that we will explain in detail in the following sections.   
 
 \begin{figure}[t]
+\caption{withDR}
+\label{figDR}
 \centering
 \includegraphics[width=0.8\textwidth]{Figures/DR}
-\caption{With Diabetic Retinopathy (DR)}
-\label{figDR}
 \end{figure}
 
 \begin{figure}[t]
+\caption{withoutDR}
+\label{fignoDR}
 \centering
 \includegraphics[width=0.8\textwidth]{Figures/NODR}
-\caption{Without Diabetic Retinopathy (DR)}
-\label{fignoDR}
 \end{figure}
 
 \subsection{Neural Networks}
 Neural Networks are computational models that are based on the brain architecture to solve different type of problems like image recognition, anomaly detection, signal processing etc.\ \citep{shiffman2012nature}. Basically a neural network is an architecture that has a set of input neurons that are activated by inputs (like pixel RGB values for images) and those inputs are weighted and transformed to the other neurons until the architecture arrives the final output neurons. 
 
-\begin{figure}[b]
-\centering
-\includegraphics[width=0.9\textwidth]{Figures/nn}
+\begin{figure}[t]
 \caption{Neural Network}
 \label{fignn}
+\centering
+\includegraphics[width=0.8\textwidth]{Figures/nn}
 \end{figure}
 
-Figure~\ref{fignn} shows the similarity between the brain neuron architecture and neural network architecture. 
+Figure ~\ref{fignn} shows the similarity between the brain neuron architecture and neural network architecture. 
 
 \subsection{Convolutional Neural Networks}
-Convolutional Neural Networks (CNNs) are a type of feed forward neural networks that are based on the animal visual cortex. (\url{http://deeplearning.net/tutorial/lenet.html}) CNNs are widely used in different applications of Deep Learning.
-Like regular NNs CNNs also have neurons that have weights and biases that can be learned. The main different between regular NNs and CNNS is that CNNs make the forward function more efficient and creates the neural network architecture with smaller number of parameters learned, which is a lot more efficient. (REF: \url{http://cs231n.github.io/convolutional-networks/})
+Convolutional Neural Networks(CNNs) are a type of feed forward neural networks that are based on the animal visual cortex. (http://deeplearning.net/tutorial/lenet.html) CNNs are widely used in different applications of Deep Learning. 
+Like regular NNs CNNs also have neurons that have weights and biases that can be learned. The main different between regular NNs and CNNS is that CNNs make the forward function more efficient and creates the neural network architecture with smaller number of parameters learned, which is a lot more efficient. (REF: http://cs231n.github.io/convolutional-networks/) 
 
 \begin{figure}[t]
-\centering
-\includegraphics[width=0.8\textwidth]{Figures/regnn}
 \caption{Regular Neural Network}
 \label{figregnn}
+\centering
+\includegraphics[width=0.8\textwidth]{Figures/regnn}
 \end{figure}
 
-In Figure~\ref{figregnn} a regular neural network architecture can be seen and in Figure~\ref{figconvnet} shows a sample CNN architecture. 
+In Figure ~\ref{figregnn} a regular neural network architecture can be seen and in Figure ~\ref{figconvnet} shows a sample CNN architecture. 
 
 \begin{figure}[t]
-\centering
-\includegraphics[width=0.8\textwidth]{Figures/convnet}
 \caption{Convolutional Neural Network}
 \label{figconvnet}
+\centering
+\includegraphics[width=0.8\textwidth]{Figures/convnet}
 \end{figure}
 
 CNNs are made of different layers that feedforward the activation of the input neurons to the following layers.The layers are as follows:
@@ -81,39 +81,11 @@ To explain the details of the layers of the CNNs we will use a simple CNN archit
 
 
 \subsection{TensorFlow}
-TensorFlow is a machine learning library opensourced by Google for distributed machine learning and deep learning. In this work for convolutional neural networks we use Google's Tensorflow library. (\url{https://www.tensorflow.org})
+TensorFlow is a machine learning library opensourced by Google for distributed machine learning and deep learning. In this work for convolutional neural networks we use Google's Tensorflow library. (https://www.tensorflow.org) 
 
 \section{Datasets}
-\subsection{Messidor Dataset}
-The main dataset that we use is called Messidor Dataset \citep{decenciere2014feedback} that contains 1200 eye fundus color numerical images. They used a color video 3CCD camera on a Topcon TRC NW6 non-mydriatic retinograph with a 45 degree field of view to capture the images using 8 bits per color plane at 1440*960, 2240*1488 or 2304*1536 pixels. 
-They have two medical diagnoses in the dataset: retinopathy grade and risk of macular edema. 
 
-\begin{table}[t]
-\centering
-\caption{Retinopathy Grade} \label{tab:rg}
-\begin{tabular}{|c|c|} \hline
-grade & explanation \\ \hline
-0 & $(\textit{MA} = 0) \text{ and } (H = 0)$ \\ \hline
-1 & $(0 < \textit{MA} \leq 5) \text{ and } (H = 0)$\\\hline
-2 & $((5 < \textit{MA} < 15) \text{ or } (0 < H < 5)) \text{ and } (\textit{NV} = 0)$ \\\hline
-3 & $(\textit{MA} \geq 15) \text{ or } (H \geq 5) \text{ or } (\textit{NV} = 1)$\\\hline
-\end{tabular}
-\end{table}
-
-Different retinopathy grades are shown in Table~\ref{tab:rg} where MA: number of microaneurysms, H:number of hemorrhages, NV = 1: neovascularization and NV = 0: no neovascularization. 
-
-\begin{table}[t]
-\centering
-\caption{Risk of Macular Edema} \label{tab:ma}
-\begin{tabular}{|c|c|} \hline
-risk & explanation \\ \hline
-0 & (No risk): No visible hard exudates \\ \hline
-1 & Shortest distance between macula and hard exudates > one papilla diameter\\\hline
-2 & Shortest distance between macula and hard exudates <= one papilla diameter \\\hline
-\end{tabular}
-\end{table}
-
-Different level of macular edema risk are shown in Table~\ref{tab:ma}.
+In this 
 
 \section{Preprocessing}
 Before training the convolutional neural networks the first thing to do is preprocessing the images. Preprocessing is a must stage since the images in the dataset are produced under different circumstances. For instance not all images have the same resolution and not all of the images are produced under the same lightning. To fix these problems we apply some preprocessing techniques for the images. 
@@ -159,7 +131,7 @@ softmax & & & \\ \hline
 \end{tabular}
 \end{table}
 
-Table~\ref{tab:cnnarc} shows the details of the convolutional neural network architecture used for this work. Notice that for the number of units after the second fully connected layer, 2 represents number of output classes, in this case DR and noDR. For the degree of the diabetic retinopathy it would be 4. For all of the convolutional layers stride size is 1 and padding is the same, meaning that the dimension (width, height) does not change. Kernel size for conv layers is always 3x3 in this work. Pool layers use maxpooling with 2x2 pooling window and stride is 2, such that after pooling layer width and height is divided by 2. After all convolutinal layers for the activation rectified linear unit (ReLU) is used. (buraya relu image gelecek ve formul) Similarly after the fully connected layer also ReLU is used. 
+Table ~\ref{tab:cnnarc} shows the details of the convolutional neural network architecture used for this work. Notice that for the number of units after the second fully connected layer, 2 represents number of output classes, in this case DR and noDR. For the degree of the diabetic retinopathy it would be 4. For all of the convolutional layers stride size is 1 and padding is the same, meaning that the dimension (width, height) does not change. Kernel size for conv layers is always 3x3 in this work. Pool layers use maxpooling with 2x2 pooling window and stride is 2, such that after pooling layer width and height is divided by 2. After all convolutinal layers for the activation rectified linear unit (ReLU) is used. (buraya relu image gelecek ve formul) Similarly after the fully connected layer also ReLU is used. 
 We trained the net using adam optimizer (a method for stochastic optimization) \citep{kingma2014adam} with  logloss as a loss function. 
 
 
