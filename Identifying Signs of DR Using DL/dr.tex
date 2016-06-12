@@ -19,12 +19,16 @@
 %% For euros
 \usepackage{eurosym}
 
+%% For compact lists
+\usepackage{paralist}
+
 %% Bibliography
 \usepackage[round]{natbib}
 
 %% Make bib references, URLs, etc into hyperlinks
-\usepackage[hidelinks]{hyperref}
+\usepackage[hidelinks,breaklinks]{hyperref}
 \hypersetup{colorlinks,linkcolor={blue},citecolor={blue},urlcolor={blue}}
+\urlstyle{same}
 
 %% Personalisation
 \setlength{\parskip}{1em}
@@ -43,16 +47,17 @@
   Co. Kildare\\
   IRELAND}
 \date{\today}
-\title{Identifying Signs of Diabetic Retinopathy Using Deep Learning}
+\title{Identifying Signs of Diabetic Retinopathy using Deep Learning}
 \maketitle
 
 %% Acknowledgement, Dedication and Declaration will be added here. Currently I can not add titles?????? 
+\pagenumbering{roman}
 \include{Chapters/dedication}
 \include{Chapters/declaration}
 \include{Chapters/acknowledgement}
 \include{Chapters/abstract}
 
-
+\pagenumbering{arabic}
 \tableofcontents
 
 \newpage
@@ -65,6 +70,7 @@
 
 %% \bibliographystyle{apalike}
 \bibliographystyle{plainnat} % use this to have URLs listed in References
+\renewcommand{\bibsection}{\chapter{Bibliography}}
 \cleardoublepage
 \bibliography{References/references} % Path to your References.bib file
 
