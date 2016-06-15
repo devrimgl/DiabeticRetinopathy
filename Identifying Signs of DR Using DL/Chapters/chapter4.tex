@@ -71,10 +71,8 @@ log loss & 0.68 & 0.654 & 1.024 & 1.002 & 0.762 & 0.686 \\ \hline
 \end{tabular}
 \end{table}
 
-\subsection{DR degree prediction}
-This is 4 class prediciton.
 \subsection{MA vs NonMA}
-By looking at the results of the DR NONDR experiments, by using best performed configuration, only rotation, we run a further experiment for the detection of risk of having macular edema or not. Table \ref{tab:msdma} shows the results.  
+By looking at the results of the DR NONDR experiments, by using best performed configuration, using only rotation in our case, we run a further experiment for the detection of risk of having macular edema or not. Table \ref{tab:msdma} shows the results.  
 
 \begin{table}[t]
 \centering
@@ -86,7 +84,7 @@ By looking at the results of the DR NONDR experiments, by using best performed c
 \end{table}
 
 \section{Experiments by using other datasets}
-In this section we train a convolutional neural network model by using all of the Messidor dataset as training data. 
+In this section we train a convolutional neural network model by using all of the Messidor dataset as training data and test with three different publicly available datasets.
 \subsection{Stare Dataset Experiments}
 In this part, we show the results of the experiments run with using Messidor dataset as traiing data and Stare dataset as test data. 93 DR and 36 NONDR data. Accuracy results are shown on Figure \ref{stareacc}. ROC graphs for Stare dataset experiments are shown on Figure \ref{stareroc}.\\
 Both accuracy results and ROC graphs shows that best configuration is the raw configuration, namely Nothing. Around 70\% of accuracy is obtained and 0.7 area under ROC curve is obtained.   

@@ -1,35 +1,12 @@
 \chapter{Related Work} 
 \label{related_work}
 
-Details what others have done that is relevant to your work. \ref{intro}.
-\begin{enumerate}
-    \item Objectives
-    \item Describe the context of the research question in detail, defining terminology, and with references.
-    \item Explain how the problem, or related problems, has been solved previously. Critically analyze existing solutions. Discuss how your approach compares to these solutions.
-    \item Explain other techniques that you have used to: help understand and analyze the research question; motivate your own work; evaluate your solution.
-\end{enumerate}
-\section{Objectives}
-A single sentence that describes the purpose of this section.
+In this chapter, available fundus image databases for diagnosis diabetic retinopathy and related work on these databases are discussed. 
+
 \section{Eye Disease Datasets}
-\subsection{Feature Datasets}
-- Clinical trial dataset'e bak
-- From Messidor fundus image, extracted features 
+In order to automated detection of diabetic retinopathy, literature divides in to 2 for databases used; clinical results and eye fundus images. \citet{ogunyemi2015machine} gave information about clinical variables for detection of DR which might impact on DR risk. However, publicly available online diabetic retinopathy fundus image datasets are discussed in this section.  
+
 \subsection{Diabetic Retinopathy Fundus Image Datasets}
-
-\citet{kauppi2013constructing} addressed \citet{thacker2008performance}'s 8 key questions for 6 publicly available fundus image databases. These questions are:
-
-\begin{enumerate}
-    \item How is testing currently performed?
-    \item Is there a data set for which the correct answers are known?
-    \item Are there data sets in common use?
-    \item Are there experiments which show algorithms are stable and work as expected?
-    \item Are there any strawman algorithms?
-    \item What code and data are available?
-    \item Is there a quantitative methodology for the design of algorithms?
-    \item What should we be measuring to quantify performance? What metrics are used?
-\end{enumerate}
-
-In his research, he compared these 6 databases and summarised them depends on amount of these addressed questions \citep{kauppi2013constructing}. Also, in his thesis he established DIARETDB1 database by means of these key questions.
 
 In this section, I give information about some of the publicly available fundus image databases.
 
@@ -45,39 +22,37 @@ General information about DRIVE database:
     \item[Size] 40 retinal images
     \item[DR Size] 7 retinal images
     \item[Non-DR Size] 33 retinal images
-    \item[Camera] Canon CR5 non-mydriatic 3CCD camera with a 45° field of view
+    \item[Camera] Canon CR5 non-mydriatic 3CCD camera with a 45 degree field of view
     \item[Resolution] 768 by 584 pixels
 \end{description}
 
 \subsubsection{STARE (STructured Analysis of the Retina)}
-Stare database contains $\sim$400 publicly available raw images which can be obtained from STARE website \citep{STARE}. They also gives a list of information about diagnosis of these images. They also shared 20 hand labelled images for blood vessel segmentation \citep{hoover2000locating} extracted from these $\sim$400 images. Because I can obtain DR, non-DR information from diagnosis list. There are 13 diagnosis which represented with numbers in the list. The images which has DR diagnosis represented with 7 and 8 which addresses Background Diabetic Retinopathy(BDR/NPDR) and Proliferative Diabetic Retinopathy(PDR). These diagnosis and their diagnosis numbers can be found on appendix. {APPENDIX EKLE!!!!} - diagnosis listesini ve image-diagnosis listesini.
+Stare database contains $\sim$400 publicly available raw images which can be obtained from STARE website \citep{STARE}. They also gives a list of information about diagnosis of these images. They also shared 20 hand labelled images for blood vessel segmentation \citep{hoover2000locating} extracted from these $\sim$400 images. There are 13 diagnosis which represented with numbers in the list. The images which has DR diagnosis represented with 7 and 8 which addresses Background Diabetic Retinopathy(BDR/NPDR) and Proliferative Diabetic Retinopathy(PDR).
 
 General information about STARE database:
 
 \begin{description}
     \item[Availability date] 2004
     \item[Size] 397 retinal images
-    \item[DR Size] 10 retinal images
-    \item[Non-DR Size] 10 retinal images
-    \item[Camera] TopCon TRV-50 fundus camera with a 35° field of view
+    \item[Camera] TopCon TRV-50 fundus camera with a 35 degree field of view
     \item[Resolution] 605 by 700 pixels
 \end{description}
 
 \subsubsection{CHASE (Child Heart And Health Study in England)}
 
-CHASEDB \citep{Retinal-image-database}, retinal vessel reference data-set, includes 28 retinal fundus images of 14 multiethnic children's (aged 10 years) both eyes during September 2007 in North-East London as a part of \citep{fraz2012ensemble}. As we mentioned in Chapter \ref{intro}, detecting neovascularisation is another way of diagnosing DR. CHASEDB mostly used for detection of blood vessels \citep{liskowski2016segmenting, elbalaoui2016automatic}. There is not any information about DR on these images and I am not checking information related with blood vessels so I did not considered this database in my experiments.
+CHASEDB \citep{Retinal-image-database}, retinal vessel reference data-set, includes 28 retinal fundus images of 14 multiethnic children's (aged 10 years) both eyes during September 2007 in North-East London as a part of \citet{fraz2012ensemble}. As we mentioned in Chapter \ref{intro}, detecting neovascularisation is another way of diagnosing DR. CHASEDB mostly used for detection of blood vessels \citep{liskowski2016segmenting} \citep{elbalaoui2016automatic}. There is not any information about DR on these images and I am not checking information related with blood vessels so I did not considered this database in my experiments.
 
 General information about CHASE database:
 \begin{description}
     \item[Availability date] 2012
     \item[Size] 28 retinal images
-    \item[Camera] NM-200-D fundus camera with 30° field of view made bu Nidek Co. Ltd., Gamagori, Japan
+    \item[Camera] NM-200-D fundus camera with 30 degree field of view made bu Nidek Co. Ltd., Gamagori, Japan
     \item[Resolution] 1280 by 960 pixels
 \end{description}
 
 \subsubsection{ROC(Retinopathy Online Challenge)}
 
-ROC is another popular database for computer aided detection and diagnosis of diabetic retinopathy. It is an online competition organised by M. Niemeijer, B. van Ginneken and M. D. Abràmoff \citep{niemeijer2010retinopathy}. ROC training set of image files can be downloaded from ROC competition web site \citep{ROC}.   Unfortunately, as they informed us on their web site \citet{ROC} they are only sharing image files without data annotations because of technical problems they have experienced currently. We are not using this data set on our experiments.
+ROC is another popular database for computer aided detection and diagnosis of diabetic retinopathy. It is an online competition organised by M. Niemeijer, B. van Ginneken and M. D. Abramoff \citep{niemeijer2010retinopathy}. ROC training set of image files can be downloaded from ROC competition web site \citep{ROC}. Unfortunately, as they informed us on their web site \citet{ROC} they are only sharing image files without data annotations because of technical problems they have experienced currently. We are not using this data set on our experiments.
 General information about ROC database:
 \begin{description}
     \item[Availability date] February 2008
@@ -98,7 +73,7 @@ e-optha-EX
     \item[Size] 82 retinal images
     \item[EX Size] 47 retinal images
     \item[No lesion] 35 retinal images
-    \item[Camera] CR-DGi (Canon, Tokyo) or TRC-NW6S (Topcon, Tokyo) \citep{quellec2012multiple}
+    \item[Camera] CR-DGi (Canon, Tokyo) or TRC-NW6S (Topcon,Tokyo) \citep{quellec2012multiple}
     \item[Resolution] 1440 by 960, 2544 by 1696 pixels
 \end{description}
 
@@ -108,7 +83,7 @@ e-optha-MA
     \item[Size] 381 retinal images
     \item[MA Size] 148 retinal images
     \item[No lesion] 233 retinal images
-    \item[Camera] CR-DGi (Canon, Tokyo) or TRC-NW6S (Topcon, Tokyo) 
+    \item[Camera] CR-DGi (Canon, Tokyo) or TRC-NW6S (Topcon,Tokyo) 
     \item[Resolution] 1440 by 960, 2544 by 1696 pixels
 \end{description}
 
@@ -123,25 +98,38 @@ General information about HRF database:
     \item[Size] 45 retinal images
     \item[DR Size] 15 retinal images
     \item[Non-DR Size] 15 retinal images
-    \item[Camera] Canon CR-1 fundus camera with a 45° field of view
+    \item[Camera] Canon CR-1 fundus camera with a 45 degree field of view
 \end{description}
 
 \subsubsection{REVIEW: Retinal Vessel Image set for Estimation of Widths}
 
-REVIEW is another vessel reference dataset includes 16 retinal images marked by 3 observers \citep{al2008review}. There are 4 sub datasets which are The high resolution image set(HRIS), The vascular disease image set(VDIS), The cenral light reflex image set(CLRIS) and The kick point image set(KPIS). 
+REVIEW is another vessel reference dataset includes 16 retinal images marked by 3 observers \citep{al2008review}. There are 4 sub datasets which are The high resolution image set(HRIS), The vascular disease image set(VDIS), The central light reflex image set(CLRIS) and The kick point image set(KPIS). 
 HRIS inlcudes 4 images, each images includes one of the grades of DR; Severe Non-Proliferative Retinopathy, Moderate Non-Proliferative Retinopathy, Severe Non-Proliferative Retinopathy and Minimal Non-Proliferative Retinopathy. VDIS includes 8 images, distribution of these images are Arteriosclerotic Arterio-Vascular Changes, Proliferative Retinopathy, 2 Minimal Non-Proliferative Retinopathy, Moderate Non-Proliferative Retinopathy, Severe Non-Proliferative Retinopathy and 2 healthy images. REVIEW dataset can be downloaded from \citet{REVIEWDB} web site.
 
 General information about REVIEW database:
 \begin{description}
     \item[Availability date] 2008
     \item[Size] 16 retinal images
-    \item[Camera] Cannon 60 UV camera with a 60° field of view, Zeiss fundus camera with a 50° field of view, Zeiss  FF 450 fundus  camera with a 50°  field of view, Canon 60 uv fundus  camera with a 60° field of view
+    \item[Camera] Cannon 60 UV camera with a 60 degree field of view, Zeiss fundus camera with a 50° field of view, Zeiss  FF 450 fundus  camera with a 50 degree  field of view, Canon 60 UV fundus  camera with a 60 degree field of view
     \item[Resolution] 3584 by 2438 by 3 pixels, 1360 by 1024 by 3 pixels, 2160 by 1440 by 3 pixels, 3300 by 2600 pixels
 \end{description}
 
 \subsubsection{DIARETDB}
 
-As a part of IMAGERET project \citep{IMAGERET}, \citet{kauppi2013constructing} created DIARETDB databases \citep{DIARETDB0, DIARETDB1V2_1} for evaluating and benchmarking DR detection algorithms which are taken in Finland. Images were labelled by 4 experts.
+\citet{kauppi2013constructing} addressed \citet{thacker2008performance}'s 8 key questions for 6 publicly available fundus image databases. These questions are:
+
+\begin{enumerate}
+    \item How is testing currently performed?
+    \item Is there a data set for which the correct answers are known?
+    \item Are there data sets in common use?
+    \item Are there experiments which show algorithms are stable and work as expected?
+    \item Are there any strawman algorithms?
+    \item What code and data are available?
+    \item Is there a quantitative methodology for the design of algorithms?
+    \item What should we be measuring to quantify performance? What metrics are used?
+\end{enumerate}
+
+In his research, he compared these 6 databases and summarised them depends on amount of these addressed questions \citep{kauppi2013constructing}. As a part of IMAGERET project \citep{IMAGERET}, \citet{kauppi2013constructing} created DIARETDB databases \citet{DIARETDB0} and \citet{DIARETDB1V2_1} for evaluating and benchmarking DR detection algorithms which are taken in Finland by means of these key questions. Images were labelled by 4 experts.
 
 General information about DIARETDB0 database:
 
@@ -152,7 +140,7 @@ DIARETDB0 database includes 130 colour fundus images. This dataset available on 
     \item[Size] 130 retinal images
     \item[DR Size] 110 retinal images
     \item[Non-DR Size] 20 retinal images
-    \item[Camera] fundus camera(unknown settings) with a 50° field of view
+    \item[Camera] fundus camera(unknown settings) with a 50 degree field of view
     \item[Resolution] 1500 by 1152 pixels
 \end{description}
 
@@ -165,14 +153,14 @@ DIARETDB1 V2.1 database \citep{kauppi2007diaretdb1} available on \citet{DIARETDB
     \item[Size] 89 retinal images
     \item[DR Size] 84 retinal images
     \item[Non-DR Size] 5 retinal images
-    \item[Camera] fundus camera(unknown settings) with a 50° field of view
+    \item[Camera] fundus camera(unknown settings) with a 50 degree field of view
     \item[Resolution] 1500 by 1152 pixels
 \end{description}
 
 
 \subsubsection{CFI (Colour Fundus Images of Healthy Persons and Patients with Diabetic Retinopathy)}
 
-CFI is another dataset \citep{CFI} of healthy and DR patients' colour fundus images. There are 25 healthy, 35 DR patients' colour fundus images. It is a good dataset for detecting DR- non DR on images but we don't have stage information of DR. \citep{alipour2012analysis} We use CFI as test dataset for automated detection of DR. 
+CFI is another dataset \citep{CFI} of healthy and DR patients' colour fundus images. There are 25 healthy, 35 DR patients' colour fundus images. It is a good dataset for detecting DR- non DR on images but we don't have stage information of DR. \citep{alipour2012analysis} We use CFI as a test dataset for automated detection of DR. 
 
 \begin{description}
     \item[Availability date] 2012
@@ -183,9 +171,9 @@ CFI is another dataset \citep{CFI} of healthy and DR patients' colour fundus ima
 
 \subsubsection{MESSIDOR (Methods to evaluate segmentation and indexing techniques in the field of retinal opthalmology)}
 
-The main dataset that we use is called Messidor Dataset \citep{decenciere2014feedback} that contains 1200 eye fundus color numerical images. As we know, MESSIDOR database is the largest publicly available online dataset which is available on \citet{MESSIDOR} web site. Different than other databases like DIARETDB and E-optha, MESSIDOR does not include manual annotations\citep{decenciere2014feedback}.
+The main dataset that we use is called Messidor Dataset \citep{decenciere2014feedback} that contains 1200 eye fundus color numerical images. To our knowledge, MESSIDOR database is the largest publicly available online dataset which is available on \citet{MESSIDOR} web site. Different than other databases like DIARETDB and E-optha, MESSIDOR does not include manual annotations\citep{decenciere2014feedback}.
 
-They used a color video 3CCD camera on a Topcon TRC NW6 non-mydriatic retinograph with a 45° field of view to capture the images using 8 bits per color plane at 1440 by 960, 2240  by 1488 or 2304 by 1536 pixels. 
+They used a color video 3CCD camera on a Topcon TRC NW6 non-mydriatic retinograph with a 45 degree field of view to capture the images using 8 bits per color plane at 1440 by 960, 2240  by 1488 or 2304 by 1536 pixels. 
 They have two medical diagnoses in the dataset: retinopathy grade and risk of macular edema. 
 
 \begin{table}[t]
@@ -198,7 +186,7 @@ grade & size & explanation \\ \hline
 2 & 247 & $((5 < MA < 15) OR (0 < H < 5)) AND (NV = 0)$ \\\hline
 3 & 254 & $(MA >= 15) OR (H >=5) OR (NV = 1)$\\\hline
 \end{tabular}
-\end{table}
+\end{table}  
 
 Different retinopathy grades are shown on Table~\ref{tab:rg} where MA: number of microaneurysms, H:number of hemorrhages, NV = 1: neovascularization and NV = 0: no neovascularization. 
 
@@ -229,10 +217,10 @@ General information about MESSIDOR database:
 
 
 \subsubsection{KAGGLE Diabetic Retinopathy Detection Competition}
-\citet{KAGGLE} is a web site based community of data scientists where they organise machine learning competitions. Reaching training data sets is one of the favourable outcomes of Kaggle. There are some publicly available datasets which everyone can reach and use. In February 2015, Kaggle organised ``Identifying signs of diabetic retinopathy in eye images'' competition, retinal images in the competition provided by \citet{eyePACS}. It is the largest dataset online about DR that we found till now. There are some publications related with Kaggle DR Detection dataset \citep{albanautomated, van2016fast}. Members of Kaggle web site, can reach and use datasets to participate these competitions. Also, they can publish their progress on these competitions. However, we do not have information about it is publicly available or not. Data size is 35126 retinal fundus images\citep{van2016fast}. 25810 of these images belong to patients who are healthy and 9316 of them belongs to patients who show DR signs; 2443 of them belongs to patients with Mild NPDR, 5292 of them belongs to patients with Moderate NPDR, 873 of them belong to patients with Severe NPDR and 708 of them belongs to patients with PDR \citep{albanautomated}. 
+\citet{KAGGLE} is a web site based community of data scientists where they organise machine learning competitions. Reaching training data sets is one of the favourable outcomes of Kaggle. There are some publicly available datasets which everyone can reach and use. In February 2015, Kaggle organised "Identifying signs of diabetic retinopathy in eye images" competition, retinal images in the competition provided by \citet{eyePACS}. To our knowledge, it is the largest dataset online about DR. There are some publications related with Kaggle DR Detection dataset \citep{albanautomated} \citep{van2016fast}. Members of Kaggle web site, can reach and use datasets to participate these competitions. Also, they can publish their progress on these competitions. However, we do not have information about it is publicly available or not. Data size is 35126 retinal fundus images\citep{van2016fast}. 25810 of these images belong to patients who are healthy and 9316 of them belongs to patients who show DR signs; 2443 of them belongs to patients with Mild NPDR, 5292 of them belongs to patients with Moderate NPDR, 873 of them belong to patients with Severe NPDR and 708 of them belongs to patients with PDR \citep{albanautomated}. 
 
 
-General information about KAGGLE database:
+General information about Kaggle database:
 \begin{description}
     \item[Availability date] 2015
     \item[Size] 35126 retinal images
@@ -244,30 +232,43 @@ General information about KAGGLE database:
 In this section, different methodologies used for the detection of anomalies related with DR are reviewed. 
 
 \subsection{Detection of Blood Vessels}
-In the literature one method used by researchers to detect DR is analysing and detecting the blood vessels in the retina \citep{liskowski2016segmenting, elbalaoui2016automatic}.
-\citet{liskowski2016segmenting} proposed to use neural networks for segmenting retinal blood vessels. They have applied their method to different public DR datasets: DRIVE, STARE, and CHASE. They claim to reach accuracy values above 97\%.
-
-In recent work, \citet{elbalaoui2016automatic} propose a method consisting of 3 steps for automatic detection of blood vessels in retinal images. First, they preprocess the images by using different image enhancement techniques. Then they apply a filter called vesselness filter for enhancing the blood vessels. In the third step, they use a filter designed by them to detect the vessels. Their experimental results shows that they can detect blood vessels with over 90\% accurately.   
+In the literature one method used by researchers to detect DR is analysing and detecting the blood vessels in the retina. \citep{liskowski2016segmenting, elbalaoui2016automatic}.\\ 
+\citet{liskowski2016segmenting} have proposed to use neural networks for segmenting retinal blood vessels. They have applied their method to different public DR datasets, DRIVE, STARE and CHASE. They claim to reach accuracy values more than 97\%. \\
+In a recent work \citet{elbalaoui2016automatic} propose a method consisting of 3 steps for automatic detection of blood vessels in retinal images. First, they preprocess the images by using different image enhancement techniques. Then they apply a filter called vesselness filter for enhancing the blood vessels. In the third step, they use a filter designed by them to detect the vessels. Their experimental results shows that they can detect blood vessels with over 90\% accurately.   
 \subsection{Detection of Hard Exudates}
-Being one of the most common DR anomalies, detection of exudates also received attention by the researchers \citep{rocha2011points}.
-According to \citet{zohoradetection}, exudates are detected by using morphology features, unsupervised learning techniques like clustering based detection, neural networks, and supervised learning techniques like support vector machines.
-
-\citet{haloigaussian} use gaussian scale space based interest map and mathematical morhology in order to detect exudates. They run their experiments on a publicly available dataset DIARETDB1V2 and they claim to have $\sim$97\% sensitivity and $\sim$98\% accuracy.  
+Being one of the most common DR anomalies, detection of exudates also received attention by the researchers.  \citep{rocha2011points}
+According to \citet{zohoradetection} exudates are detected by using morphology features, unsupervised learning techniques like clustering based detection, neural networks, and supervised learning techniques like support vector machines.\\ 
+\citet{haloigaussian} use gaussian scale space based interest map and mathematical morhology in order to detect exudates. They run their experiments on a publicly available dataset DIARETDB1V2 and they claim to have ~97\% sensitivity and ~98\% accuracy.  
 
 
 
 \subsection{Detection of Microaneuysms}
-MA is one of the early signs of diabetic retinopathy. Because of this, it is important to detect MA for diagnosing DR in early stages.
+MA is one of the early signs of diabetic retinopathy. Because of this, it is important to detect MA for diagnosing DR in early stages. As a part of automated diagnosis of DR, automated detection of MA is another popular topic in literature. 
+
+\citet{akram2013identification} used DIARETDB0 and DIARETDB1 datasets for their experiments. They divided their system to 3 stages: Candidate region extraction, feature vector formation and classification. They claim to have 98.64\% sensitivity and 99.69\% specificity for detection of MAs.
+
+\citet{tavakoli2013complementary} used 2 local sources for dataset to their experiments. These are MUMS\_DB and 2$^{nd}$\_DB which are 170 fundus images in total. 140 images of these datasets belongs to DR patients. They also used ROC dataset to test their evaluation. However, they have chosen 22 images of ROC dataset and any information about how they chose these 22 images could not be found. They have reached for MUMS\_DB 92\%, for ROC 91\% and for 2$^{nd}$\_DB 95\% sensitivity in lesion based detection of MAs.
+
+\citet{shah2016automated} also used ROC dataset for their automated microaneurysms detection system research. Their system includes 3 steps; candidate selection, candidate features extraction and candidate classification. Their approach was detected 163 MAs of total 336 MAs on 50 images; their results is 48.21\% sensitivity.
+
+\citet{navarro2016automatic} used MESSIDOR dataset to test their hypothesis about detection of MAs. Different than other related literature, they focused on color spaces , processing the information of L* and a* channels and merging tese both channels' results to identify MA candidates. Afterwards, before giving to kNN classifier to classify them MA and non-MA, they applied wavelet transform. Their results for 50 images are above 80\% for all sensitivity, specificity, and accuracy.
+
+
+
 
 
 \subsection{Detection of Hemorrhages}
-\citet{sinthanayothin2002automated} applied different pre-processing of the colour images and combined a recursive region growing segmentation algorithm with their new method for hemorrhages detection. They reportedly have 77\% sensitivity and 89\% specificity.
-\citet{zhang2005top}  locate the hemorrhages by calculating the evidence value of pixels by using support vector machines and then segment the boundaries.
+\citet{sinthanayothin2002automated} have applied different pre-processing of the colour images and combined a recursive region growing segmentation algorithm with their new method for hemorrhages detection. They reportedly have 77\% sensitivity and 89\% specificity.\\
+\citet{zhang2005top}  locate the hemorrhages by calculating the evidence value of pixels by using support vector machines and then segment the boundaries. \citet{tang2011splat} used splat feature classification on their method to detect hemorrhages. They used DRIVE dataset as training and MESSIDOR dataset as testing. They have chosen the 20 images from 1200 according to highest hemorrhage index and a retinal specialist graded them. 18 of these 20 images showed PDR with large extensive hemorrhages. 
 
 
 
 \subsection{Detection of Diabetic Retinopathy}
 
+\citet{abramoff2008evaluation} says that even the results looks so high, automated detection of diabetic retinopathy using published algorithms still not be recommended for real clinical practises. However, they believes that if algorithms can be improved, these systems can help prevention of blindness related with DR. To their knowledge, their methodology was the first one previously published algorithms has been tested on unselected set of exams. Their achieved result for total area under the ROC curve is 0.84.
 
+\citet{gardner1996automatic} wondered if NNs can detect diabetic features on retinal fundus images. They have achieved 88.4\% sensitivity and 83.5\% specificity when compared with result of an ophthalmologist for the detection of DR, non-DR. 
 
-\subsection{Feature Extraction}
+\subsubsection{Ensembe-based Classification}
+
+\citet{antal2014ensemble} used MESSIDOR dataset for their experiments but they have used a different method than others; their approach is based on a machine learning algorithm uses extracted features from the output of several retinal image processing algorithms. They achieved 90\% sensitivity, 91\% specificity and 90\% accuracy. Extracted features of MESSIDOR dataset can be found on \citet{EnsembleBased} web site. 

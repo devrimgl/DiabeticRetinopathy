@@ -1,29 +1,22 @@
 \chapter{Solution}
-\begin{enumerate}
-    \item often the name of your solution - details what you have done and how you have done it.
-    \item objectives - a single sentence that describes the purpose of this section
-    \item provide an analysis of the problem , motivating your approach to answering the research question.
-    \item Explain your approach by describing exactly what you have done.
-    \item Explain how you have achieved your solution. Examples: explain how a process improvement was implemented, how a mathematical technique was derived, or how an algorithm was implemented.
-\end{enumerate}
 
 \section{Background}
 \subsection{Deep Learning}
 Deep Learning is defined as:
 ``A class of machine learning techniques that exploit many layers of non-linear information processing for supervised or unsupervised feature extraction and transformation, and for pattern analysis and classification''
-by \citet[][\emph{Deep Learning Methods and Applications}]{deng2014deep}. In this work we investigate the effects of using Deep Learning techniques for the task of finding the signs of diabetic retinopathy and for this task we use a special type of Artificial Neural Networks called Convolutional Neural Networks that we will explain in detail in the following sections.   
+by \citet[][\emph{Deep Learning Methods and Applications}]{deng2014deep}. In this work we investigate the effects of using Deep Learning techniques for the task of finding the signs of diabetic retinopathy and for this task we use a special type of Artificial Neural Networks called Convolutional Neural Networks that we will explain in detail in the following sections. For instance used CNN model will be able to automatically classify images shown in Figure \ref{figDR} and \ref{fignoDR}.
 
 \begin{figure}[t]
 \centering
 \includegraphics[width=0.8\textwidth]{Figures/DR}
-\caption{withDR}
+\caption{A sample eye image having signs of DR}
 \label{figDR}
 \end{figure}
 
 \begin{figure}[t]
 \centering
 \includegraphics[width=0.8\textwidth]{Figures/NODR}
-\caption{withoutDR}
+\caption{A sample eye image not having signs of DR}
 \label{fignoDR}
 \end{figure}
 
@@ -84,9 +77,6 @@ To explain the details of the layers of the CNNs we will use a simple CNN archit
 \subsection{TensorFlow}
 TensorFlow is a machine learning library opensourced by Google for distributed machine learning and deep learning. In this work for convolutional neural networks we use Google's Tensorflow library (\url{https://www.tensorflow.org}).
 
-\section{Datasets}
-
-In this 
 
 \section{Preprocessing}
 Before training the convolutional neural networks the first thing to do is preprocessing the images. Preprocessing is a must stage since the images in the dataset are produced under different circumstances. For instance not all images have the same resolution and not all of the images are produced under the same lightning. To fix these problems we apply some preprocessing techniques for the images. 
@@ -96,11 +86,9 @@ Before training the convolutional neural networks the first thing to do is prepr
     \item Cropping the images to bounding box having pixel values above a threshold.
     \item Scaling the images to a certain resolution. In our case we scale all of the images to 128x128.
     \item We apply histogram normalization for each of the RGB channels seperately. Histogram normalization changes the pixel intensity values. This results in areas of lower local contrast gaining a higher contrast by effectively spreading out the most frequent intensity values.
+    \item Randomly rotate the images since not all of the samples in the datasets are for the same eye and images are generated under different angles.
+    \item Enhnace the image by either improve the contrast, sharpness.
 \end{enumerate}
-
-TODO: Rotate the images randomly, both test and train data. 
-Aplly contrast, sharpness etc to the images and compare the results. 
-Add here an image with different preprocessing steps. 
 
 \section{ConvNET Architecture for Diabetic Retinopathy}
 In this section we will explain the convolutional neural network used in this work for diabetic retinopathy detection architecture in detail. 
@@ -133,9 +121,4 @@ softmax & & & \\ \hline
 \end{table}
 
 Table~\ref{tab:cnnarc} shows the details of the convolutional neural network architecture used for this work. Notice that for the number of units after the second fully connected layer, 2 represents number of output classes, in this case DR and noDR. For the degree of the diabetic retinopathy it would be 4. For all of the convolutional layers stride size is 1 and padding is the same, meaning that the dimension (width, height) does not change. Kernel size for conv layers is always 3x3 in this work. Pool layers use maxpooling with 2x2 pooling window and stride is 2, such that after pooling layer width and height is divided by 2. After all convolutinal layers for the activation rectified linear unit (ReLU) is used. (buraya relu image gelecek ve formul) Similarly after the fully connected layer also ReLU is used. 
-We trained the net using adam optimizer (a method for stochastic optimization) \citep{kingma2014adam} with  logloss as a loss function. 
-
-
-
-
-
+We trained the net using adam optimizer (a method for stochastic optimization) \citep{kingma2014adam} with logloss as a loss function. 
