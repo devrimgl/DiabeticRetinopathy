@@ -1,6 +1,7 @@
 import math
 import time
 
+
 dataDirectoryPath = '/home/devrim/DR_data/data'
 diaretdb1_path= '/home/devrim/Downloads/diaretdb1_v_1_1/resources/images/ddb1_fundusimages/'
 diaretdb1_converted_path= '/home/devrim/Downloads/diaretdb1_v_1_1/resources/images/converted/'
@@ -28,6 +29,7 @@ layer = 6
 layerPoolConstant = int(math.pow(2, layer))
 currentTime = time.strftime("%Y %m %d - %H:%M")
 
+# CNN Models are the models for different image preprocesses.
 #cnnModelPath = '/home/devrim/DR_data/models/cnnModel/model.ckpt'
 #cnnModelPath = '/home/devrim/DR_data/models/cnn_noneq/model.ckpt'
 cnnModelPath = '/home/devrim/DR_data/models/cnnRotateNoEqualizeModelMA/model.ckpt'
