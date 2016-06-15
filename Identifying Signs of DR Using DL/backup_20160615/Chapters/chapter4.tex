@@ -3,16 +3,16 @@
 In this section we explain the experimental setup, experimental results and discuss the results of the several experiment conducted in detail. 
 
 \section{Evaluation Metrics}
-In this section we explain the evaluation metrics used in the experiments. In the experiments we use commonly used evaluation metrics like, sensitivity, specificity, accuracy, roc curve. Table~\ref{tab:configs} shows the possible outcomes of the experiments conducted. True positives are the number of truly detected subjects as abnormal, false negatives are the abnormal subjects but detected as normal by the test. Similarly true negative is number of truly detected subjects as being normal and false positives are subjects that are normal but classified as abnormal by the tests. Notice that depending on the experiments abnormal either means having diabetic retinopathy or having mocelar edema. Definitions of the evaluation metrics are as follows: 
+In this section we explain the evaluation metrics used in the experiments. In the experiments we use commonly used evaluation metrics like, sensitivity, specificity, accuracy, roc curve. Table ~\ref{tab:configs} shows the possible outcomes of the experiments conducted. True positives are the number of truly detected subjects as abnormal, false negatives are the abnormal subjects but detected as normal by the test. Similarly true negative is number of truly detected subjects as being normal and false positives are subjects that are normal but classified as abnormal by the tests. Notice that depending on the experiments abnormal either means having diabetic retinopathy or having mocelar edema. Definitions of the evaluation metrics are as follows: 
 
 \begin{align*}
-    \textit{sensitivity} &= \frac{\textit{TP}}{\textit{TP} + \textit{FN}}
+    sensitivity &= \frac{TP}{TP + FN}
     &
-    \textit{specificity} &= \frac{\textit{TN}}{\textit{TN} + \textit{FP}}
+    specificity &= \frac{TN}{TN + FP}
 \end{align*}
 
 \begin{align*}
-    \textit{accuracy} &= \frac{\textit{TP} + \textit{TN}}{\textit{TP} + \textit{FP} + \textit{TN} + \textit{FN}}
+    accuracy &= \frac{TP + TN}{TP + FP + TN + FN}
 \end{align*}
 
 \begin{table}[t]
@@ -31,9 +31,9 @@ In this section we explain the evaluation metrics used in the experiments. In th
 Another evaluation metric commonly used for diabetic retinopathy research is ROC. ROC is grahical representation of the fraction of TP  vs. FP. TP rate is also known as sensitivity, and FP rate is 1 minus the specificity. 
 
 \subsection{Log Loss}
-Logistic loss that is used in neural networks, is the negative log-likelihood of the true labels given a probabilistic classifier’s predictions. For a single sample with true label $\textit{yt} \in \{0,1\}$ and estimated probability $\textit{yp} = P(\textit{yt} = 1)$, the log loss is
+Logistic loss that is used in neural networks, is the negative log-likelihood of the true labels given a probabilistic classifier’s predictions. For a single sample with true label yt in {0,1} and estimated probability yp that yt = 1, the log loss is
 \begin{align*}
-    -\log P(yt|\textit{yp}) = -(\textit{yt} \log(\textit{yp}) + (1 - \textit{yt}) \log(1 - \textit{yp}))  
+    -log P(yt|yp) = -(yt log(yp) + (1 - yt) log(1 - yp))  
 \end{align*}
 
 \section{Experimental Configuration}
@@ -71,8 +71,10 @@ log loss & 0.68 & 0.654 & 1.024 & 1.002 & 0.762 & 0.686 \\ \hline
 \end{tabular}
 \end{table}
 
+\subsection{DR degree prediction}
+This is 4 class prediciton.
 \subsection{MA vs NonMA}
-By looking at the results of the DR NONDR experiments, by using best performed configuration, using only rotation in our case, we run a further experiment for the detection of risk of having macular edema or not. Table \ref{tab:msdma} shows the results.  
+By looking at the results of the DR NONDR experiments, by using best performed configuration, only rotation, we run a further experiment for the detection of risk of having macular edema or not. Table \ref{tab:msdma} shows the results.  
 
 \begin{table}[t]
 \centering
@@ -84,7 +86,7 @@ By looking at the results of the DR NONDR experiments, by using best performed c
 \end{table}
 
 \section{Experiments by using other datasets}
-In this section we train a convolutional neural network model by using all of the Messidor dataset as training data and test with three different publicly available datasets.
+In this section we train a convolutional neural network model by using all of the Messidor dataset as training data. 
 \subsection{Stare Dataset Experiments}
 In this part, we show the results of the experiments run with using Messidor dataset as traiing data and Stare dataset as test data. 93 DR and 36 NONDR data. Accuracy results are shown on Figure \ref{stareacc}. ROC graphs for Stare dataset experiments are shown on Figure \ref{stareroc}.\\
 Both accuracy results and ROC graphs shows that best configuration is the raw configuration, namely Nothing. Around 70\% of accuracy is obtained and 0.7 area under ROC curve is obtained.   

@@ -1,9 +1,0 @@
-\bibitem{Medina:2009}
-M. Medina-Melendrez \textit{et al}.
-\newblock ``{Overflow analysis in the fixed-point implementation of the first-order Goertzel algorithm for complex-valued input sequences}''.
-\newblock {\em Circuits and Systems, 2009. MWSCAS '09. 52nd IEEE International Midwest Symposium on}, 620--623, 2009.
-
-\bibitem{Wilkes:1951}
-M.~V. Wilkes \textit{et al}. 
-\newblock ``{The Preparation of Programs for an Electronic Digital Computer}'', \newblock {\em Addison-Wesley} 1951.
-
