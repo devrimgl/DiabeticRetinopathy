@@ -32,7 +32,6 @@ For different configurations in the experiments, create_images_arrays() method m
 enhancement, image rotation and histogram equalization is used within this method. This method is in both
 messidor_tf_twoClassEncode.py file and messidor_tf_oneClassEncode.py files.
 
-## Usage
 
 ### Datasets
 
@@ -48,23 +47,5 @@ HRF - Attila Budai. High-resolution fundus (hrf) image database, 2009. URL https
 //www5.cs.fau.de/research/data/fundus-images/.  [Online; accessed June
 01, 2016].
 
-## Contributing
 
-1. Fork it!
-2. Create your feature branch: `git checkout -b my-new-feature`
-3. Commit your changes: `git commit -am 'Add some feature'`
-4. Push to the branch: `git push origin my-new-feature`
-5. Submit a pull request :D
-
-## History
-
-TODO: Write history
-
-## Credits
-
-TODO: Write credits
-
-## License
-
-TODO: Write license
 
