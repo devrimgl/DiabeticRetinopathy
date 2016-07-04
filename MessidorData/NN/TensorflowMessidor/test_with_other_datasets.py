@@ -185,9 +185,25 @@ with tf.Session() as sess:
     probabilities = y_conv
     label_probabilities = probabilities.eval(
         feed_dict={x: test_data.images, y_: test_data.labels, keep_prob: 0.5})
+    print(label_probabilities)
     label_scores = [item[0] for item in label_probabilities]
     label_true = np.array(label_true)
     label_scores = np.array(label_scores)
+
+    normal = len(normal_test_labels)
+    abnormal = len(abnormal_test_labels)
+    sensitivty = 0
+    specificity = 0
+    for i in range(normal):
+        if label_scores[i] >= 0.5:
+            specificity += 1
+    for i in range(normal, normal + abnormal):
+        if label_scores[i] < 0.5:
+            sensitivty += 1
+    sensitivty /= float(abnormal)
+    specificity /= float(normal)
+    print('Sensitivity', sensitivty)
+    print('specificity', specificity)
     fpr, tpr, thresholds = roc_curve(label_true, label_scores, pos_label=0)
     test_auc_result = auc(fpr, tpr)
     test_log_loss_result = log_loss(label_true, label_probabilities)

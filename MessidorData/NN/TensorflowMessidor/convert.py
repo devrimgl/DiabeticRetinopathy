@@ -92,7 +92,7 @@ def main(directory, convert_directory, crop_size, extension):
         pass
 
     filenames = [os.path.join(dp, f) for dp, dn, fn in os.walk(directory)
-                 for f in fn if f.endswith('jpg') or f.endswith('tif') or f.endswith('png')]
+                 for f in fn if f.endswith('jpg') or f.endswith('tif') or f.endswith('png') or f.endswith('jpeg')]
     filenames = sorted(filenames)
 
     for f in filenames:
@@ -107,4 +107,4 @@ def main(directory, convert_directory, crop_size, extension):
 
 if __name__ == '__main__':
     # main(settings.dataDirectoryPath, settings.convertDataDirectoryPath, crop_size=512, extension='tif')
-    main("/home/devrim/Downloads/e-optha/e_optha_MA/healthy_eoptha", "/home/devrim/Downloads/e-optha/e_optha_MA/healthy_eoptha", crop_size=512, extension='png')
+    main("/home/devrim/Downloads/kaggle/abnormal", "/home/devrim/Downloads/kaggle/abnormal", crop_size=512, extension='png')
